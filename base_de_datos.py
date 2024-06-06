@@ -4,7 +4,7 @@ class BD:
     _instance = None
 
     # Este metodo sirve para aplicar patron Singleton a la clase
-    def __new__(cls, db_path):
+    def __new__(cls):
         if cls._instance is None:
             cls._instance = super(BD, cls).__new__(cls)
             cls._instance._initialize()
@@ -25,9 +25,9 @@ class BD:
         # Creación de las tablas
         self.usuario()
         self.cliente()
+        self.lote()
         self.transaccion()
         self.pago_cuotas()
-        self.lote()
         self.con.commit()
 
     def usuario(self):
@@ -102,3 +102,4 @@ class BD:
     
 if __name__ == "__main__":
     bd = BD()
+    bd.crear_tablas()
