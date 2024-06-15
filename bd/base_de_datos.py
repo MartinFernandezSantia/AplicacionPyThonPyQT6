@@ -1,4 +1,5 @@
 import sqlite3
+import datetime
 
 class BD:
     _instance = None
@@ -12,12 +13,19 @@ class BD:
     
     def _initialize(self):
         if not hasattr(self, 'initialized'): # Checkea para evitar re-inicializar
+            # Registro adaptadores y convertidores para utilizar DATE
+            sqlite3.register_adapter(datetime.date, self.adapt_date_iso)
+            sqlite3.register_converter("DATE", self.convert_date)
+
             # Conexión y creación de BD
-            self.con = sqlite3.connect("database.db")
+            self.con = sqlite3.connect("database.db", detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES)
+            self.con.execute("PRAGMA foreign_keys = ON") # Habilito el uso de ON DELETE CASCADE
+
             self.cur = self.con.cursor()
 
             # Configuro la BD que me devuelva diccionarios en vez de listas
             self.con.row_factory = sqlite3.Row
+            sqlite3.register_adapter
 
             self.initialized = True
 
@@ -56,18 +64,17 @@ class BD:
 
     def transaccion(self):
         # Tabla transaccion. 
-        # Campos de fecha tienen el tipo %d-%m-%Y
         sql = """
             CREATE TABLE IF NOT EXISTS transaccion (
                 id INTEGER PRIMARY KEY,
                 id_cliente INTEGER NOT NULL,
+                id_lote INT NOT NULL,
                 valor_final REAL NOT NULL,
                 cuotas INT NOT NULL,
                 valor_cuota REAL NOT NULL,
                 aumento REAL NOT NULL DEFAULT 0.0,
-                fecha_boleto TEXT NOT NULL,
-                fecha_primera_cuota TEXT NOT NULL,
-                id_lote INT NOT NULL,
+                fecha_boleto DATE NOT NULL,
+                fecha_primera_cuota DATE NOT NULL,
                 FOREIGN KEY (id_cliente) REFERENCES cliente (id),
                 FOREIGN KEY (id_lote) REFERENCES lote (id)
             )
@@ -82,8 +89,9 @@ class BD:
                 id_transaccion INTEGER NOT NULL,
                 cuota INT NOT NULL,
                 estado INT NOT NULL DEFAULT 0,
-                fecha TEXT NOT NULL,
-                FOREIGN KEY (id_transaccion) REFERENCES transaccion (id)
+                fecha DATE NOT NULL,
+                valor REAL NOT NULL,
+                FOREIGN KEY (id_transaccion) REFERENCES transaccion (id) ON DELETE CASCADE
             )
         """
         self.cur.execute(sql)
@@ -99,7 +107,16 @@ class BD:
             )
         """
         self.cur.execute(sql)
+
+    def adapt_date_iso(self, val):
+        """Adapt datetime.date to ISO 8601 date."""
+        return val.isoformat()
     
+    def convert_date(self, val):
+        """Convert ISO 8601 date to datetime.date object."""
+        return datetime.date.fromisoformat(val.decode())
+
+
 if __name__ == "__main__":
     bd = BD()
     bd.crear_tablas()

@@ -1,10 +1,10 @@
-from base_de_datos import BD
-import sqlite3
+from modelos.base_model import BaseModel
 
-class Lote:
-    bd = BD()
+class Lote(BaseModel):
+    table_name = "lote"
+    update_fields = "circunscripcion = ?, seccion = ?, manzana = ?, parecela = ?"
 
-    def __init__(self, id: int, circunscripcion:int, seccion:str, manzana:int, parcela:str):
+    def __init__(self, circunscripcion:int, seccion:str, manzana:int, parcela:str, id: int = None):
         self.id = id
         self.circun = circunscripcion
         self.seccion = seccion
@@ -22,60 +22,21 @@ class Lote:
                     AND manzana = ?
                     AND parcela LIKE ?
                     """
-        lote = self.bd.cur.execute(sql_lote, (self.nombre,)).fetchone()
+        lote = self.bd.cur.execute(sql_lote, (self.circun, self.seccion, self.manzana, self.parcela)).fetchone()
 
         # Si el lote no existe lo creo
         if lote is None:
-            sql = "INSERT INTO lote (circunscripcion, seccion, manzana, parecela) VALUES (?, ?, ?, ?)"
+            sql = "INSERT INTO lote (circunscripcion, seccion, manzana, parcela) VALUES (?, ?, ?, ?)"
             self.bd.cur.execute(sql, (self.circun, self.seccion, self.manzana, self.parcela))
+            self.id = self.bd.cur.lastrowid
             self.bd.con.commit()
+
             return True
-        
         return False
     
-    @classmethod
-    def modificar(cls, lote:'Lote'):
-        """Modifica todos los atributos de un usuario en la tabla"""
-
-        if isinstance(lote, Lote):
-            try:
-                sql = """
-                    UPDATE lote 
-                    SET circunscripcion = ?, seccion = ?, manzana = ?, parecela = ? 
-                    WHERE id = ?;
-                """
-                cls.bd.cur.execute(sql, (lote.circun, lote.seccion, lote.manzana, lote.parcela, lote.id))
-                cls.bd.con.commit()
-                return True
-            except(sqlite3.Error):
-                return False
-        else:
-            raise ValueError("El argumento 'lote' debe ser una instancia de tipo Lote")
-
-    @classmethod
-    def eliminar(cls, id):
-        """Eliminar una fila de la tabla lote"""
-
-        try:
-            sql = "DELETE FROM lote WHERE id = ?"
-            cls.bd.cur.execute(sql, (id,))
-            return True
-        except(sqlite3.Error):
-            return False
-        
-    @classmethod
-    def get(cls, id=None):
-        """
-            get() -> Devuelve todos los lotes\n
-            get(id) -> Devuelve el lote del id
-        """
-
-        if id != None:
-            try:
-                lote = cls.bd.cur.execute("SELECT * FROM lote WHERE id = ?", id).fetchone()
-                return Lote(lote["id"], lote["nombre"], lote["password"])
-            except(sqlite3.Error):
-                return None
-        else:
-            cls.bd.cur.execute("SELECT * FROM lote")
-            return cls.bd.cur.fetchall()
+    def update_values(self):
+        return [self.circun, self.seccion, self.manzana, self.parcela]
+    
+if __name__ == "__main__":
+    lote = Lote(4, "KK", 176, "23 y 24")
+    lote.crear()

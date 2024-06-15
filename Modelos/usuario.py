@@ -1,14 +1,14 @@
-from base_de_datos import BD
+from modelos.base_model import BaseModel
 from utils.auth import Auth
-import sqlite3
 
-class Usuario:
-    bd = BD()
+class Usuario(BaseModel):
+    update_fields = "nombre = ?, password = ?"
+    table_name = "usuario"
 
     def __init__(self, nombre: str, contraseña: str, id: int=None):
         self.id = id
         self.nombre = nombre
-        self.contraseña = contraseña    
+        self.contraseña = contraseña
 
     def crear(self):
         """Agregar la instancia de Usuario a la tabla 'usuario' como una nueva fila"""
@@ -21,56 +21,29 @@ class Usuario:
         if usuario is None:
             sql = "INSERT INTO usuario (nombre, password) VALUES (?, ?)"
             self.bd.cur.execute(sql, (self.nombre, Auth.hash_contraseña(self.contraseña)))
+            self.id = self.bd.cur.lastrowid
             self.bd.con.commit()
+            
             return True
         
         return False
     
+    def update_values(self):
+        return [self.nombre, self.contraseña]
+    
     @classmethod
-    def modificar(cls, usuario:'Usuario'):
-        """Modifica todos los atributos de un usuario en la tabla\n
-            Requiere que la instancia posea 'id'
-        """
+    def modificar(cls, instance):
+        # Hash contraseña antes de actualizarla
+        instance.contraseña = Auth.hash_contraseña(instance.contraseña)
+        return super().modificar(instance)
+    
 
-        if isinstance(usuario, Usuario):
-            try:
-                sql = """
-                    UPDATE usuario 
-                    SET nombre = ?, password = ? 
-                    WHERE id = ?;
-                """
-                cls.bd.cur.execute(sql, (usuario.nombre, usuario.contraseña, usuario.id))
-                cls.bd.con.commit()
-                return True
-            except(sqlite3.Error):
-                return False
-        else:
-            raise ValueError("El argumento 'usuario' debe ser una instancia de tipo Usuario")
+if __name__ == "__main__":
 
-    @classmethod
-    def eliminar(cls, id):
-        """Eliminar una fila de la tabla usuario"""
-
-        try:
-            sql = "DELETE FROM usuario WHERE id = ?"
-            cls.bd.cur.execute(sql, (id,))
-            return True
-        except(sqlite3.Error):
-            return False
-        
-    @classmethod
-    def get(cls, id=None):
-        """
-            get() -> Devuelve todos los usuarios\n
-            get(id) -> Devuelve el usuario del id
-        """
-
-        if id != None:
-            try:
-                usuario = cls.bd.cur.execute("SELECT * FROM usuario WHERE id = ?", id).fetchone()
-                return Usuario(usuario["id"], usuario["nombre"], usuario["password"])
-            except(sqlite3.Error):
-                return None
-        else:
-            cls.bd.cur.execute("SELECT * FROM usuario")
-            return cls.bd.cur.fetchall()
+    user = Usuario("Agustin", "Jumper789")
+    user.crear()
+    print(Usuario.get())
+    print(Usuario.get(1))
+    user.nombre = "Matias"
+    Usuario.modificar(user)
+    print(Usuario.get())

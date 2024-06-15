@@ -1,0 +1,3 @@
+Remind Cesar that when inserting transactions, 2 transactions can have all the same atributtes so 
+    whenever the user adds a transaction, there should be some way to prevent the user from accidentaly 
+    saving the same transaction twice.
