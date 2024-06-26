@@ -1,0 +1,2 @@
+# AplicacionPyThonPyQT6
+Holas
