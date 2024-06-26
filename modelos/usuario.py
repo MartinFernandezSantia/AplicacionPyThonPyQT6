@@ -39,11 +39,5 @@ class Usuario(BaseModel):
     
 
 if __name__ == "__main__":
-
-    user = Usuario("Agustin", "Jumper789")
-    user.crear()
-    print(Usuario.get())
-    print(Usuario.get(1))
-    user.nombre = "Matias"
-    Usuario.modificar(user)
-    print(Usuario.get())
+    nuevo = Usuario("Cesar", "asd123")
+    nuevo.crear()

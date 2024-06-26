@@ -36,3 +36,7 @@ class Cliente(BaseModel):
 if __name__ == "__main__":
     cliente = Cliente("Mariela", "Romero", 30716963159)
     cliente.crear()
+
+    Cliente.modificar(cliente)
+    Cliente.eliminar(cliente.id)
+    Cliente.get(12)
