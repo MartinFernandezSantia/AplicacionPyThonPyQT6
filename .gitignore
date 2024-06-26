@@ -3,3 +3,4 @@ notas.txt
 en_proceso.txt
 database.db
 **/__pycache__/
+settings.json

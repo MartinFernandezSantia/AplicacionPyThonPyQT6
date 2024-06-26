@@ -21,11 +21,11 @@ class BD:
             self.con = sqlite3.connect("database.db", detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES)
             self.con.execute("PRAGMA foreign_keys = ON") # Habilito el uso de ON DELETE CASCADE
 
-            self.cur = self.con.cursor()
-
             # Configuro la BD que me devuelva diccionarios en vez de listas
             self.con.row_factory = sqlite3.Row
             sqlite3.register_adapter
+
+            self.cur = self.con.cursor()
 
             self.initialized = True
 

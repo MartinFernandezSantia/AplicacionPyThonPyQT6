@@ -17,6 +17,7 @@ class Usuario(BaseModel):
         sql_usuario = "SELECT * FROM usuario WHERE nombre LIKE ?"
         usuario = self.bd.cur.execute(sql_usuario, (self.nombre,)).fetchone()
 
+        print(usuario)
         # Si el usuario no existe lo creo
         if usuario is None:
             sql = "INSERT INTO usuario (nombre, password) VALUES (?, ?)"
@@ -32,6 +33,17 @@ class Usuario(BaseModel):
         return [self.nombre, self.contraseña]
     
     @classmethod
+    def login(cls, nombre:str, contraseña:str):
+        sql = "SELECT * FROM usuario WHERE nombre LIKE ?"
+        usuario = super().bd.cur.execute(sql, (nombre,)).fetchone()
+
+    
+        if usuario != None and Auth.check_contraseña(contraseña, usuario["password"]):
+            return Usuario(usuario["nombre"], usuario["password"], usuario["id"])
+        
+        return False
+    
+    @classmethod
     def modificar(cls, instance):
         # Hash contraseña antes de actualizarla
         instance.contraseña = Auth.hash_contraseña(instance.contraseña)
@@ -39,5 +51,5 @@ class Usuario(BaseModel):
     
 
 if __name__ == "__main__":
-    nuevo = Usuario("Cesar", "asd123")
-    nuevo.crear()
+    nuevo = Usuario.login("Cesar", "asd123")
+    print(nuevo.id, nuevo.nombre, nuevo.contraseña)

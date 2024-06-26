@@ -1,5 +1,4 @@
 import bcrypt
-
 class Auth:
 
     def hash_contraseña(contraseña: str):
@@ -14,12 +13,6 @@ class Auth:
         return hashed
     
     def check_contraseña(contraseña: str, hashed:bytes):
-        contraseña = bytes(contraseña)
+        contraseña = bytes(contraseña, "utf-8")
         return bcrypt.checkpw(contraseña, hashed)
-
-if __name__ == "__main__":
-    pass
-
-    
-    
 
