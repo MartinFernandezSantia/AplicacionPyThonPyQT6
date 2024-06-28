@@ -46,18 +46,19 @@ class BaseModel:
     @classmethod
     def get(cls, id=None):
         """
-            get() -> Devuelve todas las filas.\n
-            get(id) -> Devuelve la fila con id=id.
+            get() -> Retorna una lista de instancias de todas las filas.\n
+            get(id) -> Retorna una instancias de la fila con id = id.
         """
         if id is not None:
             try:
-                row = cls.bd.cur.execute(f"SELECT * FROM {cls.table_name} WHERE id = ?", (id,)).fetchone()
+                row = cls.bd.cur.execute(f"SELECT {cls.get_fields} FROM {cls.table_name} WHERE id = ?", (id,)).fetchone()
                 if row:
-                    return row
+                    return cls(**row)
                 return None
             except sqlite3.Error as e:
                 print(f"Database error: {e}")
                 return None
         else:
             cls.bd.cur.execute(f"SELECT * FROM {cls.table_name}")
-            return cls.bd.cur.fetchall()
+            rows = cls.bd.cur.fetchall()
+            return [cls(**row) for row in rows]

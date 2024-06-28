@@ -33,7 +33,7 @@ class BD:
         # Creación de las tablas
         self.usuario()
         self.cliente()
-        self.lote()
+        # self.lote()
         self.transaccion()
         self.pago_cuotas()
         self.con.commit()
@@ -68,15 +68,13 @@ class BD:
             CREATE TABLE IF NOT EXISTS transaccion (
                 id INTEGER PRIMARY KEY,
                 id_cliente INTEGER NOT NULL,
-                id_lote INT NOT NULL,
                 valor_final REAL NOT NULL,
                 cuotas INT NOT NULL,
                 valor_cuota REAL NOT NULL,
                 aumento REAL NOT NULL DEFAULT 0.0,
                 fecha_boleto DATE NOT NULL,
                 fecha_primera_cuota DATE NOT NULL,
-                FOREIGN KEY (id_cliente) REFERENCES cliente (id),
-                FOREIGN KEY (id_lote) REFERENCES lote (id)
+                FOREIGN KEY (id_cliente) REFERENCES cliente (id)
             )
         """
         
@@ -90,6 +88,7 @@ class BD:
                 cuota INT NOT NULL,
                 estado INT NOT NULL DEFAULT 0,
                 fecha DATE NOT NULL,
+                fecha_pago DATE NULL,
                 valor REAL NOT NULL,
                 FOREIGN KEY (id_transaccion) REFERENCES transaccion (id) ON DELETE CASCADE
             )

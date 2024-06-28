@@ -4,6 +4,7 @@ import sqlite3
 class Cliente(BaseModel):
     table_name = "cliente"
     update_fields = "nombre = ?, apellido = ?, cuit = ?, telefono = ?"
+    get_fields = "nombre, apellido, cuit, telefono, id"
 
     def __init__(self, nombre:str, apellido:str, cuit:int, telefono:str=None, id:int=None):
         self.id = id
@@ -34,9 +35,7 @@ class Cliente(BaseModel):
         return [self.nombre, self.apellido, self.cuit, self.telefono]
 
 if __name__ == "__main__":
-    cliente = Cliente("Mariela", "Romero", 30716963159)
-    cliente.crear()
-
-    Cliente.modificar(cliente)
-    Cliente.eliminar(cliente.id)
-    Cliente.get(12)
+    # cliente = Cliente("Mariela", "Romero", 30716963159, 2236805914, 1)
+    # Cliente.modificar(cliente)
+    # cliente.crear()
+    pass

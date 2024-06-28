@@ -4,6 +4,7 @@ from utils.auth import Auth
 class Usuario(BaseModel):
     update_fields = "nombre = ?, password = ?"
     table_name = "usuario"
+    get_fields = "nombre, password, id"
 
     def __init__(self, nombre: str, contraseña: str, id: int=None):
         self.id = id
@@ -34,8 +35,9 @@ class Usuario(BaseModel):
     
     @classmethod
     def login(cls, nombre:str, contraseña:str):
+        """Retorna una instancia de Usuario si la autentificacion en correcta"""
         sql = "SELECT * FROM usuario WHERE nombre LIKE ?"
-        usuario = super().bd.cur.execute(sql, (nombre,)).fetchone()
+        usuario = cls.bd.cur.execute(sql, (nombre,)).fetchone()
 
     
         if usuario != None and Auth.check_contraseña(contraseña, usuario["password"]):
