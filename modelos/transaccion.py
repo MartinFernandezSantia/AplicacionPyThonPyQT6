@@ -133,8 +133,17 @@ class Transaccion(BaseModel):
 
 
 if __name__ == "__main__":
-    tran = Transaccion.get(1)
-    cuotas = tran.get_cuotas()
-    tran.modificar_estado_cuota(cuotas[1]["id"], True)
+    hoy = datetime.date(datetime.now())
 
+    # Creamos transaccion
+    tran = Transaccion(1, 256000, 12, 20000, 500, hoy, hoy)
+    tran.crear()
 
+    # # La modificamos
+    # tran.aumento = 450
+    # Transaccion.modificar(tran)
+
+    # print(Transaccion.get(1).aumento)
+
+    # # La eliminamos
+    # tran.eliminar(tran.id)
