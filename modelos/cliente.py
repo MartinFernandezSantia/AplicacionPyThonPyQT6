@@ -35,7 +35,7 @@ class Cliente(BaseModel):
         return [self.nombre, self.apellido, self.cuit, self.telefono]
 
 if __name__ == "__main__":
-    # cliente = Cliente("Mariela", "Romero", 30716963159, 2236805914, 1)
+    cliente = Cliente("Mariela", "Romero", 30716963159, 2236805914)
     # Cliente.modificar(cliente)
-    # cliente.crear()
+    cliente.crear()
     pass
