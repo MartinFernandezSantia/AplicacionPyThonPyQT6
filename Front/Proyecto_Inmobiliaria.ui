@@ -131,7 +131,7 @@ font: 77 10pt&quot;Arial Black&quot;;
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
              <item>
-              <widget class="QPushButton" name="bt_datos">
+              <widget class="QPushButton" name="bt_datos_menulateral">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -154,7 +154,7 @@ font: 77 10pt&quot;Arial Black&quot;;
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="bt_registrar_2">
+              <widget class="QPushButton" name="bt_registrar_menulateral">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -177,7 +177,7 @@ font: 77 10pt&quot;Arial Black&quot;;
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="bt_registrar">
+              <widget class="QPushButton" name="bt_transacciones_menulateral">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -200,7 +200,7 @@ font: 77 10pt&quot;Arial Black&quot;;
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="bt_actualizar_2">
+              <widget class="QPushButton" name="bt_pagos_menulateral">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -246,7 +246,7 @@ font: 77 10pt&quot;Arial Black&quot;;
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="bt_ajustes">
+              <widget class="QPushButton" name="bt_Salir_menulateral">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -354,7 +354,7 @@ QTableWidget QTableCornerButton::section {
                 <string notr="true"/>
                </property>
                <property name="currentIndex">
-                <number>3</number>
+                <number>4</number>
                </property>
                <widget class="QWidget" name="page_3modificar_cliente">
                 <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -379,6 +379,19 @@ QTableWidget QTableCornerButton::section {
                    </item>
                    <item>
                     <widget class="QLineEdit" name="actualizar_buscar"/>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_38">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                    <item>
                     <widget class="QPushButton" name="bt_buscar_actualizar">
@@ -454,16 +467,16 @@ QTableWidget QTableCornerButton::section {
                       <number>30</number>
                      </property>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_10"/>
+                      <widget class="QLineEdit" name="line_nombre_modificarCliente"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_9"/>
+                      <widget class="QLineEdit" name="line_apellido_modificarCliente"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_7"/>
+                      <widget class="QLineEdit" name="line_email_modificarCliente"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_8"/>
+                      <widget class="QLineEdit" name="line_cuil_modificarCliente"/>
                      </item>
                     </layout>
                    </item>
@@ -1594,7 +1607,7 @@ QTableWidget QTableCornerButton::section {
                       <number>30</number>
                      </property>
                      <item>
-                      <widget class="QPushButton" name="pushButton_4">
+                      <widget class="QPushButton" name="bt_gestionar_cliente">
                        <property name="minimumSize">
                         <size>
                          <width>200</width>
@@ -1607,7 +1620,7 @@ QTableWidget QTableCornerButton::section {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_5">
+                      <widget class="QPushButton" name="bt_modificar_cliente">
                        <property name="minimumSize">
                         <size>
                          <width>200</width>
@@ -1620,7 +1633,7 @@ QTableWidget QTableCornerButton::section {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_6">
+                      <widget class="QPushButton" name="bt_eliminar_cliente">
                        <property name="minimumSize">
                         <size>
                          <width>200</width>
@@ -1633,7 +1646,7 @@ QTableWidget QTableCornerButton::section {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_9">
+                      <widget class="QPushButton" name="bt_lista_cliente">
                        <property name="minimumSize">
                         <size>
                          <width>200</width>
@@ -1691,7 +1704,7 @@ QTableWidget QTableCornerButton::section {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushButton_10">
+                    <widget class="QPushButton" name="bt_volver_gestion_cliente">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -3412,13 +3425,6 @@ QTableWidget QTableCornerButton::section {
                        </property>
                       </widget>
                      </item>
-                     <item>
-                      <widget class="QLabel" name="label_6">
-                       <property name="text">
-                        <string>PASSWORD</string>
-                       </property>
-                      </widget>
-                     </item>
                     </layout>
                    </item>
                    <item>
@@ -3427,19 +3433,16 @@ QTableWidget QTableCornerButton::section {
                       <number>30</number>
                      </property>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit"/>
+                      <widget class="QLineEdit" name="line_id_registro_cliente"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_2"/>
+                      <widget class="QLineEdit" name="line_nombre_registro_cliente"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_3"/>
+                      <widget class="QLineEdit" name="line_apellido_registro_cliente"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_4"/>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="lineEdit_5"/>
+                      <widget class="QLineEdit" name="line_email_registro_cliente"/>
                      </item>
                     </layout>
                    </item>
