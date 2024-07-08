@@ -139,11 +139,11 @@ font: 77 10pt&quot;Arial Black&quot;;
                 </size>
                </property>
                <property name="text">
-                <string>BASE DATOS</string>
+                <string>MENU LATERAL</string>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>img/database.svg</normaloff>img/database.svg</iconset>
+                 <normaloff>img/menu.svg</normaloff>img/menu.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -1592,13 +1592,6 @@ QTableWidget QTableCornerButton::section {
                        </property>
                       </widget>
                      </item>
-                     <item>
-                      <widget class="QLabel" name="label_26">
-                       <property name="text">
-                        <string>4)</string>
-                       </property>
-                      </widget>
-                     </item>
                     </layout>
                    </item>
                    <item>
@@ -1642,19 +1635,6 @@ QTableWidget QTableCornerButton::section {
                        </property>
                        <property name="text">
                         <string>Eliminar Cliente</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="bt_lista_cliente">
-                       <property name="minimumSize">
-                        <size>
-                         <width>200</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>Lista de Cliente</string>
                        </property>
                       </widget>
                      </item>

@@ -83,7 +83,7 @@ class Ui_MainWindow(object):
         self.bt_datos_menulateral.setObjectName(u"bt_datos_menulateral")
         self.bt_datos_menulateral.setMinimumSize(QSize(0, 40))
         icon = QIcon()
-        icon.addFile(u"img/database.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"img/menu.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.bt_datos_menulateral.setIcon(icon)
         self.bt_datos_menulateral.setIconSize(QSize(20, 20))
 
@@ -681,11 +681,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_16.addWidget(self.label_25)
 
-        self.label_26 = QLabel(self.page_1gestion_clientes)
-        self.label_26.setObjectName(u"label_26")
-
-        self.verticalLayout_16.addWidget(self.label_26)
-
 
         self.horizontalLayout_4.addLayout(self.verticalLayout_16)
 
@@ -709,12 +704,6 @@ class Ui_MainWindow(object):
         self.bt_eliminar_cliente.setMinimumSize(QSize(200, 30))
 
         self.verticalLayout_3.addWidget(self.bt_eliminar_cliente)
-
-        self.bt_lista_cliente = QPushButton(self.page_1gestion_clientes)
-        self.bt_lista_cliente.setObjectName(u"bt_lista_cliente")
-        self.bt_lista_cliente.setMinimumSize(QSize(200, 30))
-
-        self.verticalLayout_3.addWidget(self.bt_lista_cliente)
 
 
         self.horizontalLayout_4.addLayout(self.verticalLayout_3)
@@ -1737,7 +1726,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.bt_datos_menulateral.setText(QCoreApplication.translate("MainWindow", u"BASE DATOS", None))
+        self.bt_datos_menulateral.setText(QCoreApplication.translate("MainWindow", u"MENU LATERAL", None))
         self.bt_registrar_menulateral.setText(QCoreApplication.translate("MainWindow", u"CLIENTES", None))
         self.bt_transacciones_menulateral.setText(QCoreApplication.translate("MainWindow", u"TRANSACCIONES", None))
         self.bt_pagos_menulateral.setText(QCoreApplication.translate("MainWindow", u"PAGOS", None))
@@ -1800,11 +1789,9 @@ class Ui_MainWindow(object):
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"1)", None))
         self.label_24.setText(QCoreApplication.translate("MainWindow", u"2)", None))
         self.label_25.setText(QCoreApplication.translate("MainWindow", u"3)", None))
-        self.label_26.setText(QCoreApplication.translate("MainWindow", u"4)", None))
         self.bt_gestionar_cliente.setText(QCoreApplication.translate("MainWindow", u"Gestionar Clientes", None))
         self.bt_modificar_cliente.setText(QCoreApplication.translate("MainWindow", u"Modificar Cliente", None))
         self.bt_eliminar_cliente.setText(QCoreApplication.translate("MainWindow", u"Eliminar Cliente", None))
-        self.bt_lista_cliente.setText(QCoreApplication.translate("MainWindow", u"Lista de Cliente", None))
         self.bt_volver_gestion_cliente.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
         self.label_32.setText(QCoreApplication.translate("MainWindow", u"GESTI\u00d3N DE TRANSACCIONES ", None))
         self.label_28.setText(QCoreApplication.translate("MainWindow", u"1)", None))
