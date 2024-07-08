@@ -146,7 +146,7 @@ class Ui_Form(object):
         self.pushButton_5.setObjectName("pushButton_5")
         self.horizontalLayout.addWidget(self.pushButton_5)
         self.label_6 = QtWidgets.QLabel(self.widget)
-        self.label_6.setGeometry(QtCore.QRect(40, 80, 230, 130))
+        self.label_6.setGeometry(QtCore.QRect(40, 80, 230, 155))
         self.label_6.setStyleSheet("background-color:rgba(0, 0, 0, 75);")
         self.label_6.setText("")
         self.label_6.setObjectName("label_6")

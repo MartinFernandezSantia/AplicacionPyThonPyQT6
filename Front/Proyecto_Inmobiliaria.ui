@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1022</width>
-    <height>868</height>
+    <width>1013</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>900</width>
-    <height>868</height>
+    <height>700</height>
    </size>
   </property>
   <property name="sizeIncrement">
@@ -254,6 +254,12 @@ QPushButton {
     font: 77 10pt &quot;Arial Black&quot;;
 }
 
+QPushButton:hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+    font: 77 10pt &quot;Arial Black&quot;;
+}
+
 QTableWidget {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
@@ -298,6 +304,15 @@ QTableWidget QTableCornerButton::section {
              </property>
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="minimumSize">
                 <size>
                  <width>120</width>
@@ -305,10 +320,12 @@ QTableWidget QTableCornerButton::section {
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true"/>
+                <string notr="true">QLineEdit{
+border-bottom: 2px solid rgb(61, 61, 61);
+}</string>
                </property>
                <property name="currentIndex">
-                <number>4</number>
+                <number>8</number>
                </property>
                <widget class="QWidget" name="page_3modificar_cliente">
                 <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -357,6 +374,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>BUSCAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/search.svg</normaloff>img/search.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -465,7 +486,7 @@ QTableWidget QTableCornerButton::section {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_8">
                    <item>
-                    <widget class="QPushButton" name="pushButton_7">
+                    <widget class="QPushButton" name="bt_actulizar_tabla">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -473,7 +494,11 @@ QTableWidget QTableCornerButton::section {
                       </size>
                      </property>
                      <property name="text">
-                      <string>CANCELAR</string>
+                      <string>GUARDAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/save.svg</normaloff>img/save.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -491,7 +516,7 @@ QTableWidget QTableCornerButton::section {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_actulizar_tabla">
+                    <widget class="QPushButton" name="pushButton_7">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -499,7 +524,11 @@ QTableWidget QTableCornerButton::section {
                       </size>
                      </property>
                      <property name="text">
-                      <string>GUARDAR</string>
+                      <string>VOLVER</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -560,6 +589,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>BUSCAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/search.svg</normaloff>img/search.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -659,8 +692,8 @@ QTableWidget QTableCornerButton::section {
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
-                     <width>20</width>
-                     <height>258</height>
+                     <width>762</width>
+                     <height>114</height>
                     </size>
                    </property>
                   </spacer>
@@ -668,7 +701,7 @@ QTableWidget QTableCornerButton::section {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_14">
                    <item>
-                    <widget class="QPushButton" name="pushButton_8">
+                    <widget class="QPushButton" name="pushButton">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -676,7 +709,11 @@ QTableWidget QTableCornerButton::section {
                       </size>
                      </property>
                      <property name="text">
-                      <string>VOLVER</string>
+                      <string>GENERAR PDF</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/file-text.svg</normaloff>img/file-text.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -694,7 +731,7 @@ QTableWidget QTableCornerButton::section {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushButton">
+                    <widget class="QPushButton" name="pushButton_8">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -702,7 +739,11 @@ QTableWidget QTableCornerButton::section {
                       </size>
                      </property>
                      <property name="text">
-                      <string>GENERAR PDF</string>
+                      <string>VOLVER</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -757,6 +798,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>BUSCAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/search.svg</normaloff>img/search.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -1012,7 +1057,7 @@ QTableWidget QTableCornerButton::section {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_3">
                    <item>
-                    <widget class="QPushButton" name="bt_Volver_Menu">
+                    <widget class="QPushButton" name="bt_eliminar_transaccion">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -1020,7 +1065,11 @@ QTableWidget QTableCornerButton::section {
                       </size>
                      </property>
                      <property name="text">
-                      <string>VOLVER</string>
+                      <string>ELIMINAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/trash.svg</normaloff>img/trash.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -1048,6 +1097,10 @@ QTableWidget QTableCornerButton::section {
                      <property name="text">
                       <string>PDF</string>
                      </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/file-text.svg</normaloff>img/file-text.svg</iconset>
+                     </property>
                     </widget>
                    </item>
                    <item>
@@ -1064,7 +1117,7 @@ QTableWidget QTableCornerButton::section {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_eliminar_transaccion">
+                    <widget class="QPushButton" name="bt_Volver_Menu">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -1072,7 +1125,11 @@ QTableWidget QTableCornerButton::section {
                       </size>
                      </property>
                      <property name="text">
-                      <string>ELIMINAR</string>
+                      <string>VOLVER</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -1127,6 +1184,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>BUSCAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/search.svg</normaloff>img/search.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -1455,21 +1516,19 @@ QTableWidget QTableCornerButton::section {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_11">
                    <item>
-                    <widget class="QPushButton" name="bt_volver_menu">
+                    <widget class="QPushButton" name="bt_eliminar_cliente_2">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
                        <height>30</height>
                       </size>
                      </property>
-                     <property name="sizeIncrement">
-                      <size>
-                       <width>120</width>
-                       <height>30</height>
-                      </size>
-                     </property>
                      <property name="text">
-                      <string>VOLVER</string>
+                      <string>ELIMINAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/trash.svg</normaloff>img/trash.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -1487,15 +1546,25 @@ QTableWidget QTableCornerButton::section {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_eliminar_cliente_2">
+                    <widget class="QPushButton" name="bt_volver_menu">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
                        <height>30</height>
                       </size>
                      </property>
+                     <property name="sizeIncrement">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
                      <property name="text">
-                      <string>ELIMINAR</string>
+                      <string>VOLVER</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -1597,6 +1666,10 @@ QTableWidget QTableCornerButton::section {
                        <property name="text">
                         <string>Agregar Clientes</string>
                        </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>img/file-plus.svg</normaloff>img/file-plus.svg</iconset>
+                       </property>
                       </widget>
                      </item>
                      <item>
@@ -1609,6 +1682,10 @@ QTableWidget QTableCornerButton::section {
                        </property>
                        <property name="text">
                         <string>Modificar Cliente</string>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>img/tool.svg</normaloff>img/tool.svg</iconset>
                        </property>
                       </widget>
                      </item>
@@ -1623,6 +1700,10 @@ QTableWidget QTableCornerButton::section {
                        <property name="text">
                         <string>Eliminar Cliente</string>
                        </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>img/trash-2.svg</normaloff>img/trash-2.svg</iconset>
+                       </property>
                       </widget>
                      </item>
                      <item>
@@ -1635,6 +1716,10 @@ QTableWidget QTableCornerButton::section {
                        </property>
                        <property name="text">
                         <string>Listar Cliente</string>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>img/database.svg</normaloff>img/database.svg</iconset>
                        </property>
                       </widget>
                      </item>
@@ -1694,6 +1779,10 @@ QTableWidget QTableCornerButton::section {
                      <property name="text">
                       <string>VOLVER</string>
                      </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
+                     </property>
                     </widget>
                    </item>
                   </layout>
@@ -1720,7 +1809,7 @@ QTableWidget QTableCornerButton::section {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>264</height>
+                     <height>180</height>
                     </size>
                    </property>
                   </spacer>
@@ -1800,6 +1889,10 @@ QTableWidget QTableCornerButton::section {
                        <property name="text">
                         <string>Agregar Transacción</string>
                        </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>img/file-text.svg</normaloff>img/file-text.svg</iconset>
+                       </property>
                       </widget>
                      </item>
                      <item>
@@ -1812,6 +1905,10 @@ QTableWidget QTableCornerButton::section {
                        </property>
                        <property name="text">
                         <string>Modificar Transacción</string>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>img/edit.svg</normaloff>img/edit.svg</iconset>
                        </property>
                       </widget>
                      </item>
@@ -1826,6 +1923,10 @@ QTableWidget QTableCornerButton::section {
                        <property name="text">
                         <string>Eliminar Transacción</string>
                        </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>img/trash-2.svg</normaloff>img/trash-2.svg</iconset>
+                       </property>
                       </widget>
                      </item>
                      <item>
@@ -1838,6 +1939,10 @@ QTableWidget QTableCornerButton::section {
                        </property>
                        <property name="text">
                         <string>Listar Transacciones</string>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>img/database.svg</normaloff>img/database.svg</iconset>
                        </property>
                       </widget>
                      </item>
@@ -1866,7 +1971,7 @@ QTableWidget QTableCornerButton::section {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>263</height>
+                     <height>179</height>
                     </size>
                    </property>
                   </spacer>
@@ -1897,6 +2002,10 @@ QTableWidget QTableCornerButton::section {
                      <property name="text">
                       <string>VOLVER</string>
                      </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
+                     </property>
                     </widget>
                    </item>
                   </layout>
@@ -1923,7 +2032,7 @@ QTableWidget QTableCornerButton::section {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>198</height>
+                     <height>114</height>
                     </size>
                    </property>
                   </spacer>
@@ -2050,7 +2159,7 @@ QTableWidget QTableCornerButton::section {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>198</height>
+                     <height>114</height>
                     </size>
                    </property>
                   </spacer>
@@ -2067,6 +2176,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>GUARDAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/save.svg</normaloff>img/save.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -2099,6 +2212,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>VOLVER</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -2154,6 +2271,10 @@ QTableWidget QTableCornerButton::section {
                      <property name="text">
                       <string>BUSCAR</string>
                      </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/search.svg</normaloff>img/search.svg</iconset>
+                     </property>
                     </widget>
                    </item>
                   </layout>
@@ -2166,7 +2287,7 @@ QTableWidget QTableCornerButton::section {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>179</height>
+                     <height>95</height>
                     </size>
                    </property>
                   </spacer>
@@ -2293,7 +2414,7 @@ QTableWidget QTableCornerButton::section {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>179</height>
+                     <height>95</height>
                     </size>
                    </property>
                   </spacer>
@@ -2310,6 +2431,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>GUARDAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/save.svg</normaloff>img/save.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -2337,6 +2462,10 @@ QTableWidget QTableCornerButton::section {
                      <property name="text">
                       <string>VOLVER</string>
                      </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
+                     </property>
                     </widget>
                    </item>
                   </layout>
@@ -2363,7 +2492,7 @@ QTableWidget QTableCornerButton::section {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>264</height>
+                     <height>180</height>
                     </size>
                    </property>
                   </spacer>
@@ -2430,12 +2559,16 @@ QTableWidget QTableCornerButton::section {
                       <widget class="QPushButton" name="pushButton_22">
                        <property name="minimumSize">
                         <size>
-                         <width>120</width>
+                         <width>200</width>
                          <height>30</height>
                         </size>
                        </property>
                        <property name="text">
                         <string>Registrar Pago</string>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>img/file-plus.svg</normaloff>img/file-plus.svg</iconset>
                        </property>
                       </widget>
                      </item>
@@ -2450,6 +2583,10 @@ QTableWidget QTableCornerButton::section {
                        <property name="text">
                         <string>Modificar Pago</string>
                        </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>img/tool.svg</normaloff>img/tool.svg</iconset>
+                       </property>
                       </widget>
                      </item>
                      <item>
@@ -2463,6 +2600,10 @@ QTableWidget QTableCornerButton::section {
                        <property name="text">
                         <string>Eliminar Pago</string>
                        </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>img/trash-2.svg</normaloff>img/trash-2.svg</iconset>
+                       </property>
                       </widget>
                      </item>
                      <item>
@@ -2475,6 +2616,10 @@ QTableWidget QTableCornerButton::section {
                        </property>
                        <property name="text">
                         <string>Listar Pagos</string>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>img/database.svg</normaloff>img/database.svg</iconset>
                        </property>
                       </widget>
                      </item>
@@ -2503,7 +2648,7 @@ QTableWidget QTableCornerButton::section {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>263</height>
+                     <height>179</height>
                     </size>
                    </property>
                   </spacer>
@@ -2533,6 +2678,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>VOLVER</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -2588,6 +2737,10 @@ QTableWidget QTableCornerButton::section {
                      <property name="text">
                       <string>BUSCAR</string>
                      </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/search.svg</normaloff>img/search.svg</iconset>
+                     </property>
                     </widget>
                    </item>
                   </layout>
@@ -2600,7 +2753,7 @@ QTableWidget QTableCornerButton::section {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>259</height>
+                     <height>175</height>
                     </size>
                    </property>
                   </spacer>
@@ -2700,7 +2853,7 @@ QTableWidget QTableCornerButton::section {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>258</height>
+                     <height>174</height>
                     </size>
                    </property>
                   </spacer>
@@ -2717,6 +2870,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>GUARDAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/save.svg</normaloff>img/save.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -2743,6 +2900,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>VOLVER</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -2804,6 +2965,10 @@ QTableWidget QTableCornerButton::section {
                      <property name="text">
                       <string>BUSCAR</string>
                      </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/search.svg</normaloff>img/search.svg</iconset>
+                     </property>
                     </widget>
                    </item>
                   </layout>
@@ -2816,7 +2981,7 @@ QTableWidget QTableCornerButton::section {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>259</height>
+                     <height>175</height>
                     </size>
                    </property>
                   </spacer>
@@ -2916,7 +3081,7 @@ QTableWidget QTableCornerButton::section {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>258</height>
+                     <height>174</height>
                     </size>
                    </property>
                   </spacer>
@@ -2939,6 +3104,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>GUARDAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/save.svg</normaloff>img/save.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -2971,6 +3140,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>VOLVER</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -3031,6 +3204,10 @@ QTableWidget QTableCornerButton::section {
                      </property>
                      <property name="text">
                       <string>BUSCAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/search.svg</normaloff>img/search.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -3288,7 +3465,7 @@ QTableWidget QTableCornerButton::section {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_31">
                    <item>
-                    <widget class="QPushButton" name="pushButton_35">
+                    <widget class="QPushButton" name="pushButton_34">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -3302,7 +3479,11 @@ QTableWidget QTableCornerButton::section {
                       </size>
                      </property>
                      <property name="text">
-                      <string>VOLVER</string>
+                      <string>ELIMINAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/trash.svg</normaloff>img/trash.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -3320,7 +3501,7 @@ QTableWidget QTableCornerButton::section {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushButton_34">
+                    <widget class="QPushButton" name="pushButton_35">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -3334,7 +3515,11 @@ QTableWidget QTableCornerButton::section {
                       </size>
                      </property>
                      <property name="text">
-                      <string>ELIMINAR</string>
+                      <string>VOLVER</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -3457,7 +3642,7 @@ QTableWidget QTableCornerButton::section {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_6">
                    <item>
-                    <widget class="QPushButton" name="bt_Cancelar_Cliente">
+                    <widget class="QPushButton" name="bt_Aceptar_Cliente">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -3465,7 +3650,11 @@ QTableWidget QTableCornerButton::section {
                       </size>
                      </property>
                      <property name="text">
-                      <string>CANCELAR</string>
+                      <string>GUARDAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/save.svg</normaloff>img/save.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -3483,7 +3672,7 @@ QTableWidget QTableCornerButton::section {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_Aceptar_Cliente">
+                    <widget class="QPushButton" name="bt_volver_cliente">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -3491,7 +3680,11 @@ QTableWidget QTableCornerButton::section {
                       </size>
                      </property>
                      <property name="text">
-                      <string>GUARDAR</string>
+                      <string>VOLVER</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
                    </item>
