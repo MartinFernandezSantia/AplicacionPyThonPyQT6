@@ -131,29 +131,6 @@ font: 77 10pt&quot;Arial Black&quot;;
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
              <item>
-              <widget class="QPushButton" name="bt_datos_menulateral">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>40</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>MENU LATERAL</string>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>img/menu.svg</normaloff>img/menu.svg</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>20</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-             <item>
               <widget class="QPushButton" name="bt_registrar_menulateral">
                <property name="minimumSize">
                 <size>
@@ -166,7 +143,7 @@ font: 77 10pt&quot;Arial Black&quot;;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>img/user (1).svg</normaloff>img/user (1).svg</iconset>
+                 <normaloff>../../Python Interfaz PQT5/img/user (1).svg</normaloff>../../Python Interfaz PQT5/img/user (1).svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -189,7 +166,7 @@ font: 77 10pt&quot;Arial Black&quot;;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>img/globe.svg</normaloff>img/globe.svg</iconset>
+                 <normaloff>../../Python Interfaz PQT5/img/globe.svg</normaloff>../../Python Interfaz PQT5/img/globe.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -212,30 +189,7 @@ font: 77 10pt&quot;Arial Black&quot;;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>img/dollar-sign.svg</normaloff>img/dollar-sign.svg</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>20</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="bt_pdf_menu">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>40</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>PDF</string>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>img/file-plus.svg</normaloff>img/file-plus.svg</iconset>
+                 <normaloff>../../Python Interfaz PQT5/img/dollar-sign.svg</normaloff>../../Python Interfaz PQT5/img/dollar-sign.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -258,7 +212,7 @@ font: 77 10pt&quot;Arial Black&quot;;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>img/log-out.svg</normaloff>img/log-out.svg</iconset>
+                 <normaloff>../../Python Interfaz PQT5/img/log-out.svg</normaloff>../../Python Interfaz PQT5/img/log-out.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -794,7 +748,7 @@ QTableWidget QTableCornerButton::section {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushButton_21">
+                    <widget class="QPushButton" name="bt_buscar_transaccion">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -1084,6 +1038,32 @@ QTableWidget QTableCornerButton::section {
                     </spacer>
                    </item>
                    <item>
+                    <widget class="QPushButton" name="bt_pdf_transaccion">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>PDF</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_39">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
                     <widget class="QPushButton" name="bt_eliminar_transaccion">
                      <property name="minimumSize">
                       <size>
@@ -1138,7 +1118,7 @@ QTableWidget QTableCornerButton::section {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_buscar_eliminar">
+                    <widget class="QPushButton" name="bt_buscar_cliente">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -1475,7 +1455,7 @@ QTableWidget QTableCornerButton::section {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_11">
                    <item>
-                    <widget class="QPushButton" name="pushButton_3">
+                    <widget class="QPushButton" name="bt_volver_menu">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -1507,7 +1487,7 @@ QTableWidget QTableCornerButton::section {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_eliminar">
+                    <widget class="QPushButton" name="bt_eliminar_cliente_2">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -1586,9 +1566,16 @@ QTableWidget QTableCornerButton::section {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_25">
+                      <widget class="QLabel" name="label_26">
                        <property name="text">
                         <string>3)</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_25">
+                       <property name="text">
+                        <string>4)</string>
                        </property>
                       </widget>
                      </item>
@@ -1608,7 +1595,7 @@ QTableWidget QTableCornerButton::section {
                         </size>
                        </property>
                        <property name="text">
-                        <string>Gestionar Clientes</string>
+                        <string>Agregar Clientes</string>
                        </property>
                       </widget>
                      </item>
@@ -1635,6 +1622,19 @@ QTableWidget QTableCornerButton::section {
                        </property>
                        <property name="text">
                         <string>Eliminar Cliente</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="bt_listar_cliente">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>Listar Cliente</string>
                        </property>
                       </widget>
                      </item>
@@ -1784,7 +1784,7 @@ QTableWidget QTableCornerButton::section {
                       <number>30</number>
                      </property>
                      <item>
-                      <widget class="QPushButton" name="pushButton_12">
+                      <widget class="QPushButton" name="bt_agregar_Transaccion">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                          <horstretch>220</horstretch>
@@ -1803,7 +1803,7 @@ QTableWidget QTableCornerButton::section {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_13">
+                      <widget class="QPushButton" name="bt_modificar_Transaccion">
                        <property name="minimumSize">
                         <size>
                          <width>200</width>
@@ -1816,7 +1816,7 @@ QTableWidget QTableCornerButton::section {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_14">
+                      <widget class="QPushButton" name="bt_eliminar_Transaccion">
                        <property name="minimumSize">
                         <size>
                          <width>200</width>
@@ -1829,7 +1829,7 @@ QTableWidget QTableCornerButton::section {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_15">
+                      <widget class="QPushButton" name="bt_listar_Transaccion">
                        <property name="minimumSize">
                         <size>
                          <width>200</width>
@@ -2005,25 +2005,25 @@ QTableWidget QTableCornerButton::section {
                       <number>30</number>
                      </property>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_11"/>
+                      <widget class="QLineEdit" name="line_clienteID_transaccion"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_16"/>
+                      <widget class="QLineEdit" name="line_valorFinal_transaccion"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_17"/>
+                      <widget class="QLineEdit" name="line_cuotas_transaccion"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_18"/>
+                      <widget class="QLineEdit" name="line_valorDeCuota_transaccion"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_19"/>
+                      <widget class="QLineEdit" name="line_aumento_transaccion"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_20"/>
+                      <widget class="QLineEdit" name="line_fechaDeBoleto_transaccion"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_21"/>
+                      <widget class="QLineEdit" name="line_fechaPrimeraCuota_transaccion"/>
                      </item>
                     </layout>
                    </item>
@@ -2058,7 +2058,7 @@ QTableWidget QTableCornerButton::section {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_18">
                    <item>
-                    <widget class="QPushButton" name="pushButton_16">
+                    <widget class="QPushButton" name="bt_guardar_transaccion">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -2090,7 +2090,7 @@ QTableWidget QTableCornerButton::section {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushButton_17">
+                    <widget class="QPushButton" name="bt_volver_menu_transaccion">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>

@@ -79,22 +79,12 @@ class Ui_MainWindow(object):
         self.frame_control.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.frame_control)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.bt_datos_menulateral = QPushButton(self.frame_control)
-        self.bt_datos_menulateral.setObjectName(u"bt_datos_menulateral")
-        self.bt_datos_menulateral.setMinimumSize(QSize(0, 40))
-        icon = QIcon()
-        icon.addFile(u"img/menu.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.bt_datos_menulateral.setIcon(icon)
-        self.bt_datos_menulateral.setIconSize(QSize(20, 20))
-
-        self.verticalLayout_2.addWidget(self.bt_datos_menulateral)
-
         self.bt_registrar_menulateral = QPushButton(self.frame_control)
         self.bt_registrar_menulateral.setObjectName(u"bt_registrar_menulateral")
         self.bt_registrar_menulateral.setMinimumSize(QSize(0, 40))
-        icon1 = QIcon()
-        icon1.addFile(u"img/user (1).svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.bt_registrar_menulateral.setIcon(icon1)
+        icon = QIcon()
+        icon.addFile(u"../../Python Interfaz PQT5/img/user (1).svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.bt_registrar_menulateral.setIcon(icon)
         self.bt_registrar_menulateral.setIconSize(QSize(20, 20))
 
         self.verticalLayout_2.addWidget(self.bt_registrar_menulateral)
@@ -102,9 +92,9 @@ class Ui_MainWindow(object):
         self.bt_transacciones_menulateral = QPushButton(self.frame_control)
         self.bt_transacciones_menulateral.setObjectName(u"bt_transacciones_menulateral")
         self.bt_transacciones_menulateral.setMinimumSize(QSize(0, 40))
-        icon2 = QIcon()
-        icon2.addFile(u"img/globe.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.bt_transacciones_menulateral.setIcon(icon2)
+        icon1 = QIcon()
+        icon1.addFile(u"../../Python Interfaz PQT5/img/globe.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.bt_transacciones_menulateral.setIcon(icon1)
         self.bt_transacciones_menulateral.setIconSize(QSize(20, 20))
 
         self.verticalLayout_2.addWidget(self.bt_transacciones_menulateral)
@@ -112,29 +102,19 @@ class Ui_MainWindow(object):
         self.bt_pagos_menulateral = QPushButton(self.frame_control)
         self.bt_pagos_menulateral.setObjectName(u"bt_pagos_menulateral")
         self.bt_pagos_menulateral.setMinimumSize(QSize(0, 40))
-        icon3 = QIcon()
-        icon3.addFile(u"img/dollar-sign.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.bt_pagos_menulateral.setIcon(icon3)
+        icon2 = QIcon()
+        icon2.addFile(u"../../Python Interfaz PQT5/img/dollar-sign.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.bt_pagos_menulateral.setIcon(icon2)
         self.bt_pagos_menulateral.setIconSize(QSize(20, 20))
 
         self.verticalLayout_2.addWidget(self.bt_pagos_menulateral)
 
-        self.bt_pdf_menu = QPushButton(self.frame_control)
-        self.bt_pdf_menu.setObjectName(u"bt_pdf_menu")
-        self.bt_pdf_menu.setMinimumSize(QSize(0, 40))
-        icon4 = QIcon()
-        icon4.addFile(u"img/file-plus.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.bt_pdf_menu.setIcon(icon4)
-        self.bt_pdf_menu.setIconSize(QSize(20, 20))
-
-        self.verticalLayout_2.addWidget(self.bt_pdf_menu)
-
         self.bt_salir_menulateral = QPushButton(self.frame_control)
         self.bt_salir_menulateral.setObjectName(u"bt_salir_menulateral")
         self.bt_salir_menulateral.setMinimumSize(QSize(0, 40))
-        icon5 = QIcon()
-        icon5.addFile(u"img/log-out.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.bt_salir_menulateral.setIcon(icon5)
+        icon3 = QIcon()
+        icon3.addFile(u"../../Python Interfaz PQT5/img/log-out.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.bt_salir_menulateral.setIcon(icon3)
         self.bt_salir_menulateral.setIconSize(QSize(20, 20))
 
         self.verticalLayout_2.addWidget(self.bt_salir_menulateral)
@@ -481,11 +461,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_23.addItem(self.horizontalSpacer_23)
 
-        self.pushButton_21 = QPushButton(self.page_8lista_transacciones)
-        self.pushButton_21.setObjectName(u"pushButton_21")
-        self.pushButton_21.setMinimumSize(QSize(120, 30))
+        self.bt_buscar_transaccion = QPushButton(self.page_8lista_transacciones)
+        self.bt_buscar_transaccion.setObjectName(u"bt_buscar_transaccion")
+        self.bt_buscar_transaccion.setMinimumSize(QSize(120, 30))
 
-        self.horizontalLayout_23.addWidget(self.pushButton_21)
+        self.horizontalLayout_23.addWidget(self.bt_buscar_transaccion)
 
 
         self.verticalLayout_5.addLayout(self.horizontalLayout_23)
@@ -527,6 +507,16 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
 
+        self.bt_pdf_transaccion = QPushButton(self.page_8lista_transacciones)
+        self.bt_pdf_transaccion.setObjectName(u"bt_pdf_transaccion")
+        self.bt_pdf_transaccion.setMinimumSize(QSize(120, 30))
+
+        self.horizontalLayout_3.addWidget(self.bt_pdf_transaccion)
+
+        self.horizontalSpacer_39 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_39)
+
         self.bt_eliminar_transaccion = QPushButton(self.page_8lista_transacciones)
         self.bt_eliminar_transaccion.setObjectName(u"bt_eliminar_transaccion")
         self.bt_eliminar_transaccion.setMinimumSize(QSize(120, 30))
@@ -563,11 +553,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_10.addItem(self.horizontalSpacer_33)
 
-        self.bt_buscar_eliminar = QPushButton(self.page_4eliminar_cliente)
-        self.bt_buscar_eliminar.setObjectName(u"bt_buscar_eliminar")
-        self.bt_buscar_eliminar.setMinimumSize(QSize(120, 30))
+        self.bt_buscar_cliente = QPushButton(self.page_4eliminar_cliente)
+        self.bt_buscar_cliente.setObjectName(u"bt_buscar_cliente")
+        self.bt_buscar_cliente.setMinimumSize(QSize(120, 30))
 
-        self.horizontalLayout_10.addWidget(self.bt_buscar_eliminar)
+        self.horizontalLayout_10.addWidget(self.bt_buscar_cliente)
 
 
         self.verticalLayout_11.addLayout(self.horizontalLayout_10)
@@ -621,22 +611,22 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11 = QHBoxLayout()
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.pushButton_3 = QPushButton(self.page_4eliminar_cliente)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(120, 30))
-        self.pushButton_3.setSizeIncrement(QSize(120, 30))
+        self.bt_volver_menu = QPushButton(self.page_4eliminar_cliente)
+        self.bt_volver_menu.setObjectName(u"bt_volver_menu")
+        self.bt_volver_menu.setMinimumSize(QSize(120, 30))
+        self.bt_volver_menu.setSizeIncrement(QSize(120, 30))
 
-        self.horizontalLayout_11.addWidget(self.pushButton_3)
+        self.horizontalLayout_11.addWidget(self.bt_volver_menu)
 
         self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_11.addItem(self.horizontalSpacer_7)
 
-        self.bt_eliminar = QPushButton(self.page_4eliminar_cliente)
-        self.bt_eliminar.setObjectName(u"bt_eliminar")
-        self.bt_eliminar.setMinimumSize(QSize(120, 30))
+        self.bt_eliminar_cliente_2 = QPushButton(self.page_4eliminar_cliente)
+        self.bt_eliminar_cliente_2.setObjectName(u"bt_eliminar_cliente_2")
+        self.bt_eliminar_cliente_2.setMinimumSize(QSize(120, 30))
 
-        self.horizontalLayout_11.addWidget(self.bt_eliminar)
+        self.horizontalLayout_11.addWidget(self.bt_eliminar_cliente_2)
 
 
         self.verticalLayout_11.addLayout(self.horizontalLayout_11)
@@ -676,6 +666,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_16.addWidget(self.label_24)
 
+        self.label_26 = QLabel(self.page_1gestion_clientes)
+        self.label_26.setObjectName(u"label_26")
+
+        self.verticalLayout_16.addWidget(self.label_26)
+
         self.label_25 = QLabel(self.page_1gestion_clientes)
         self.label_25.setObjectName(u"label_25")
 
@@ -704,6 +699,12 @@ class Ui_MainWindow(object):
         self.bt_eliminar_cliente.setMinimumSize(QSize(200, 30))
 
         self.verticalLayout_3.addWidget(self.bt_eliminar_cliente)
+
+        self.bt_listar_cliente = QPushButton(self.page_1gestion_clientes)
+        self.bt_listar_cliente.setObjectName(u"bt_listar_cliente")
+        self.bt_listar_cliente.setMinimumSize(QSize(200, 30))
+
+        self.verticalLayout_3.addWidget(self.bt_listar_cliente)
 
 
         self.horizontalLayout_4.addLayout(self.verticalLayout_3)
@@ -785,34 +786,34 @@ class Ui_MainWindow(object):
         self.verticalLayout_18 = QVBoxLayout()
         self.verticalLayout_18.setSpacing(30)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
-        self.pushButton_12 = QPushButton(self.page_5gestion_transacciones)
-        self.pushButton_12.setObjectName(u"pushButton_12")
+        self.bt_agregar_Transaccion = QPushButton(self.page_5gestion_transacciones)
+        self.bt_agregar_Transaccion.setObjectName(u"bt_agregar_Transaccion")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(220)
         sizePolicy.setVerticalStretch(30)
-        sizePolicy.setHeightForWidth(self.pushButton_12.sizePolicy().hasHeightForWidth())
-        self.pushButton_12.setSizePolicy(sizePolicy)
-        self.pushButton_12.setMinimumSize(QSize(200, 30))
+        sizePolicy.setHeightForWidth(self.bt_agregar_Transaccion.sizePolicy().hasHeightForWidth())
+        self.bt_agregar_Transaccion.setSizePolicy(sizePolicy)
+        self.bt_agregar_Transaccion.setMinimumSize(QSize(200, 30))
 
-        self.verticalLayout_18.addWidget(self.pushButton_12)
+        self.verticalLayout_18.addWidget(self.bt_agregar_Transaccion)
 
-        self.pushButton_13 = QPushButton(self.page_5gestion_transacciones)
-        self.pushButton_13.setObjectName(u"pushButton_13")
-        self.pushButton_13.setMinimumSize(QSize(200, 30))
+        self.bt_modificar_Transaccion = QPushButton(self.page_5gestion_transacciones)
+        self.bt_modificar_Transaccion.setObjectName(u"bt_modificar_Transaccion")
+        self.bt_modificar_Transaccion.setMinimumSize(QSize(200, 30))
 
-        self.verticalLayout_18.addWidget(self.pushButton_13)
+        self.verticalLayout_18.addWidget(self.bt_modificar_Transaccion)
 
-        self.pushButton_14 = QPushButton(self.page_5gestion_transacciones)
-        self.pushButton_14.setObjectName(u"pushButton_14")
-        self.pushButton_14.setMinimumSize(QSize(200, 30))
+        self.bt_eliminar_Transaccion = QPushButton(self.page_5gestion_transacciones)
+        self.bt_eliminar_Transaccion.setObjectName(u"bt_eliminar_Transaccion")
+        self.bt_eliminar_Transaccion.setMinimumSize(QSize(200, 30))
 
-        self.verticalLayout_18.addWidget(self.pushButton_14)
+        self.verticalLayout_18.addWidget(self.bt_eliminar_Transaccion)
 
-        self.pushButton_15 = QPushButton(self.page_5gestion_transacciones)
-        self.pushButton_15.setObjectName(u"pushButton_15")
-        self.pushButton_15.setMinimumSize(QSize(200, 30))
+        self.bt_listar_Transaccion = QPushButton(self.page_5gestion_transacciones)
+        self.bt_listar_Transaccion.setObjectName(u"bt_listar_Transaccion")
+        self.bt_listar_Transaccion.setMinimumSize(QSize(200, 30))
 
-        self.verticalLayout_18.addWidget(self.pushButton_15)
+        self.verticalLayout_18.addWidget(self.bt_listar_Transaccion)
 
 
         self.horizontalLayout_17.addLayout(self.verticalLayout_18)
@@ -908,40 +909,40 @@ class Ui_MainWindow(object):
         self.verticalLayout_20 = QVBoxLayout()
         self.verticalLayout_20.setSpacing(30)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
-        self.lineEdit_11 = QLineEdit(self.page_6agregar_transaccion)
-        self.lineEdit_11.setObjectName(u"lineEdit_11")
+        self.line_clienteID_transaccion = QLineEdit(self.page_6agregar_transaccion)
+        self.line_clienteID_transaccion.setObjectName(u"line_clienteID_transaccion")
 
-        self.verticalLayout_20.addWidget(self.lineEdit_11)
+        self.verticalLayout_20.addWidget(self.line_clienteID_transaccion)
 
-        self.lineEdit_16 = QLineEdit(self.page_6agregar_transaccion)
-        self.lineEdit_16.setObjectName(u"lineEdit_16")
+        self.line_valorFinal_transaccion = QLineEdit(self.page_6agregar_transaccion)
+        self.line_valorFinal_transaccion.setObjectName(u"line_valorFinal_transaccion")
 
-        self.verticalLayout_20.addWidget(self.lineEdit_16)
+        self.verticalLayout_20.addWidget(self.line_valorFinal_transaccion)
 
-        self.lineEdit_17 = QLineEdit(self.page_6agregar_transaccion)
-        self.lineEdit_17.setObjectName(u"lineEdit_17")
+        self.line_cuotas_transaccion = QLineEdit(self.page_6agregar_transaccion)
+        self.line_cuotas_transaccion.setObjectName(u"line_cuotas_transaccion")
 
-        self.verticalLayout_20.addWidget(self.lineEdit_17)
+        self.verticalLayout_20.addWidget(self.line_cuotas_transaccion)
 
-        self.lineEdit_18 = QLineEdit(self.page_6agregar_transaccion)
-        self.lineEdit_18.setObjectName(u"lineEdit_18")
+        self.line_valorDeCuota_transaccion = QLineEdit(self.page_6agregar_transaccion)
+        self.line_valorDeCuota_transaccion.setObjectName(u"line_valorDeCuota_transaccion")
 
-        self.verticalLayout_20.addWidget(self.lineEdit_18)
+        self.verticalLayout_20.addWidget(self.line_valorDeCuota_transaccion)
 
-        self.lineEdit_19 = QLineEdit(self.page_6agregar_transaccion)
-        self.lineEdit_19.setObjectName(u"lineEdit_19")
+        self.line_aumento_transaccion = QLineEdit(self.page_6agregar_transaccion)
+        self.line_aumento_transaccion.setObjectName(u"line_aumento_transaccion")
 
-        self.verticalLayout_20.addWidget(self.lineEdit_19)
+        self.verticalLayout_20.addWidget(self.line_aumento_transaccion)
 
-        self.lineEdit_20 = QLineEdit(self.page_6agregar_transaccion)
-        self.lineEdit_20.setObjectName(u"lineEdit_20")
+        self.line_fechaDeBoleto_transaccion = QLineEdit(self.page_6agregar_transaccion)
+        self.line_fechaDeBoleto_transaccion.setObjectName(u"line_fechaDeBoleto_transaccion")
 
-        self.verticalLayout_20.addWidget(self.lineEdit_20)
+        self.verticalLayout_20.addWidget(self.line_fechaDeBoleto_transaccion)
 
-        self.lineEdit_21 = QLineEdit(self.page_6agregar_transaccion)
-        self.lineEdit_21.setObjectName(u"lineEdit_21")
+        self.line_fechaPrimeraCuota_transaccion = QLineEdit(self.page_6agregar_transaccion)
+        self.line_fechaPrimeraCuota_transaccion.setObjectName(u"line_fechaPrimeraCuota_transaccion")
 
-        self.verticalLayout_20.addWidget(self.lineEdit_21)
+        self.verticalLayout_20.addWidget(self.line_fechaPrimeraCuota_transaccion)
 
 
         self.horizontalLayout_19.addLayout(self.verticalLayout_20)
@@ -959,21 +960,21 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_18 = QHBoxLayout()
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
-        self.pushButton_16 = QPushButton(self.page_6agregar_transaccion)
-        self.pushButton_16.setObjectName(u"pushButton_16")
-        self.pushButton_16.setMinimumSize(QSize(120, 30))
+        self.bt_guardar_transaccion = QPushButton(self.page_6agregar_transaccion)
+        self.bt_guardar_transaccion.setObjectName(u"bt_guardar_transaccion")
+        self.bt_guardar_transaccion.setMinimumSize(QSize(120, 30))
 
-        self.horizontalLayout_18.addWidget(self.pushButton_16)
+        self.horizontalLayout_18.addWidget(self.bt_guardar_transaccion)
 
         self.horizontalSpacer_16 = QSpacerItem(117, 27, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_18.addItem(self.horizontalSpacer_16)
 
-        self.pushButton_17 = QPushButton(self.page_6agregar_transaccion)
-        self.pushButton_17.setObjectName(u"pushButton_17")
-        self.pushButton_17.setMinimumSize(QSize(120, 30))
+        self.bt_volver_menu_transaccion = QPushButton(self.page_6agregar_transaccion)
+        self.bt_volver_menu_transaccion.setObjectName(u"bt_volver_menu_transaccion")
+        self.bt_volver_menu_transaccion.setMinimumSize(QSize(120, 30))
 
-        self.horizontalLayout_18.addWidget(self.pushButton_17)
+        self.horizontalLayout_18.addWidget(self.bt_volver_menu_transaccion)
 
 
         self.verticalLayout_23.addLayout(self.horizontalLayout_18)
@@ -1726,11 +1727,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.bt_datos_menulateral.setText(QCoreApplication.translate("MainWindow", u"MENU LATERAL", None))
         self.bt_registrar_menulateral.setText(QCoreApplication.translate("MainWindow", u"CLIENTES", None))
         self.bt_transacciones_menulateral.setText(QCoreApplication.translate("MainWindow", u"TRANSACCIONES", None))
         self.bt_pagos_menulateral.setText(QCoreApplication.translate("MainWindow", u"PAGOS", None))
-        self.bt_pdf_menu.setText(QCoreApplication.translate("MainWindow", u"PDF", None))
         self.bt_salir_menulateral.setText(QCoreApplication.translate("MainWindow", u"SALIR", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"MODIFICAR CLIENTE", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"SELECCIONAR CLIENTE", None))
@@ -1752,7 +1751,7 @@ class Ui_MainWindow(object):
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"GENERAR PDF", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"LISTA DE TRANSACCIONES", None))
         self.label_50.setText(QCoreApplication.translate("MainWindow", u"Seleccionar Transacci\u00f3n:", None))
-        self.pushButton_21.setText(QCoreApplication.translate("MainWindow", u"BUSCAR", None))
+        self.bt_buscar_transaccion.setText(QCoreApplication.translate("MainWindow", u"BUSCAR", None))
         ___qtablewidgetitem = self.tabla_clientes.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"ID", None));
         ___qtablewidgetitem1 = self.tabla_clientes.horizontalHeaderItem(1)
@@ -1764,10 +1763,11 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem4 = self.tabla_clientes.horizontalHeaderItem(4)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"VALOR DE CUOTA", None));
         self.bt_Volver_Menu.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
+        self.bt_pdf_transaccion.setText(QCoreApplication.translate("MainWindow", u"PDF", None))
         self.bt_eliminar_transaccion.setText(QCoreApplication.translate("MainWindow", u"ELIMINAR", None))
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"LISTA DE CLIENTES", None))
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"NOMBRE DEL CLIENTE", None))
-        self.bt_buscar_eliminar.setText(QCoreApplication.translate("MainWindow", u"BUSCAR", None))
+        self.bt_buscar_cliente.setText(QCoreApplication.translate("MainWindow", u"BUSCAR", None))
         ___qtablewidgetitem5 = self.tabla_borrar.horizontalHeaderItem(0)
         ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"ID", None));
         ___qtablewidgetitem6 = self.tabla_borrar.horizontalHeaderItem(1)
@@ -1783,25 +1783,27 @@ class Ui_MainWindow(object):
         self.tabla_borrar.setSortingEnabled(False)
         self.tabla_borrar.setSortingEnabled(__sortingEnabled)
 
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
-        self.bt_eliminar.setText(QCoreApplication.translate("MainWindow", u"ELIMINAR", None))
+        self.bt_volver_menu.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
+        self.bt_eliminar_cliente_2.setText(QCoreApplication.translate("MainWindow", u"ELIMINAR", None))
         self.label_27.setText(QCoreApplication.translate("MainWindow", u"GESTION DE CLIENTES ", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"1)", None))
         self.label_24.setText(QCoreApplication.translate("MainWindow", u"2)", None))
-        self.label_25.setText(QCoreApplication.translate("MainWindow", u"3)", None))
-        self.bt_gestionar_cliente.setText(QCoreApplication.translate("MainWindow", u"Gestionar Clientes", None))
+        self.label_26.setText(QCoreApplication.translate("MainWindow", u"3)", None))
+        self.label_25.setText(QCoreApplication.translate("MainWindow", u"4)", None))
+        self.bt_gestionar_cliente.setText(QCoreApplication.translate("MainWindow", u"Agregar Clientes", None))
         self.bt_modificar_cliente.setText(QCoreApplication.translate("MainWindow", u"Modificar Cliente", None))
         self.bt_eliminar_cliente.setText(QCoreApplication.translate("MainWindow", u"Eliminar Cliente", None))
+        self.bt_listar_cliente.setText(QCoreApplication.translate("MainWindow", u"Listar Cliente", None))
         self.bt_volver_gestion_cliente.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
         self.label_32.setText(QCoreApplication.translate("MainWindow", u"GESTI\u00d3N DE TRANSACCIONES ", None))
         self.label_28.setText(QCoreApplication.translate("MainWindow", u"1)", None))
         self.label_29.setText(QCoreApplication.translate("MainWindow", u"2)", None))
         self.label_30.setText(QCoreApplication.translate("MainWindow", u"3)", None))
         self.label_31.setText(QCoreApplication.translate("MainWindow", u"4)", None))
-        self.pushButton_12.setText(QCoreApplication.translate("MainWindow", u"Agregar Transacci\u00f3n", None))
-        self.pushButton_13.setText(QCoreApplication.translate("MainWindow", u"Modificar Transacci\u00f3n", None))
-        self.pushButton_14.setText(QCoreApplication.translate("MainWindow", u"Eliminar Transacci\u00f3n", None))
-        self.pushButton_15.setText(QCoreApplication.translate("MainWindow", u"Listar Transacciones", None))
+        self.bt_agregar_Transaccion.setText(QCoreApplication.translate("MainWindow", u"Agregar Transacci\u00f3n", None))
+        self.bt_modificar_Transaccion.setText(QCoreApplication.translate("MainWindow", u"Modificar Transacci\u00f3n", None))
+        self.bt_eliminar_Transaccion.setText(QCoreApplication.translate("MainWindow", u"Eliminar Transacci\u00f3n", None))
+        self.bt_listar_Transaccion.setText(QCoreApplication.translate("MainWindow", u"Listar Transacciones", None))
         self.pushButton_11.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
         self.label_33.setText(QCoreApplication.translate("MainWindow", u" AGREGAR TRANSACCI\u00d3N ", None))
         self.label_34.setText(QCoreApplication.translate("MainWindow", u"Cliente ID", None))
@@ -1811,8 +1813,8 @@ class Ui_MainWindow(object):
         self.label_38.setText(QCoreApplication.translate("MainWindow", u"Aumento", None))
         self.label_39.setText(QCoreApplication.translate("MainWindow", u"Fecha de Boleto", None))
         self.label_40.setText(QCoreApplication.translate("MainWindow", u"Fecha Primera Cuota", None))
-        self.pushButton_16.setText(QCoreApplication.translate("MainWindow", u"GUARDAR", None))
-        self.pushButton_17.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
+        self.bt_guardar_transaccion.setText(QCoreApplication.translate("MainWindow", u"GUARDAR", None))
+        self.bt_volver_menu_transaccion.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
         self.label_41.setText(QCoreApplication.translate("MainWindow", u"MODIFICAR TRANSACCI\u00d3N ", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"Seleccionar Transacci\u00f3n", None))
         self.pushButton_20.setText(QCoreApplication.translate("MainWindow", u"BUSCAR", None))
