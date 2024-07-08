@@ -83,7 +83,7 @@ class Ui_MainWindow(object):
         self.bt_registrar_menulateral.setObjectName(u"bt_registrar_menulateral")
         self.bt_registrar_menulateral.setMinimumSize(QSize(0, 40))
         icon = QIcon()
-        icon.addFile(u"../../Python Interfaz PQT5/img/user (1).svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"../../AplicacionPyThonPyQT6/Front/img/user (1).svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.bt_registrar_menulateral.setIcon(icon)
         self.bt_registrar_menulateral.setIconSize(QSize(20, 20))
 
@@ -93,7 +93,7 @@ class Ui_MainWindow(object):
         self.bt_transacciones_menulateral.setObjectName(u"bt_transacciones_menulateral")
         self.bt_transacciones_menulateral.setMinimumSize(QSize(0, 40))
         icon1 = QIcon()
-        icon1.addFile(u"../../Python Interfaz PQT5/img/globe.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon1.addFile(u"../../AplicacionPyThonPyQT6/Front/img/globe.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.bt_transacciones_menulateral.setIcon(icon1)
         self.bt_transacciones_menulateral.setIconSize(QSize(20, 20))
 
@@ -103,7 +103,7 @@ class Ui_MainWindow(object):
         self.bt_pagos_menulateral.setObjectName(u"bt_pagos_menulateral")
         self.bt_pagos_menulateral.setMinimumSize(QSize(0, 40))
         icon2 = QIcon()
-        icon2.addFile(u"../../Python Interfaz PQT5/img/dollar-sign.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon2.addFile(u"../../AplicacionPyThonPyQT6/Front/img/dollar-sign.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.bt_pagos_menulateral.setIcon(icon2)
         self.bt_pagos_menulateral.setIconSize(QSize(20, 20))
 
@@ -113,7 +113,7 @@ class Ui_MainWindow(object):
         self.bt_salir_menulateral.setObjectName(u"bt_salir_menulateral")
         self.bt_salir_menulateral.setMinimumSize(QSize(0, 40))
         icon3 = QIcon()
-        icon3.addFile(u"../../Python Interfaz PQT5/img/log-out.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon3.addFile(u"../../AplicacionPyThonPyQT6/Front/img/log-out.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.bt_salir_menulateral.setIcon(icon3)
         self.bt_salir_menulateral.setIconSize(QSize(20, 20))
 
