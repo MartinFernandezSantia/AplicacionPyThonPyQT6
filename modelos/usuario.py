@@ -46,7 +46,7 @@ class Usuario(BaseModel):
         if usuario != None and Auth.check_contraseña(contraseña, usuario["password"]):
             return Usuario(usuario["nombre"], usuario["password"], usuario["id"])
         
-        return False
+        return None
     
     @classmethod
     def modificar(cls, instance):
