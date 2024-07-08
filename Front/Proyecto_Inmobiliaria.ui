@@ -223,7 +223,7 @@ font: 77 10pt&quot;Arial Black&quot;;
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="bt_eliminar_menu">
+              <widget class="QPushButton" name="bt_pdf_menu">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -246,7 +246,7 @@ font: 77 10pt&quot;Arial Black&quot;;
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="bt_Salir_menulateral">
+              <widget class="QPushButton" name="bt_salir_menulateral">
                <property name="minimumSize">
                 <size>
                  <width>0</width>

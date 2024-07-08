@@ -119,25 +119,25 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.bt_pagos_menulateral)
 
-        self.bt_eliminar_menu = QPushButton(self.frame_control)
-        self.bt_eliminar_menu.setObjectName(u"bt_eliminar_menu")
-        self.bt_eliminar_menu.setMinimumSize(QSize(0, 40))
+        self.bt_pdf_menu = QPushButton(self.frame_control)
+        self.bt_pdf_menu.setObjectName(u"bt_pdf_menu")
+        self.bt_pdf_menu.setMinimumSize(QSize(0, 40))
         icon4 = QIcon()
         icon4.addFile(u"img/file-plus.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.bt_eliminar_menu.setIcon(icon4)
-        self.bt_eliminar_menu.setIconSize(QSize(20, 20))
+        self.bt_pdf_menu.setIcon(icon4)
+        self.bt_pdf_menu.setIconSize(QSize(20, 20))
 
-        self.verticalLayout_2.addWidget(self.bt_eliminar_menu)
+        self.verticalLayout_2.addWidget(self.bt_pdf_menu)
 
-        self.bt_Salir_menulateral = QPushButton(self.frame_control)
-        self.bt_Salir_menulateral.setObjectName(u"bt_Salir_menulateral")
-        self.bt_Salir_menulateral.setMinimumSize(QSize(0, 40))
+        self.bt_salir_menulateral = QPushButton(self.frame_control)
+        self.bt_salir_menulateral.setObjectName(u"bt_salir_menulateral")
+        self.bt_salir_menulateral.setMinimumSize(QSize(0, 40))
         icon5 = QIcon()
         icon5.addFile(u"img/log-out.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.bt_Salir_menulateral.setIcon(icon5)
-        self.bt_Salir_menulateral.setIconSize(QSize(20, 20))
+        self.bt_salir_menulateral.setIcon(icon5)
+        self.bt_salir_menulateral.setIconSize(QSize(20, 20))
 
-        self.verticalLayout_2.addWidget(self.bt_Salir_menulateral)
+        self.verticalLayout_2.addWidget(self.bt_salir_menulateral)
 
 
         self.horizontalLayout_2.addWidget(self.frame_control)
@@ -1741,8 +1741,8 @@ class Ui_MainWindow(object):
         self.bt_registrar_menulateral.setText(QCoreApplication.translate("MainWindow", u"CLIENTES", None))
         self.bt_transacciones_menulateral.setText(QCoreApplication.translate("MainWindow", u"TRANSACCIONES", None))
         self.bt_pagos_menulateral.setText(QCoreApplication.translate("MainWindow", u"PAGOS", None))
-        self.bt_eliminar_menu.setText(QCoreApplication.translate("MainWindow", u"PDF", None))
-        self.bt_Salir_menulateral.setText(QCoreApplication.translate("MainWindow", u"SALIR", None))
+        self.bt_pdf_menu.setText(QCoreApplication.translate("MainWindow", u"PDF", None))
+        self.bt_salir_menulateral.setText(QCoreApplication.translate("MainWindow", u"SALIR", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"MODIFICAR CLIENTE", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"SELECCIONAR CLIENTE", None))
         self.bt_buscar_actualizar.setText(QCoreApplication.translate("MainWindow", u"BUSCAR", None))
