@@ -1,6 +1,4 @@
-######################################################
-##  SihinaCode > Search YouTube for more tutorials  ##
-######################################################
+
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys, res
@@ -8,7 +6,7 @@ import sys, res
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(625, 565)
+        Form.resize(725, 665)
         Form.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         Form.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.widget = QtWidgets.QWidget(Form)
@@ -48,7 +46,7 @@ class Ui_Form(object):
         self.widget.setObjectName("widget")
         self.label = QtWidgets.QLabel(self.widget)
         self.label.setGeometry(QtCore.QRect(40, 30, 280, 430))
-        self.label.setStyleSheet("border-image: url(C:/Users/Cesar/Desktop/Python Interfaz PQT5/Login/background.jpg);\n"
+        self.label.setStyleSheet("border-image: url(C:/Users/Cesar/Desktop/AplicacionPyThonPyQT6/Front/Login/background.jpg);\n"
 "border-top-left-radius: 50px;")
         self.label.setText("")
         self.label.setObjectName("label")
@@ -192,8 +190,7 @@ class Ui_Form(object):
         self.pushButton_5.setText(_translate("Form", ""))
         self.label_7.setText(_translate("Form", ""))
         self.label_8.setText(_translate("Form", "Bienvenido, a la Aplicacion\n"
-" de Control de Lotes.\n"
-"Por favor Ingrese su \n Usuario y Contraseña \n"))
+" de Control de Lotes.\n"))
 
 if __name__ == "__main__":
         app = QtWidgets.QApplication(sys.argv)
