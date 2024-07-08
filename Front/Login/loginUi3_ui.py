@@ -62,30 +62,30 @@ class Ui_MainWindow(object):
         font1.setBold(True)
         self.label_3.setFont(font1)
         self.label_3.setStyleSheet(u"color:rgba(0,0,0, 200);")
-        self.lineEdit = QLineEdit(self.widget)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setGeometry(QRect(330, 80, 141, 25))
-        self.lineEdit.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+        self.line_usuario_login = QLineEdit(self.widget)
+        self.line_usuario_login.setObjectName(u"line_usuario_login")
+        self.line_usuario_login.setGeometry(QRect(330, 80, 141, 25))
+        self.line_usuario_login.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:2px solid rgba(0,0,0,0);\n"
 "border-bottom-color:rgba(46,82,101,200);\n"
 "color:rgb(0,0,0);\n"
 "padding-bottom:7px;")
-        self.lineEdit_2 = QLineEdit(self.widget)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setGeometry(QRect(330, 160, 141, 25))
-        self.lineEdit_2.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+        self.line_contrasea_login = QLineEdit(self.widget)
+        self.line_contrasea_login.setObjectName(u"line_contrasea_login")
+        self.line_contrasea_login.setGeometry(QRect(330, 160, 141, 25))
+        self.line_contrasea_login.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:2px solid rgba(0,0,0,0);\n"
 "border-bottom-color:rgba(46,82,101,200);\n"
 "color:rgb(0,0,0);\n"
 "padding-bottom:7px;")
-        self.lineEdit_2.setEchoMode(QLineEdit.EchoMode.Password)
-        self.pushButton = QPushButton(self.widget)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(330, 290, 141, 40))
+        self.line_contrasea_login.setEchoMode(QLineEdit.EchoMode.Password)
+        self.bt_login_inicio = QPushButton(self.widget)
+        self.bt_login_inicio.setObjectName(u"bt_login_inicio")
+        self.bt_login_inicio.setGeometry(QRect(330, 290, 141, 40))
         font2 = QFont()
         font2.setPointSize(12)
         font2.setBold(False)
-        self.pushButton.setFont(font2)
+        self.bt_login_inicio.setFont(font2)
         self.label_4 = QLabel(self.widget)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(330, 360, 141, 19))
@@ -179,11 +179,11 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_2.setText("")
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"L O G I N ", None))
-        self.lineEdit.setText("")
-        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"            Usuario", None))
-        self.lineEdit_2.setText("")
-        self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"        Contrase\u00f1a ", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"I N G R E S A R ", None))
+        self.line_usuario_login.setText("")
+        self.line_usuario_login.setPlaceholderText(QCoreApplication.translate("MainWindow", u"            Usuario", None))
+        self.line_contrasea_login.setText("")
+        self.line_contrasea_login.setPlaceholderText(QCoreApplication.translate("MainWindow", u"        Contrase\u00f1a ", None))
+        self.bt_login_inicio.setText(QCoreApplication.translate("MainWindow", u"I N G R E S A R ", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u00a9 Copyright", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Bienvenido", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Al sistema de Usuario  \n"
