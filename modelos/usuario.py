@@ -57,5 +57,5 @@ class Usuario(BaseModel):
     
 
 if __name__ == "__main__":
-    usuario = Usuario("Martin", "asdASD123")
+    usuario = Usuario("", "")
     usuario.crear()
