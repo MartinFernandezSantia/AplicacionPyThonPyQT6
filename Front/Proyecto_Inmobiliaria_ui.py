@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1013, 700)
+        MainWindow.resize(1015, 700)
         MainWindow.setMinimumSize(QSize(900, 700))
         MainWindow.setSizeIncrement(QSize(0, 0))
         MainWindow.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
@@ -193,6 +193,10 @@ class Ui_MainWindow(object):
         self.stackedWidget.setMinimumSize(QSize(120, 30))
         self.stackedWidget.setStyleSheet(u"QLineEdit{\n"
 "border-bottom: 2px solid rgb(61, 61, 61);\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    border: 2px solid #00c6ab;\n"
 "}")
         self.page_3modificar_cliente = QWidget()
         self.page_3modificar_cliente.setObjectName(u"page_3modificar_cliente")
@@ -367,7 +371,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_14.addLayout(self.horizontalLayout_13)
 
-        self.verticalSpacer_5 = QSpacerItem(20, 259, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_5 = QSpacerItem(20, 175, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_14.addItem(self.verticalSpacer_5)
 
@@ -433,7 +437,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_14.addLayout(self.horizontalLayout_12)
 
-        self.verticalSpacer_6 = QSpacerItem(762, 114, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_6 = QSpacerItem(762, 174, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_14.addItem(self.verticalSpacer_6)
 
@@ -518,6 +522,7 @@ class Ui_MainWindow(object):
         self.tabla_clientes.setRowCount(200)
         self.tabla_clientes.horizontalHeader().setMinimumSectionSize(50)
         self.tabla_clientes.horizontalHeader().setDefaultSectionSize(120)
+        self.tabla_clientes.horizontalHeader().setStretchLastSection(True)
         self.tabla_clientes.verticalHeader().setCascadingSectionResizes(True)
         self.tabla_clientes.verticalHeader().setMinimumSectionSize(20)
         self.tabla_clientes.verticalHeader().setDefaultSectionSize(27)
@@ -634,7 +639,7 @@ class Ui_MainWindow(object):
         self.tabla_borrar.horizontalHeader().setDefaultSectionSize(120)
         self.tabla_borrar.horizontalHeader().setHighlightSections(False)
         self.tabla_borrar.horizontalHeader().setProperty("showSortIndicator", False)
-        self.tabla_borrar.horizontalHeader().setStretchLastSection(False)
+        self.tabla_borrar.horizontalHeader().setStretchLastSection(True)
         self.tabla_borrar.verticalHeader().setVisible(True)
         self.tabla_borrar.verticalHeader().setCascadingSectionResizes(True)
         self.tabla_borrar.verticalHeader().setMinimumSectionSize(20)
@@ -1797,7 +1802,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(8)
+        self.stackedWidget.setCurrentIndex(7)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1939,7 +1944,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem10 = self.tableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"ID", None));
         ___qtablewidgetitem11 = self.tableWidget.horizontalHeaderItem(1)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"TRANSACCION ID", None));
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"TRANSACCION", None));
         ___qtablewidgetitem12 = self.tableWidget.horizontalHeaderItem(2)
         ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"CUOTA", None));
         ___qtablewidgetitem13 = self.tableWidget.horizontalHeaderItem(3)
