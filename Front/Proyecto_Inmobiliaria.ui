@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1015</width>
-    <height>700</height>
+    <width>1017</width>
+    <height>869</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -329,7 +329,7 @@ QPushButton {
 }</string>
                </property>
                <property name="currentIndex">
-                <number>7</number>
+                <number>6</number>
                </property>
                <widget class="QWidget" name="page_3modificar_cliente">
                 <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -405,6 +405,19 @@ QPushButton {
                    <property name="spacing">
                     <number>30</number>
                    </property>
+                   <item>
+                    <spacer name="horizontalSpacer_41">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
                    <item>
                     <layout class="QVBoxLayout" name="verticalLayout_9">
                      <property name="spacing">
@@ -696,7 +709,7 @@ QPushButton {
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
-                     <width>762</width>
+                     <width>649</width>
                      <height>174</height>
                     </size>
                    </property>
@@ -772,7 +785,7 @@ QPushButton {
                    <item>
                     <widget class="QLabel" name="label_50">
                      <property name="text">
-                      <string>Seleccionar Transacción:</string>
+                      <string>SELECCIONAR CLIENTE</string>
                      </property>
                     </widget>
                    </item>
@@ -792,29 +805,27 @@ QPushButton {
                      </property>
                     </spacer>
                    </item>
-                   <item>
-                    <widget class="QPushButton" name="bt_buscar_transaccion">
-                     <property name="minimumSize">
-                      <size>
-                       <width>120</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>BUSCAR</string>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>img/search.svg</normaloff>img/search.svg</iconset>
-                     </property>
-                    </widget>
-                   </item>
                   </layout>
                  </item>
                  <item>
                   <widget class="QTableWidget" name="tabla_clientes">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                     <kerning>true</kerning>
+                    </font>
+                   </property>
+                   <property name="tabletTracking">
+                    <bool>false</bool>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
+                   <property name="dragEnabled">
+                    <bool>false</bool>
+                   </property>
                    <property name="rowCount">
-                    <number>200</number>
+                    <number>0</number>
                    </property>
                    <attribute name="horizontalHeaderMinimumSectionSize">
                     <number>50</number>
@@ -834,206 +845,9 @@ QPushButton {
                    <attribute name="verticalHeaderDefaultSectionSize">
                     <number>27</number>
                    </attribute>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
+                   <attribute name="verticalHeaderStretchLastSection">
+                    <bool>true</bool>
+                   </attribute>
                    <column>
                     <property name="text">
                      <string>ID</string>
@@ -1166,7 +980,7 @@ QPushButton {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="eliminar_buscar"/>
+                    <widget class="QLineEdit" name="buscar_cliente"/>
                    </item>
                    <item>
                     <spacer name="horizontalSpacer_33">
@@ -1181,27 +995,16 @@ QPushButton {
                      </property>
                     </spacer>
                    </item>
-                   <item>
-                    <widget class="QPushButton" name="bt_buscar_cliente">
-                     <property name="minimumSize">
-                      <size>
-                       <width>120</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>BUSCAR</string>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>img/search.svg</normaloff>img/search.svg</iconset>
-                     </property>
-                    </widget>
-                   </item>
                   </layout>
                  </item>
                  <item>
-                  <widget class="QTableWidget" name="tabla_borrar">
+                  <widget class="QTableWidget" name="tabla_cliente">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
                    <property name="minimumSize">
                     <size>
                      <width>120</width>
@@ -1241,6 +1044,9 @@ QPushButton {
                    <property name="autoScrollMargin">
                     <number>16</number>
                    </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                   </property>
                    <property name="selectionMode">
                     <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
                    </property>
@@ -1254,7 +1060,7 @@ QPushButton {
                     <bool>true</bool>
                    </property>
                    <property name="rowCount">
-                    <number>200</number>
+                    <number>0</number>
                    </property>
                    <attribute name="horizontalHeaderCascadingSectionResizes">
                     <bool>false</bool>
@@ -1290,213 +1096,8 @@ QPushButton {
                     <bool>false</bool>
                    </attribute>
                    <attribute name="verticalHeaderStretchLastSection">
-                    <bool>true</bool>
+                    <bool>false</bool>
                    </attribute>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <column>
-                    <property name="text">
-                     <string>ID</string>
-                    </property>
-                   </column>
                    <column>
                     <property name="text">
                      <string>NOMBRE</string>
@@ -1514,10 +1115,9 @@ QPushButton {
                    </column>
                    <column>
                     <property name="text">
-                     <string>CUIL</string>
+                     <string>CUIT</string>
                     </property>
                    </column>
-                   <item row="0" column="0"/>
                   </widget>
                  </item>
                  <item>
@@ -1648,13 +1248,6 @@ QPushButton {
                        </property>
                       </widget>
                      </item>
-                     <item>
-                      <widget class="QLabel" name="label_25">
-                       <property name="text">
-                        <string>4)</string>
-                       </property>
-                      </widget>
-                     </item>
                     </layout>
                    </item>
                    <item>
@@ -1697,23 +1290,6 @@ QPushButton {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="bt_eliminar_cliente">
-                       <property name="minimumSize">
-                        <size>
-                         <width>200</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>Eliminar Cliente</string>
-                       </property>
-                       <property name="icon">
-                        <iconset>
-                         <normaloff>img/trash-2.svg</normaloff>img/trash-2.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="QPushButton" name="bt_listar_cliente">
                        <property name="minimumSize">
                         <size>
@@ -1722,7 +1298,7 @@ QPushButton {
                         </size>
                        </property>
                        <property name="text">
-                        <string>Listar Cliente</string>
+                        <string>Listar Clientes</string>
                        </property>
                        <property name="icon">
                         <iconset>
@@ -1775,23 +1351,6 @@ QPushButton {
                      </property>
                     </spacer>
                    </item>
-                   <item>
-                    <widget class="QPushButton" name="bt_volver_gestion_cliente">
-                     <property name="minimumSize">
-                      <size>
-                       <width>120</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>VOLVER</string>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
-                     </property>
-                    </widget>
-                   </item>
                   </layout>
                  </item>
                 </layout>
@@ -1816,7 +1375,7 @@ QPushButton {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>180</height>
+                     <height>215</height>
                     </size>
                    </property>
                   </spacer>
@@ -1862,13 +1421,6 @@ QPushButton {
                       <widget class="QLabel" name="label_30">
                        <property name="text">
                         <string>3)</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_31">
-                       <property name="text">
-                        <string>4)</string>
                        </property>
                       </widget>
                      </item>
@@ -1920,23 +1472,6 @@ QPushButton {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="bt_eliminar_Transaccion">
-                       <property name="minimumSize">
-                        <size>
-                         <width>200</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>Eliminar Transacción</string>
-                       </property>
-                       <property name="icon">
-                        <iconset>
-                         <normaloff>img/trash-2.svg</normaloff>img/trash-2.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="QPushButton" name="bt_listar_Transaccion">
                        <property name="minimumSize">
                         <size>
@@ -1978,7 +1513,7 @@ QPushButton {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>179</height>
+                     <height>214</height>
                     </size>
                    </property>
                   </spacer>
@@ -1997,23 +1532,6 @@ QPushButton {
                       </size>
                      </property>
                     </spacer>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="pushButton_11">
-                     <property name="minimumSize">
-                      <size>
-                       <width>120</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>VOLVER</string>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
-                     </property>
-                    </widget>
                    </item>
                   </layout>
                  </item>
@@ -2039,13 +1557,16 @@ QPushButton {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>114</height>
+                     <height>178</height>
                     </size>
                    </property>
                   </spacer>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_19">
+                  <layout class="QHBoxLayout" name="horizontalLayout_18">
+                   <property name="spacing">
+                    <number>30</number>
+                   </property>
                    <item>
                     <spacer name="horizontalSpacer_17">
                      <property name="orientation">
@@ -2067,7 +1588,7 @@ QPushButton {
                      <item>
                       <widget class="QLabel" name="label_34">
                        <property name="text">
-                        <string>Cliente ID</string>
+                        <string>Cliente</string>
                        </property>
                       </widget>
                      </item>
@@ -2121,25 +1642,80 @@ QPushButton {
                       <number>30</number>
                      </property>
                      <item>
-                      <widget class="QLineEdit" name="line_clienteID_transaccion"/>
+                      <widget class="QComboBox" name="comboBox_5">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="line_valorFinal_transaccion"/>
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="line_cuotas_transaccion"/>
+                      <widget class="QSpinBox" name="spinBox_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="line_valorDeCuota_transaccion"/>
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="line_aumento_transaccion"/>
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="line_fechaDeBoleto_transaccion"/>
+                      <widget class="QDateEdit" name="dateEdit_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="calendarPopup">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="line_fechaPrimeraCuota_transaccion"/>
+                      <widget class="QDateEdit" name="dateEdit">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="calendarPopup">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </item>
@@ -2166,13 +1742,13 @@ QPushButton {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>114</height>
+                     <height>177</height>
                     </size>
                    </property>
                   </spacer>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_18">
+                  <layout class="QHBoxLayout" name="horizontalLayout_19">
                    <item>
                     <widget class="QPushButton" name="bt_guardar_transaccion">
                      <property name="minimumSize">
@@ -2499,7 +2075,7 @@ QPushButton {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>180</height>
+                     <height>215</height>
                     </size>
                    </property>
                   </spacer>
@@ -2548,13 +2124,6 @@ QPushButton {
                        </property>
                       </widget>
                      </item>
-                     <item>
-                      <widget class="QLabel" name="label_54">
-                       <property name="text">
-                        <string>4)</string>
-                       </property>
-                      </widget>
-                     </item>
                     </layout>
                    </item>
                    <item>
@@ -2593,23 +2162,6 @@ QPushButton {
                        <property name="icon">
                         <iconset>
                          <normaloff>img/tool.svg</normaloff>img/tool.svg</iconset>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="pushButton_24">
-                       <property name="minimumSize">
-                        <size>
-                         <width>120</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>Eliminar Pago</string>
-                       </property>
-                       <property name="icon">
-                        <iconset>
-                         <normaloff>img/trash-2.svg</normaloff>img/trash-2.svg</iconset>
                        </property>
                       </widget>
                      </item>
@@ -2655,7 +2207,7 @@ QPushButton {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>179</height>
+                     <height>214</height>
                     </size>
                    </property>
                   </spacer>
@@ -2674,23 +2226,6 @@ QPushButton {
                       </size>
                      </property>
                     </spacer>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="pushButton_26">
-                     <property name="minimumSize">
-                      <size>
-                       <width>120</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>VOLVER</string>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
-                     </property>
-                    </widget>
                    </item>
                   </layout>
                  </item>
@@ -3175,12 +2710,170 @@ QPushButton {
                    <item>
                     <widget class="QLabel" name="label_68">
                      <property name="text">
-                      <string>Seleccionar Pago</string>
+                      <string>ESTADO</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="lineEdit_40"/>
+                    <spacer name="horizontalSpacer_43">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>17</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboBox">
+                     <property name="minimumSize">
+                      <size>
+                       <width>70</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>PAGADO</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>NO PAGO</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_42">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>18</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_69">
+                     <property name="text">
+                      <string>MES</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboBox_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>70</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>ENERO</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>FEBRERO</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>MARZO</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>ABRIL</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>MAYO</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>JUNIO</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>JULIO</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>AGOSTO</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>SEPTIMBRE</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>NOVIEMBRE</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>DICIEMBRE</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_44">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>17</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_70">
+                     <property name="text">
+                      <string>AÑO</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_45">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>17</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboBox_3">
+                     <property name="minimumSize">
+                      <size>
+                       <width>70</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                    </widget>
                    </item>
                    <item>
                     <spacer name="horizontalSpacer_37">
@@ -3189,7 +2882,7 @@ QPushButton {
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
-                       <width>40</width>
+                       <width>17</width>
                        <height>20</height>
                       </size>
                      </property>
@@ -3223,7 +2916,10 @@ QPushButton {
                  <item>
                   <widget class="QTableWidget" name="tableWidget">
                    <property name="rowCount">
-                    <number>200</number>
+                    <number>0</number>
+                   </property>
+                   <property name="columnCount">
+                    <number>5</number>
                    </property>
                    <attribute name="horizontalHeaderMinimumSectionSize">
                     <number>50</number>
@@ -3237,214 +2933,9 @@ QPushButton {
                    <attribute name="verticalHeaderMinimumSectionSize">
                     <number>20</number>
                    </attribute>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
-                   <row/>
                    <column>
                     <property name="text">
-                     <string>ID</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>TRANSACCION</string>
+                     <string>ID TRANSACCION</string>
                     </property>
                    </column>
                    <column>
@@ -3454,17 +2945,17 @@ QPushButton {
                    </column>
                    <column>
                     <property name="text">
-                     <string>ESTADO</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>FECHA</string>
+                     <string>CUOTA</string>
                     </property>
                    </column>
                    <column>
                     <property name="text">
                      <string>VALOR</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>FECHA PAGO</string>
                     </property>
                    </column>
                   </widget>
@@ -3565,17 +3056,23 @@ QPushButton {
                     <number>30</number>
                    </property>
                    <item>
+                    <spacer name="horizontalSpacer_40">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
                     <layout class="QVBoxLayout" name="verticalLayout_6">
                      <property name="spacing">
                       <number>30</number>
                      </property>
-                     <item>
-                      <widget class="QLabel" name="label_2">
-                       <property name="text">
-                        <string>ID</string>
-                       </property>
-                      </widget>
-                     </item>
                      <item>
                       <widget class="QLabel" name="label_3">
                        <property name="text">
@@ -3593,7 +3090,14 @@ QPushButton {
                      <item>
                       <widget class="QLabel" name="label_5">
                        <property name="text">
-                        <string>EMAIL</string>
+                        <string>TELEFONO</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_2">
+                       <property name="text">
+                        <string>CUIT</string>
                        </property>
                       </widget>
                      </item>
@@ -3605,16 +3109,26 @@ QPushButton {
                       <number>30</number>
                      </property>
                      <item>
-                      <widget class="QLineEdit" name="line_id_registro_cliente"/>
-                     </item>
-                     <item>
                       <widget class="QLineEdit" name="line_nombre_registro_cliente"/>
                      </item>
                      <item>
                       <widget class="QLineEdit" name="line_apellido_registro_cliente"/>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="line_email_registro_cliente"/>
+                      <widget class="QLineEdit" name="lineEdit"/>
+                     </item>
+                     <item>
+                      <widget class="QSpinBox" name="spinBox">
+                       <property name="minimumSize">
+                        <size>
+                         <width>120</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="maximum">
+                        <number>99</number>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </item>

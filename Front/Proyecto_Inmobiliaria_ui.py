@@ -243,6 +243,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7 = QHBoxLayout()
         self.horizontalLayout_7.setSpacing(30)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalSpacer_41 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_7.addItem(self.horizontalSpacer_41)
+
         self.verticalLayout_9 = QVBoxLayout()
         self.verticalLayout_9.setSpacing(30)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
@@ -519,6 +523,13 @@ class Ui_MainWindow(object):
         if (self.tabla_clientes.rowCount() < 200):
             self.tabla_clientes.setRowCount(200)
         self.tabla_clientes.setObjectName(u"tabla_clientes")
+        font = QFont()
+        font.setPointSize(12)
+        font.setKerning(True)
+        self.tabla_clientes.setFont(font)
+        self.tabla_clientes.setTabletTracking(False)
+        self.tabla_clientes.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.tabla_clientes.setDragEnabled(False)
         self.tabla_clientes.setRowCount(200)
         self.tabla_clientes.horizontalHeader().setMinimumSectionSize(50)
         self.tabla_clientes.horizontalHeader().setDefaultSectionSize(120)
@@ -629,6 +640,7 @@ class Ui_MainWindow(object):
         self.tabla_borrar.setSizeAdjustPolicy(QAbstractScrollArea.SizeAdjustPolicy.AdjustIgnored)
         self.tabla_borrar.setAutoScroll(True)
         self.tabla_borrar.setAutoScrollMargin(16)
+        self.tabla_borrar.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tabla_borrar.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
         self.tabla_borrar.setShowGrid(True)
         self.tabla_borrar.setSortingEnabled(False)
@@ -1648,6 +1660,7 @@ class Ui_MainWindow(object):
         if (self.tableWidget.rowCount() < 200):
             self.tableWidget.setRowCount(200)
         self.tableWidget.setObjectName(u"tableWidget")
+        self.tableWidget.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tableWidget.setRowCount(200)
         self.tableWidget.horizontalHeader().setMinimumSectionSize(50)
         self.tableWidget.horizontalHeader().setDefaultSectionSize(120)
@@ -1699,6 +1712,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5 = QHBoxLayout()
         self.horizontalLayout_5.setSpacing(30)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalSpacer_40 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_40)
+
         self.verticalLayout_6 = QVBoxLayout()
         self.verticalLayout_6.setSpacing(30)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
@@ -1802,7 +1819,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(7)
+        self.stackedWidget.setCurrentIndex(11)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1962,5 +1979,9 @@ class Ui_MainWindow(object):
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"EMAIL", None))
         self.bt_Aceptar_Cliente.setText(QCoreApplication.translate("MainWindow", u"GUARDAR", None))
         self.bt_volver_cliente.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
+
+        # Ejemplo de configuración de estiramiento para todas las columnas
+        self.tabla_clientes.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
     # retranslateUi
 

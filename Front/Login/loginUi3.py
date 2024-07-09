@@ -1,14 +1,12 @@
-
-
-from PyQt5 import QtCore, QtGui, QtWidgets
-import sys, res
+from PyQt6 import QtCore, QtGui, QtWidgets
+import sys
 
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(725, 665)
-        Form.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        Form.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        Form.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
+        Form.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground)
         self.widget = QtWidgets.QWidget(Form)
         self.widget.setGeometry(QtCore.QRect(30, 30, 550, 500))
         self.widget.setStyleSheet("QPushButton#pushButton{\n"
@@ -92,7 +90,7 @@ class Ui_Form(object):
 "border-bottom:2px solid rgba(46, 82, 101, 200);\n"
 "color:rgba(0, 0, 0, 240);\n"
 "padding-bottom:7px;")
-        self.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.pushButton = QtWidgets.QPushButton(self.widget)
         self.pushButton.setGeometry(QtCore.QRect(295, 295, 190, 40))
@@ -103,7 +101,7 @@ class Ui_Form(object):
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
         self.label_5 = QtWidgets.QLabel(self.widget)
-        self.label_5.setGeometry(QtCore.QRect(301, 345, 181, 16))
+        self.label_5.setGeometry(QtCore.QRect(270, 345, 220, 16))
         self.label_5.setStyleSheet("color:rgba(0, 0, 0, 210);")
         self.label_5.setObjectName("label_5")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.widget)
@@ -162,16 +160,18 @@ class Ui_Form(object):
         self.label_8 = QtWidgets.QLabel(self.widget)
         self.label_8.setGeometry(QtCore.QRect(50, 145, 220, 60))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
         self.label_8.setFont(font)
-        self.label_8.setStyleSheet("color:rgba(255, 255, 255, 170);")
+        self.label_8.setStyleSheet("color:rgba(255, 255, 255, 170); font-weight: bold;")
         self.label_8.setObjectName("label_8")
-
-        self.label.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=0, yOffset=0))
-        self.label_3.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=0, yOffset=0))
-        self.pushButton.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=3, yOffset=3))
+        shadow_effect_1 = QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=0, yOffset=0)
+        shadow_effect_2 = QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=0, yOffset=0)
+        shadow_effect_3 = QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=3, yOffset=3)
+        self.label.setGraphicsEffect(shadow_effect_1)
+        self.label_3.setGraphicsEffect(shadow_effect_2)
+        self.pushButton.setGraphicsEffect(shadow_effect_3)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -179,11 +179,11 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label_4.setText(_translate("Form", "Log In"))
+        self.label_4.setText(_translate("Form", "LoG In"))
         self.lineEdit.setPlaceholderText(_translate("Form", "  Usuario"))
         self.lineEdit_2.setPlaceholderText(_translate("Form", "  Contraseña"))
-        self.pushButton.setText(_translate("Form", "L O G I N"))
-        self.label_5.setText(_translate("Form", "Ingrese su Usuario y Contraseña"))
+        self.pushButton.setText(_translate("Form", " L O G I N"))
+        self.label_5.setText(_translate("Form", " Ingrese su Usuario y Contraseña"))
         self.pushButton_2.setText(_translate("Form", ""))
         self.pushButton_3.setText(_translate("Form", ""))
         self.pushButton_4.setText(_translate("Form", ""))
@@ -193,9 +193,9 @@ class Ui_Form(object):
 " de Control de Lotes.\n"))
 
 if __name__ == "__main__":
-        app = QtWidgets.QApplication(sys.argv)
-        Form = QtWidgets.QWidget()
-        ui = Ui_Form()
-        ui.setupUi(Form)
-        Form.show()
-        sys.exit(app.exec_())
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec())
