@@ -1981,7 +1981,7 @@ class Ui_MainWindow(object):
         self.bt_volver_cliente.setText(QCoreApplication.translate("MainWindow", u"VOLVER", None))
 
         # Ejemplo de configuración de estiramiento para todas las columnas
-        self.tabla_clientes.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.tableWidget.setColumnWidth(0, 150)
 
     # retranslateUi
 
