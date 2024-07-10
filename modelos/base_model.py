@@ -59,6 +59,6 @@ class BaseModel:
                 print(f"Database error: {e}")
                 return None
         else:
-            cls.bd.cur.execute(f"SELECT * FROM {cls.table_name}")
+            cls.bd.cur.execute(f"SELECT * FROM {cls.table_name} ORDER BY {cls.order}")
             rows = cls.bd.cur.fetchall()
             return [cls(**row) for row in rows]

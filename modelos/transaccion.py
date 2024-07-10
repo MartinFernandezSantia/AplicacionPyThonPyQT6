@@ -7,6 +7,7 @@ class Transaccion(BaseModel):
     table_name = "transaccion"
     update_fields = "id_cliente = ?, valor_final = ?, cuotas = ?, valor_cuota = ?, aumento = ?, fecha_boleto = ?, fecha_primera_cuota = ?"
     get_fields = "id_cliente, valor_final, cuotas, valor_cuota, aumento, fecha_boleto, fecha_primera_cuota, id"
+    order = "fecha_boleto"
 
     def __init__(
             self, 
@@ -136,8 +137,10 @@ if __name__ == "__main__":
     hoy = datetime.date(datetime.now())
 
     # Creamos transaccion
-    tran = Transaccion(1, 256000, 12, 20000, 500, hoy, hoy)
-    tran.crear()
+    tran = Transaccion(15, 256000, 12, 20000, 500, hoy, hoy, 1)
+    # tran.crear()
+    for i in range(2, 10):
+        tran.modificar_estado_cuota(i, False)
 
     # # La modificamos
     # tran.aumento = 450

@@ -5,6 +5,7 @@ class Cliente(BaseModel):
     table_name = "cliente"
     update_fields = "nombre = ?, apellido = ?, cuit = ?, telefono = ?"
     get_fields = "nombre, apellido, cuit, telefono, id"
+    order = "nombre, apellido"
 
     def __init__(self, nombre:str, apellido:str, cuit:int, telefono:str=None, id:int=None):
         self.id = id

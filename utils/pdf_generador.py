@@ -11,7 +11,7 @@ def generar_pdf(transaccion: Transaccion):
     cur = bd.cur
 
     # Ruta del directorio actual
-    DIR = pathlib.Path(__file__).parent.resolve()
+    DIR = pathlib.Path(__file__).parent.parent.resolve()
 
     # Obtener información del cliente
     cliente = Cliente.get(transaccion.id_cliente)
@@ -64,13 +64,13 @@ def generar_pdf(transaccion: Transaccion):
             pdf.set_font("Times", "", 9)
 
             # Crear filas de la tabla
-            row = table.row()
+            row = table.row() # Header
             for mes in MESES:
                 row.cell(mes, align="C")
 
-            row2 = table.row()
-            row3 = table.row()
-            row4 = table.row()
+            row2 = table.row() # N° de cuota
+            row3 = table.row() # Valor cuota
+            row4 = table.row() # Fecha de pago
 
             for mes in range(1, len(MESES) + 1):
                 fecha = cuotas[n_cuota]["fecha"]
@@ -82,7 +82,7 @@ def generar_pdf(transaccion: Transaccion):
                 if fecha.month == mes and fecha.year == año_cuota:
                     row2.cell(text=f"CUOTA N° {n}", align="C")
                     row3.cell(text=f"${valor}", align="C")
-                    row4.cell(text=f"{fecha_pago}", align="C")
+                    row4.cell(text=f"{fecha_pago if fecha_pago != None else "Sin pagar"}", align="C")
 
                     n_cuota += 1
 
@@ -101,7 +101,7 @@ def generar_pdf(transaccion: Transaccion):
                     row4.cell("", align="C")
 
     # Guardar el PDF
-    pdf.output(os.path.join(DIR, "test.pdf"))
+    pdf.output(os.path.join(DIR, "PDFs", f"{año_cuota}-{mes}-{nombre_completo}.pdf"))
 
 if __name__ == "__main__":
     tran = Transaccion(1, 256000, 81, 3000, 300, datetime.datetime.now(), datetime.datetime.now(), 1)

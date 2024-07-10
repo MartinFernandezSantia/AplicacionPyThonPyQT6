@@ -2,3 +2,6 @@ pyqt6
 bcrypt
 python-dateutil
 PySide6
+fpdf2
+
+Python 3.12.3
