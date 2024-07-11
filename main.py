@@ -58,7 +58,7 @@ class VentanaPrincipal(QMainWindow):
             ))
         
         # Listado de transacciones
-        self.main_ui.lineEdit_41.textChanged.connect(self.buscar_transacciones)
+        #self.main_ui.lineEdit_41.textChanged.connect(self.buscar_transacciones)
         self.main_ui.bt_eliminar_transaccion.clicked.connect(lambda: self.eliminar_row(self.main_ui.tabla_clientes, Transaccion))
         self.main_ui.bt_Volver_Menu.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_5gestion_transacciones))
         self.main_ui.bt_pdf_transaccion.clicked.connect(self.generar_pdf)

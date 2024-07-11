@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>726</height>
+    <width>900</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -328,6 +328,8 @@ QTableWidget QTableCornerButton::section {
                <property name="styleSheet">
                 <string notr="true">QLineEdit{
 border-bottom: 2px solid rgb(61, 61, 61);
+	background-color: white;
+    color: black;
 }
 
 QPushButton {
@@ -335,25 +337,29 @@ QPushButton {
 }
 
 QComboBox {
-    color: white;
+	background-color: white;
+    color: black;
 	border: 2px solid #00c6ab;
 	border-radius: 5px;  
 }
 
 QDoubleSpinBox, QSpinBox {
-    color: white;
+    background-color: white;
+    color: black;
 	border: 2px solid #00c6ab;
 	border-radius: 5px;  
 }
 
 QSpinBox {
-    color: white;
+    background-color: white;
+    color: black;
 	border: 2px solid #00c6ab;
 	border-radius: 5px;  
 }
 
 QDateEdit {
-    color: white;
+	background-color: white;
+    color: black;
 	border: 2px solid #00c6ab;
 	border-radius: 5px;  
 }
@@ -361,22 +367,131 @@ QDateEdit {
 QLineEdit {
     border: 2px solid #00c6ab; 
     border-radius: 5px;  
-}</string>
+}
+
+#Aca cambio el Color de QdateEdit
+
+/* Cambia el color de fondo del desplegable de QDateEdit */
+QDateEdit::drop-down {
+    background-color: white;
+}
+
+/* Cambia el color de fondo del QCalendarWidget */
+QCalendarWidget QWidget {
+    background-color: white;
+}
+
+/* Cambia el color de fondo y el color del texto de los días en el calendario */
+QCalendarWidget QAbstractItemView {
+    background-color: white;
+    color: black;
+}
+
+/* Cambia el color del texto de los botones de navegación (mes y año) */
+QCalendarWidget QToolButton {
+    color: black;
+}
+
+/* Cambia el color de fondo y el color del texto de los menús desplegables */
+QCalendarWidget QMenu {
+    background-color: white;
+    color: black;
+}
+
+/* Cambia el color de fondo y el color del texto de los campos de año y mes */
+QCalendarWidget QSpinBox {
+    background-color: white;
+    color: black;
+}
+
+/* Cambia el color del texto de los encabezados de los días de la semana */
+QCalendarWidget QTableView QHeaderView::section {
+    color: white; /* Cambia el texto de los días de la semana a blanco */
+    background-color: black; /* Puedes ajustar el fondo del encabezado si lo deseas */
+}
+
+/* Cambia el color de fondo de los encabezados de los días de la semana */
+QCalendarWidget QTableView {
+    background-color: white;
+    color: black; /* Cambia el texto de los días a negro */
+}
+
+
+
+</string>
                </property>
                <property name="currentIndex">
-                <number>11</number>
+                <number>3</number>
                </property>
                <widget class="QWidget" name="page_3modificar_cliente">
                 <layout class="QVBoxLayout" name="verticalLayout_10">
                  <item>
-                  <widget class="QLabel" name="label_15">
-                   <property name="text">
-                    <string>MODIFICAR CLIENTE</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignmentFlag::AlignCenter</set>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_43">
+                   <item>
+                    <spacer name="horizontalSpacer_75">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_15">
+                     <property name="text">
+                      <string>MODIFICAR CLIENTE</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_89">
+                     <property name="minimumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>img/Modificar Cliente.png</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_76">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_9">
@@ -388,7 +503,14 @@ QLineEdit {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="actualizar_buscar"/>
+                    <widget class="QLineEdit" name="actualizar_buscar">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                    </widget>
                    </item>
                    <item>
                     <spacer name="horizontalSpacer_38">
@@ -497,7 +619,7 @@ QLineEdit {
                       <widget class="QLineEdit" name="line_nombre_modificarCliente">
                        <property name="minimumSize">
                         <size>
-                         <width>120</width>
+                         <width>150</width>
                          <height>30</height>
                         </size>
                        </property>
@@ -507,7 +629,7 @@ QLineEdit {
                       <widget class="QLineEdit" name="line_apellido_modificarCliente">
                        <property name="minimumSize">
                         <size>
-                         <width>120</width>
+                         <width>150</width>
                          <height>30</height>
                         </size>
                        </property>
@@ -517,7 +639,7 @@ QLineEdit {
                       <widget class="QLineEdit" name="line_email_modificarCliente">
                        <property name="minimumSize">
                         <size>
-                         <width>120</width>
+                         <width>150</width>
                          <height>30</height>
                         </size>
                        </property>
@@ -527,7 +649,7 @@ QLineEdit {
                       <widget class="QLineEdit" name="line_cuil_modificarCliente">
                        <property name="minimumSize">
                         <size>
-                         <width>120</width>
+                         <width>150</width>
                          <height>30</height>
                         </size>
                        </property>
@@ -684,7 +806,14 @@ QLineEdit {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="lineEdit_15"/>
+                    <widget class="QLineEdit" name="lineEdit_15">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                    </widget>
                    </item>
                    <item>
                     <spacer name="horizontalSpacer_9">
@@ -726,7 +855,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>174</height>
+                     <height>161</height>
                     </size>
                    </property>
                   </spacer>
@@ -854,7 +983,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>649</width>
-                     <height>173</height>
+                     <height>160</height>
                     </size>
                    </property>
                   </spacer>
@@ -955,14 +1084,72 @@ QLineEdit {
                <widget class="QWidget" name="page_8lista_transacciones">
                 <layout class="QVBoxLayout" name="verticalLayout_5">
                  <item>
-                  <widget class="QLabel" name="label">
-                   <property name="text">
-                    <string>LISTA DE TRANSACCIONES</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignmentFlag::AlignCenter</set>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_44">
+                   <item>
+                    <spacer name="horizontalSpacer_77">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label">
+                     <property name="text">
+                      <string>LISTA DE TRANSACCIONES</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_90">
+                     <property name="minimumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>img/Lista de transacciones.png</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_78">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_23">
@@ -974,7 +1161,14 @@ QLineEdit {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="lineEdit_41"/>
+                    <widget class="QLineEdit" name="buscar_transacciones">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                    </widget>
                    </item>
                    <item>
                     <spacer name="horizontalSpacer_23">
@@ -1054,6 +1248,11 @@ QLineEdit {
                    </column>
                    <column>
                     <property name="text">
+                     <string>AUMENTO</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
                      <string>VALOR DE CUOTA</string>
                     </property>
                    </column>
@@ -1092,6 +1291,36 @@ QLineEdit {
                     </spacer>
                    </item>
                    <item>
+                    <widget class="QPushButton" name="bt_eliminar_transaccion_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>MODIFICAR</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/edit.svg</normaloff>img/edit.svg</iconset>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_39">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
                     <widget class="QPushButton" name="bt_pdf_transaccion">
                      <property name="minimumSize">
                       <size>
@@ -1109,7 +1338,7 @@ QLineEdit {
                     </widget>
                    </item>
                    <item>
-                    <spacer name="horizontalSpacer_39">
+                    <spacer name="horizontalSpacer_81">
                      <property name="orientation">
                       <enum>Qt::Orientation::Horizontal</enum>
                      </property>
@@ -1145,14 +1374,72 @@ QLineEdit {
                <widget class="QWidget" name="page_4eliminar_cliente">
                 <layout class="QVBoxLayout" name="verticalLayout_11">
                  <item>
-                  <widget class="QLabel" name="label_18">
-                   <property name="text">
-                    <string>LISTA DE CLIENTES</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignmentFlag::AlignCenter</set>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_45">
+                   <item>
+                    <spacer name="horizontalSpacer_79">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_18">
+                     <property name="text">
+                      <string>LISTA DE CLIENTES</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_91">
+                     <property name="minimumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>img/Lista de Clientes.png</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_80">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -1164,7 +1451,14 @@ QLineEdit {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="buscar_cliente"/>
+                    <widget class="QLineEdit" name="buscar_cliente">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                    </widget>
                    </item>
                    <item>
                     <spacer name="horizontalSpacer_33">
@@ -1182,7 +1476,7 @@ QLineEdit {
                   </layout>
                  </item>
                  <item>
-                  <widget class="QTableWidget" name="tabla_cliente">
+                  <widget class="QTableWidget" name="tabla_transacciones">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                      <horstretch>0</horstretch>
@@ -1337,29 +1631,19 @@ QLineEdit {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QLabel" name="label_73">
-                     <property name="font">
-                      <font>
-                       <family>Arial Black</family>
-                       <pointsize>-1</pointsize>
-                       <italic>false</italic>
-                       <underline>false</underline>
-                       <fontweight></fontweight>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">QLabel {
-    font-size: 10px;
-  
-
-}
-</string>
+                    <widget class="QPushButton" name="bt_modificar_cliente_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
                      </property>
                      <property name="text">
-                      <string>Todos los derechos reservados  copyright ©.</string>
+                      <string>MOFIICAR</string>
                      </property>
-                     <property name="alignment">
-                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/edit.svg</normaloff>img/edit.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -1408,12 +1692,83 @@ QLineEdit {
                  <item>
                   <widget class="QLabel" name="label_27">
                    <property name="text">
-                    <string>GESTION DE CLIENTES </string>
+                    <string>GESTIÓN DE CLIENTES </string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignmentFlag::AlignCenter</set>
                    </property>
                   </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_23">
+                   <property name="orientation">
+                    <enum>Qt::Orientation::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>10</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_36">
+                   <item>
+                    <spacer name="horizontalSpacer_61">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_81">
+                     <property name="minimumSize">
+                      <size>
+                       <width>200</width>
+                       <height>120</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>100</width>
+                       <height>100</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>img/crm.png</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_62">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_7">
@@ -1422,8 +1777,8 @@ QLineEdit {
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
-                     <width>20</width>
-                     <height>40</height>
+                     <width>17</width>
+                     <height>90</height>
                     </size>
                    </property>
                   </spacer>
@@ -1509,7 +1864,7 @@ QLineEdit {
                        </property>
                        <property name="icon">
                         <iconset>
-                         <normaloff>img/tool.svg</normaloff>img/tool.svg</iconset>
+                         <normaloff>img/edit.svg</normaloff>img/edit.svg</iconset>
                        </property>
                       </widget>
                      </item>
@@ -1554,8 +1909,8 @@ QLineEdit {
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
-                     <width>20</width>
-                     <height>40</height>
+                     <width>17</width>
+                     <height>192</height>
                     </size>
                    </property>
                   </spacer>
@@ -1620,7 +1975,10 @@ QLineEdit {
                 </layout>
                </widget>
                <widget class="QWidget" name="page_5gestion_transacciones">
-                <layout class="QVBoxLayout" name="verticalLayout_17">
+                <layout class="QVBoxLayout" name="verticalLayout_37">
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_17"/>
+                 </item>
                  <item>
                   <widget class="QLabel" name="label_32">
                    <property name="text">
@@ -1632,6 +1990,48 @@ QLineEdit {
                   </widget>
                  </item>
                  <item>
+                  <spacer name="verticalSpacer_21">
+                   <property name="orientation">
+                    <enum>Qt::Orientation::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>17</width>
+                     <height>9</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout">
+                   <item>
+                    <widget class="QLabel" name="label_79">
+                     <property name="minimumSize">
+                      <size>
+                       <width>200</width>
+                       <height>120</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>100</width>
+                       <height>100</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>img/transaccion.png</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
                   <spacer name="verticalSpacer_10">
                    <property name="orientation">
                     <enum>Qt::Orientation::Vertical</enum>
@@ -1639,7 +2039,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>228</height>
+                     <height>83</height>
                     </size>
                    </property>
                   </spacer>
@@ -1777,13 +2177,13 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>227</height>
+                     <height>192</height>
                     </size>
                    </property>
                   </spacer>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout">
+                  <layout class="QHBoxLayout" name="horizontalLayout_34">
                    <item>
                     <spacer name="horizontalSpacer_13">
                      <property name="orientation">
@@ -1844,14 +2244,72 @@ QLineEdit {
                <widget class="QWidget" name="page_6agregar_transaccion">
                 <layout class="QVBoxLayout" name="verticalLayout_23">
                  <item>
-                  <widget class="QLabel" name="label_33">
-                   <property name="text">
-                    <string> AGREGAR TRANSACCIÓN </string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignmentFlag::AlignCenter</set>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_37">
+                   <item>
+                    <spacer name="horizontalSpacer_63">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_33">
+                     <property name="text">
+                      <string> AGREGAR TRANSACCIÓN </string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_83">
+                     <property name="minimumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>img/Agregar Transaccion.png</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_64">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_12">
@@ -1861,7 +2319,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>102</height>
+                     <height>60</height>
                     </size>
                    </property>
                   </spacer>
@@ -1963,6 +2421,9 @@ QLineEdit {
                          <height>30</height>
                         </size>
                        </property>
+                       <property name="maximum">
+                        <double>9999999999999999538762658202121142272.000000000000000</double>
+                       </property>
                       </widget>
                      </item>
                      <item>
@@ -1972,6 +2433,9 @@ QLineEdit {
                          <width>150</width>
                          <height>30</height>
                         </size>
+                       </property>
+                       <property name="maximum">
+                        <number>999999999</number>
                        </property>
                       </widget>
                      </item>
@@ -1983,6 +2447,9 @@ QLineEdit {
                          <height>30</height>
                         </size>
                        </property>
+                       <property name="maximum">
+                        <double>9999999999999999931398190359470212947659194368.000000000000000</double>
+                       </property>
                       </widget>
                      </item>
                      <item>
@@ -1992,6 +2459,9 @@ QLineEdit {
                          <width>150</width>
                          <height>30</height>
                         </size>
+                       </property>
+                       <property name="maximum">
+                        <double>999999999999999983222784.000000000000000</double>
                        </property>
                       </widget>
                      </item>
@@ -2046,7 +2516,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>103</height>
+                     <height>90</height>
                     </size>
                    </property>
                   </spacer>
@@ -2153,14 +2623,72 @@ QLineEdit {
                <widget class="QWidget" name="page_7modificar_transaccion">
                 <layout class="QVBoxLayout" name="verticalLayout_26">
                  <item>
-                  <widget class="QLabel" name="label_41">
-                   <property name="text">
-                    <string>MODIFICAR TRANSACCIÓN </string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignmentFlag::AlignCenter</set>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_38">
+                   <item>
+                    <spacer name="horizontalSpacer_65">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_41">
+                     <property name="text">
+                      <string>MODIFICAR TRANSACCIÓN </string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_84">
+                     <property name="minimumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>img/Modificar Transaccion.png</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_66">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_21">
@@ -2172,7 +2700,14 @@ QLineEdit {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="lineEdit_29"/>
+                    <widget class="QLineEdit" name="lineEdit_29">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                    </widget>
                    </item>
                    <item>
                     <spacer name="horizontalSpacer_34">
@@ -2214,7 +2749,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>108</height>
+                     <height>55</height>
                     </size>
                    </property>
                   </spacer>
@@ -2296,25 +2831,74 @@ QLineEdit {
                       <number>30</number>
                      </property>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_22"/>
+                      <widget class="QLineEdit" name="lineEdit_22">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_23"/>
+                      <widget class="QLineEdit" name="lineEdit_23">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_24"/>
+                      <widget class="QLineEdit" name="lineEdit_24">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_25"/>
+                      <widget class="QLineEdit" name="lineEdit_25">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_26"/>
+                      <widget class="QLineEdit" name="lineEdit_26">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_27"/>
+                      <widget class="QLineEdit" name="lineEdit_27">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_28"/>
+                      <widget class="QLineEdit" name="lineEdit_28">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </item>
@@ -2341,7 +2925,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>108</height>
+                     <height>57</height>
                     </size>
                    </property>
                   </spacer>
@@ -2452,6 +3036,77 @@ QLineEdit {
                   </widget>
                  </item>
                  <item>
+                  <spacer name="verticalSpacer_22">
+                   <property name="orientation">
+                    <enum>Qt::Orientation::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_35">
+                   <item>
+                    <spacer name="horizontalSpacer_59">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_80">
+                     <property name="minimumSize">
+                      <size>
+                       <width>200</width>
+                       <height>120</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>100</width>
+                       <height>100</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>img/dinero-en-efectivo.png</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_60">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
                   <spacer name="verticalSpacer_16">
                    <property name="orientation">
                     <enum>Qt::Orientation::Vertical</enum>
@@ -2459,7 +3114,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>228</height>
+                     <height>122</height>
                     </size>
                    </property>
                   </spacer>
@@ -2545,7 +3200,7 @@ QLineEdit {
                        </property>
                        <property name="icon">
                         <iconset>
-                         <normaloff>img/tool.svg</normaloff>img/tool.svg</iconset>
+                         <normaloff>img/edit.svg</normaloff>img/edit.svg</iconset>
                        </property>
                       </widget>
                      </item>
@@ -2591,7 +3246,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>227</height>
+                     <height>137</height>
                     </size>
                    </property>
                   </spacer>
@@ -2658,14 +3313,72 @@ QLineEdit {
                <widget class="QWidget" name="page_10registrar_pago">
                 <layout class="QVBoxLayout" name="verticalLayout_32">
                  <item>
-                  <widget class="QLabel" name="label_55">
-                   <property name="text">
-                    <string>REGISTRAR PAGO  </string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignmentFlag::AlignCenter</set>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_39">
+                   <item>
+                    <spacer name="horizontalSpacer_67">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_55">
+                     <property name="text">
+                      <string>REGISTRAR PAGO  </string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_85">
+                     <property name="minimumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>img/Registro de Pago.png</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_68">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_26">
@@ -2677,7 +3390,14 @@ QLineEdit {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="lineEdit_30"/>
+                    <widget class="QLineEdit" name="lineEdit_30">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                    </widget>
                    </item>
                    <item>
                     <spacer name="horizontalSpacer_35">
@@ -2719,7 +3439,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>188</height>
+                     <height>146</height>
                     </size>
                    </property>
                   </spacer>
@@ -2783,16 +3503,44 @@ QLineEdit {
                       <number>30</number>
                      </property>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_31"/>
+                      <widget class="QLineEdit" name="lineEdit_31">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_32"/>
+                      <widget class="QLineEdit" name="lineEdit_32">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_33"/>
+                      <widget class="QLineEdit" name="lineEdit_33">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_34"/>
+                      <widget class="QLineEdit" name="lineEdit_34">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </item>
@@ -2819,7 +3567,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>187</height>
+                     <height>146</height>
                     </size>
                    </property>
                   </spacer>
@@ -2920,14 +3668,72 @@ QLineEdit {
                <widget class="QWidget" name="page_11modificar_pago">
                 <layout class="QVBoxLayout" name="verticalLayout_35">
                  <item>
-                  <widget class="QLabel" name="label_56">
-                   <property name="text">
-                    <string>MODIFICAR PAGO</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignmentFlag::AlignCenter</set>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_40">
+                   <item>
+                    <spacer name="horizontalSpacer_69">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_56">
+                     <property name="text">
+                      <string>MODIFICAR PAGO</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_86">
+                     <property name="minimumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>img/ModificarPago.png</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_70">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_30">
@@ -2939,7 +3745,14 @@ QLineEdit {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="lineEdit_35"/>
+                    <widget class="QLineEdit" name="lineEdit_35">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                    </widget>
                    </item>
                    <item>
                     <spacer name="horizontalSpacer_36">
@@ -2987,7 +3800,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>188</height>
+                     <height>146</height>
                     </size>
                    </property>
                   </spacer>
@@ -3051,16 +3864,50 @@ QLineEdit {
                       <number>30</number>
                      </property>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_36"/>
+                      <widget class="QLineEdit" name="lineEdit_36">
+                       <property name="minimumSize">
+                        <size>
+                         <width>120</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="sizeIncrement">
+                        <size>
+                         <width>120</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_37"/>
+                      <widget class="QLineEdit" name="lineEdit_37">
+                       <property name="minimumSize">
+                        <size>
+                         <width>120</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_38"/>
+                      <widget class="QLineEdit" name="lineEdit_38">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="lineEdit_39"/>
+                      <widget class="QLineEdit" name="lineEdit_39">
+                       <property name="minimumSize">
+                        <size>
+                         <width>120</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </item>
@@ -3087,7 +3934,7 @@ QLineEdit {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>187</height>
+                     <height>146</height>
                     </size>
                    </property>
                   </spacer>
@@ -3200,14 +4047,72 @@ QLineEdit {
                <widget class="QWidget" name="page_12lista_pagos">
                 <layout class="QVBoxLayout" name="verticalLayout_36">
                  <item>
-                  <widget class="QLabel" name="label_67">
-                   <property name="text">
-                    <string>LISTA DE PAGOS </string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignmentFlag::AlignCenter</set>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_41">
+                   <item>
+                    <spacer name="horizontalSpacer_71">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_67">
+                     <property name="text">
+                      <string>LISTA DE PAGOS </string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_87">
+                     <property name="minimumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>img/Lista de pagos.png</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_72">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_32">
@@ -3579,14 +4484,72 @@ QLineEdit {
                <widget class="QWidget" name="page_2registrar_cliente">
                 <layout class="QVBoxLayout" name="verticalLayout_7">
                  <item>
-                  <widget class="QLabel" name="label_7">
-                   <property name="text">
-                    <string>REGISTRO DE CLIENTE</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignmentFlag::AlignCenter</set>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_42">
+                   <item>
+                    <spacer name="horizontalSpacer_73">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_7">
+                     <property name="text">
+                      <string>REGISTRO DE CLIENTE</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_88">
+                     <property name="minimumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>50</width>
+                       <height>50</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>img/Registro de Cliente.png</pixmap>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>true</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_74">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_2">
@@ -3663,7 +4626,7 @@ QLineEdit {
                       <widget class="QLineEdit" name="line_nombre_registro_cliente">
                        <property name="minimumSize">
                         <size>
-                         <width>120</width>
+                         <width>150</width>
                          <height>30</height>
                         </size>
                        </property>
@@ -3673,7 +4636,7 @@ QLineEdit {
                       <widget class="QLineEdit" name="line_apellido_registro_cliente">
                        <property name="minimumSize">
                         <size>
-                         <width>120</width>
+                         <width>150</width>
                          <height>30</height>
                         </size>
                        </property>
@@ -3683,7 +4646,7 @@ QLineEdit {
                       <widget class="QLineEdit" name="lineEdit">
                        <property name="minimumSize">
                         <size>
-                         <width>120</width>
+                         <width>150</width>
                          <height>30</height>
                         </size>
                        </property>
@@ -3693,12 +4656,12 @@ QLineEdit {
                       <widget class="QSpinBox" name="spinBox">
                        <property name="minimumSize">
                         <size>
-                         <width>120</width>
+                         <width>150</width>
                          <height>30</height>
                         </size>
                        </property>
                        <property name="maximum">
-                        <number>99</number>
+                        <number>999999999</number>
                        </property>
                       </widget>
                      </item>
