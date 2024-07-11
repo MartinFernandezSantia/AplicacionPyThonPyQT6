@@ -1,4 +1,5 @@
 from PyQt6.QtWidgets import QMainWindow, QApplication, QTableWidgetItem
+from PyQt6.QtCore import QDate
 from PyQt6.uic.load_ui import loadUi
 from modelos.usuario import Usuario
 from modelos.cliente import Cliente
@@ -65,7 +66,15 @@ class VentanaPrincipal(QMainWindow):
 
         # Agregar transacciones
         for cliente in Cliente.get():
+            # Rellenar ComboBox
+            index = self.main_ui.combobox_cliente.count()
             self.main_ui.combobox_cliente.addItem(f"{cliente.nombre} {cliente.apellido}")
+            self.main_ui.combobox_cliente.setItemData(index, cliente.id)
+        # Setear campos de fecha a fecha actual
+        self.main_ui.dateEdit_cliente1.setDate(QDate.currentDate())
+        self.main_ui.dateEdit_cliente2.setDate(QDate.currentDate())
+
+        self.main_ui.bt_guardar_transaccion.clicked.connect(self.agregar_transaccion)
 
     def generar_pdf(self):
         tabla = self.main_ui.tabla_clientes
@@ -175,6 +184,35 @@ class VentanaPrincipal(QMainWindow):
                 filtered_transactions.append(transaccion)
 
         self.actualizar_tabla_transacciones(filtered_transactions)
+
+    def agregar_transaccion(self):
+        id_cliente = self.main_ui.combobox_cliente.itemData(self.main_ui.combobox_cliente.currentIndex())
+        valor_final = self.main_ui.doubleSpinBox_cliente1
+        cuotas = self.main_ui.spinBox_2_cliente
+        valor_cuota = self.main_ui.doubleSpinBox_cliente2
+        aumento = self.main_ui.doubleSpinBox_cliente3
+        fecha_boleto = self.main_ui.dateEdit_cliente1
+        fecha_primera_cuota = self.main_ui.dateEdit_cliente2
+
+        nueva_transaccion = Transaccion(
+            id_cliente, 
+            valor_final.value(), 
+            cuotas.value(), 
+            valor_cuota.value(), 
+            aumento.value(),
+            fecha_boleto.date().toPyDate(),
+            fecha_primera_cuota.date().toPyDate()
+            )
+        
+        if nueva_transaccion.crear() == True:
+            print("Se ha creado una nueva transaccion.")
+            self.main_ui.combobox_cliente.setCurrentIndex(0)
+            valor_final.setValue(0)
+            cuotas.setValue(0)
+            valor_cuota.setValue(0)
+            aumento.setValue(0)
+            fecha_boleto.setDate(QDate.currentDate())
+            fecha_primera_cuota.setDate(QDate.currentDate())
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

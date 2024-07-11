@@ -77,7 +77,7 @@ class Transaccion(BaseModel):
             primera_cuota = self.fecha_primera_cuota
 
             for i in range(1, self.cuotas + 1):
-                fecha = primera_cuota + relativedelta(months=i-1)
+                fecha = primera_cuota + relativedelta(months=i-1) #Aqui esta el problema caballero
                 sql = "INSERT INTO pago_cuotas (id_transaccion, cuota, estado, fecha, valor) VALUES (?, ?, ?, ?, ?)"
 
                 self.bd.cur.execute(sql, (self.id, i, 0, fecha, valor_couta))
