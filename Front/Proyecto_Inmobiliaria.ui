@@ -427,7 +427,7 @@ QCalendarWidget QComboBox {
 </string>
                </property>
                <property name="currentIndex">
-                <number>6</number>
+                <number>3</number>
                </property>
                <widget class="QWidget" name="page_3modificar_cliente">
                 <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1192,7 +1192,7 @@ QCalendarWidget QComboBox {
                   </layout>
                  </item>
                  <item>
-                  <widget class="QTableWidget" name="tabla_clientes">
+                  <widget class="QTableWidget" name="tabla_transacciones">
                    <property name="font">
                     <font>
                      <pointsize>12</pointsize>
@@ -1246,13 +1246,8 @@ QHeaderView::section::horizontal {
                     <number>27</number>
                    </attribute>
                    <attribute name="verticalHeaderStretchLastSection">
-                    <bool>true</bool>
+                    <bool>false</bool>
                    </attribute>
-                   <column>
-                    <property name="text">
-                     <string>ID</string>
-                    </property>
-                   </column>
                    <column>
                     <property name="text">
                      <string>CLIENTE</string>
@@ -1424,21 +1419,21 @@ QHeaderView::section::horizontal {
                     <widget class="QLabel" name="label_91">
                      <property name="minimumSize">
                       <size>
-                       <width>50</width>
-                       <height>50</height>
+                       <width>45</width>
+                       <height>45</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>50</width>
-                       <height>50</height>
+                       <width>45</width>
+                       <height>45</height>
                       </size>
                      </property>
                      <property name="text">
                       <string/>
                      </property>
                      <property name="pixmap">
-                      <pixmap>img/Lista de Clientes.png</pixmap>
+                      <pixmap>img/evaluacion.png</pixmap>
                      </property>
                      <property name="scaledContents">
                       <bool>true</bool>
@@ -1498,7 +1493,7 @@ QHeaderView::section::horizontal {
                   </layout>
                  </item>
                  <item>
-                  <widget class="QTableWidget" name="tabla_transacciones">
+                  <widget class="QTableWidget" name="tabla_cliente">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
                      <horstretch>0</horstretch>
@@ -1674,7 +1669,7 @@ QHeaderView::section::horizontal {
                       </size>
                      </property>
                      <property name="text">
-                      <string>MOFIICAR</string>
+                      <string>MODIFICAR</string>
                      </property>
                      <property name="icon">
                       <iconset>
@@ -1767,13 +1762,19 @@ QHeaderView::section::horizontal {
                      <property name="minimumSize">
                       <size>
                        <width>200</width>
-                       <height>120</height>
+                       <height>200</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>100</width>
-                       <height>100</height>
+                       <width>200</width>
+                       <height>200</height>
+                      </size>
+                     </property>
+                     <property name="sizeIncrement">
+                      <size>
+                       <width>200</width>
+                       <height>0</height>
                       </size>
                      </property>
                      <property name="text">
@@ -1813,7 +1814,7 @@ QHeaderView::section::horizontal {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>17</width>
-                     <height>90</height>
+                     <height>56</height>
                     </size>
                    </property>
                   </spacer>
@@ -1945,7 +1946,7 @@ QHeaderView::section::horizontal {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>17</width>
-                     <height>192</height>
+                     <height>159</height>
                     </size>
                    </property>
                   </spacer>
@@ -2044,13 +2045,13 @@ QHeaderView::section::horizontal {
                      <property name="minimumSize">
                       <size>
                        <width>200</width>
-                       <height>120</height>
+                       <height>200</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>100</width>
-                       <height>100</height>
+                       <width>200</width>
+                       <height>200</height>
                       </size>
                      </property>
                      <property name="text">
@@ -2074,7 +2075,7 @@ QHeaderView::section::horizontal {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>83</height>
+                     <height>49</height>
                     </size>
                    </property>
                   </spacer>
@@ -2212,7 +2213,7 @@ QHeaderView::section::horizontal {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>192</height>
+                     <height>158</height>
                     </size>
                    </property>
                   </spacer>
@@ -2686,8 +2687,8 @@ QHeaderView::section::horizontal {
                     <widget class="QLabel" name="label_84">
                      <property name="minimumSize">
                       <size>
-                       <width>50</width>
-                       <height>50</height>
+                       <width>45</width>
+                       <height>45</height>
                       </size>
                      </property>
                      <property name="maximumSize">
@@ -3103,13 +3104,13 @@ QHeaderView::section::horizontal {
                      <property name="minimumSize">
                       <size>
                        <width>200</width>
-                       <height>120</height>
+                       <height>200</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>100</width>
-                       <height>100</height>
+                       <width>200</width>
+                       <height>200</height>
                       </size>
                      </property>
                      <property name="text">
@@ -3149,7 +3150,7 @@ QHeaderView::section::horizontal {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>122</height>
+                     <height>40</height>
                     </size>
                    </property>
                   </spacer>
@@ -3281,7 +3282,7 @@ QHeaderView::section::horizontal {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>137</height>
+                     <height>151</height>
                     </size>
                    </property>
                   </spacer>
@@ -3376,8 +3377,8 @@ QHeaderView::section::horizontal {
                     <widget class="QLabel" name="label_85">
                      <property name="minimumSize">
                       <size>
-                       <width>50</width>
-                       <height>50</height>
+                       <width>45</width>
+                       <height>45</height>
                       </size>
                      </property>
                      <property name="maximumSize">
@@ -3731,14 +3732,14 @@ QHeaderView::section::horizontal {
                     <widget class="QLabel" name="label_86">
                      <property name="minimumSize">
                       <size>
-                       <width>50</width>
-                       <height>50</height>
+                       <width>55</width>
+                       <height>55</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>50</width>
-                       <height>50</height>
+                       <width>55</width>
+                       <height>55</height>
                       </size>
                      </property>
                      <property name="text">
@@ -3835,7 +3836,7 @@ QHeaderView::section::horizontal {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>146</height>
+                     <height>143</height>
                     </size>
                    </property>
                   </spacer>
@@ -3969,7 +3970,7 @@ QHeaderView::section::horizontal {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>146</height>
+                     <height>144</height>
                     </size>
                    </property>
                   </spacer>
@@ -4384,7 +4385,7 @@ QHeaderView::section::horizontal {
                     <number>0</number>
                    </property>
                    <property name="columnCount">
-                    <number>5</number>
+                    <number>4</number>
                    </property>
                    <attribute name="horizontalHeaderMinimumSectionSize">
                     <number>50</number>
@@ -4398,11 +4399,6 @@ QHeaderView::section::horizontal {
                    <attribute name="verticalHeaderMinimumSectionSize">
                     <number>20</number>
                    </attribute>
-                   <column>
-                    <property name="text">
-                     <string>ID TRANSACCION</string>
-                    </property>
-                   </column>
                    <column>
                     <property name="text">
                      <string>CUOTA</string>
@@ -4711,6 +4707,12 @@ QHeaderView::section::horizontal {
                        </property>
                        <property name="maximum">
                         <number>999999999</number>
+                       </property>
+                       <property name="stepType">
+                        <enum>QAbstractSpinBox::StepType::AdaptiveDecimalStepType</enum>
+                       </property>
+                       <property name="displayIntegerBase">
+                        <number>33</number>
                        </property>
                       </widget>
                      </item>
