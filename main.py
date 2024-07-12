@@ -1,10 +1,11 @@
-from PyQt6.QtWidgets import QMainWindow, QApplication, QTableWidgetItem
-from PyQt6.QtCore import QDate
+from PyQt6.QtWidgets import QMainWindow, QApplication, QTableWidgetItem, QMessageBox, QWidget
+from PyQt6.QtCore import QDate, Qt
 from PyQt6.uic.load_ui import loadUi
 from modelos.usuario import Usuario
 from modelos.cliente import Cliente
 from modelos.transaccion import Transaccion
 from utils.pdf_generador import generar_pdf
+from Front.Login2.loginUi3 import Ui_Form
 
 import sys
 import os
@@ -14,7 +15,9 @@ class VentanaPrincipal(QMainWindow):
         super(VentanaPrincipal, self).__init__()
 
         # Instancias
-        self.login_ui = loadUi(os.path.join("Front", "Login", "loginUI3.ui"))
+        self.login_ui = QWidget()
+        self.login_UiForm = Ui_Form()
+        self.login_UiForm.setupUi(self.login_ui)
         self.main_ui = loadUi(os.path.join("Front", "Proyecto_Inmobiliaria.ui"))
         self.main_ui.stackedWidget.setCurrentWidget(self.main_ui.page_1gestion_clientes)
 
@@ -23,7 +26,7 @@ class VentanaPrincipal(QMainWindow):
         self.login_ui.show()
 
         # Login buttons
-        self.login_ui.bt_login_inicio.clicked.connect(self.login)
+        self.login_UiForm.pushButton.clicked.connect(self.login)
 
         # Main UI menu lateral buttons
         self.main_ui.bt_registrar_menulateral.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_1gestion_clientes))
@@ -41,7 +44,7 @@ class VentanaPrincipal(QMainWindow):
             ))
 
         # Listado de clientes
-        self.main_ui.bt_eliminar_cliente_2.clicked.connect(lambda: self.eliminar_row(self.main_ui.tabla_borrar, Cliente))
+        self.main_ui.bt_eliminar_cliente_2.clicked.connect(lambda: self.eliminar_row(self.main_ui.tabla_cliente, Cliente))
         self.main_ui.bt_volver_menu.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_1gestion_clientes))
         self.main_ui.buscar_cliente.textChanged.connect(self.buscar_clientes)
 
@@ -59,8 +62,8 @@ class VentanaPrincipal(QMainWindow):
             ))
         
         # Listado de transacciones
-        #self.main_ui.lineEdit_41.textChanged.connect(self.buscar_transacciones)
-        self.main_ui.bt_eliminar_transaccion.clicked.connect(lambda: self.eliminar_row(self.main_ui.tabla_clientes, Transaccion))
+        self.main_ui.buscar_transacciones.textChanged.connect(self.buscar_transacciones)
+        self.main_ui.bt_eliminar_transaccion.clicked.connect(lambda: self.eliminar_row(self.main_ui.tabla_transacciones, Transaccion))
         self.main_ui.bt_Volver_Menu.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_5gestion_transacciones))
         self.main_ui.bt_pdf_transaccion.clicked.connect(self.generar_pdf)
 
@@ -75,9 +78,10 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui.dateEdit_cliente2.setDate(QDate.currentDate())
 
         self.main_ui.bt_guardar_transaccion.clicked.connect(self.agregar_transaccion)
+        self.main_ui.bt_volver_menu_transaccion.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_5gestion_transacciones))        
 
     def generar_pdf(self):
-        tabla = self.main_ui.tabla_clientes
+        tabla = self.main_ui.tabla_transacciones
         row_seleccionada = tabla.currentRow()
 
         if row_seleccionada >= 0:
@@ -89,11 +93,13 @@ class VentanaPrincipal(QMainWindow):
 
                 generar_pdf(transaccion)
 
-    def setRowData(self, row, data, table):
+    def setRowData(self, row, data, table, id):
         # Por cada columna de la tabla actualizo su valor con el correspondiente en data
         table.insertRow(row)
         for col, value in enumerate(data):
-            table.setItem(row, col, QTableWidgetItem(str(value)))
+            item = QTableWidgetItem(str(value))
+            table.setItem(row, col, item)
+            item.setData(Qt.ItemDataRole.UserRole, id)
 
     def eliminar_row(self, table, instance_type):
         # Elimino la fila actualmente seleccionada de la tabla y de la BD.
@@ -103,23 +109,28 @@ class VentanaPrincipal(QMainWindow):
             item = table.item(row_seleccionada, 0)
 
             if item:
-                id = int(item.text())
-                instance_type.eliminar(id)
-                table.removeRow(row_seleccionada)
+                id = item.data(Qt.ItemDataRole.UserRole)
+                if instance_type.eliminar(id) == True:
+                    table.removeRow(row_seleccionada)
+                    QMessageBox.information(self, "Éxito", "El elemento ha sido eliminado correctamente.")
+                else:
+                    QMessageBox.critical(self, "Error", "Se produjo un error al intentar eliminar el elemento.")
+        else:
+            QMessageBox.warning(self, "Error de seleccion", "Si desea eliminar un elemento, primero debe seleccionarlo.")
 
     def login(self):
         # Inicio sesión
-        contraseña = self.login_ui.line_contrasea_login.text()
-        nombre = self.login_ui.line_usuario_login.text()
+        contraseña = self.login_UiForm.lineEdit_2.text()
+        nombre = self.login_UiForm.lineEdit.text()
 
         usuario = Usuario.login(nombre, contraseña)
 
         if usuario != None:
-            print("Se ha iniciado sesion!")
             self.login_ui.hide()
             self.main_ui.show()
+            QMessageBox.information(self, "Éxito", f"Inicio de sesión exitoso\n Bienvenido/a {usuario.nombre}.")
         else:
-            print("Usuario y/o contraseña incorrectos")
+            QMessageBox.warning(self, "Error de Inicio de Sesión", "Nombre de usuario o contraseña incorrectos.")
 
     def cambiar_pestaña(self, pestaña):
         self.main_ui.stackedWidget.setCurrentWidget(pestaña)
@@ -139,7 +150,7 @@ class VentanaPrincipal(QMainWindow):
         # Por cada cliente actualizo de una en una las filas de la tabla
         for row, cliente in enumerate(clientes):
             data = [cliente.nombre, cliente.apellido, "-" if cliente.telefono is None else cliente.telefono, cliente.cuit]
-            self.setRowData(row, data, tabla)
+            self.setRowData(row, data, tabla, cliente.id)
 
     def agregar_cliente(self):
         nombre = self.main_ui.line_nombre_registro_cliente
@@ -150,31 +161,31 @@ class VentanaPrincipal(QMainWindow):
         nuevo_cliente = Cliente(nombre.text(), apellido.text(), cuit.value(), telefono.text() if telefono.text() != "" else None)
 
         if nuevo_cliente.crear() is True:
-            print("Se ha agregado el cliente existosamente!")
+            QMessageBox.information(self, "Éxito", f"{nuevo_cliente.nombre} {nuevo_cliente.apellido} ha sido agregado exitosamente.")
             nombre.clear()
             apellido.clear()
             telefono.clear()
             cuit.setValue(0)
         else:
-            print("Ha habido un error")
+            QMessageBox.critical(self, "Error al crear cliente", "Un cliente con el CUIT proporcionado ya existe.")
         
     def actualizar_tabla_transacciones(self, transacciones):
         # Tomo la tabla de transacciones y elimino todas las filas
-        tabla = self.main_ui.tabla_clientes
+        tabla = self.main_ui.tabla_transacciones
         tabla.setRowCount(0)
 
         # Por cada transaccion actualizo de una en una las filas de la tabla
         for row, transaccion in enumerate(transacciones):
             cliente = Cliente.get(transaccion.id_cliente)
-            data = [transaccion.id, cliente.nombre, transaccion.valor_final, transaccion.cuotas, transaccion.valor_cuota]
+            data = [cliente.nombre, transaccion.valor_final, transaccion.cuotas, transaccion.aumento, transaccion.valor_cuota]
 
-            self.setRowData(row, data, tabla)
+            self.setRowData(row, data, tabla, transaccion.id)
         
     def buscar_transacciones(self):
         # Tomo todas las transacciones, filtro por el texto de la barra de busqueda y actualizo la tabla
         transacciones = Transaccion.get()
 
-        search_text = self.main_ui.lineEdit_41.text().lower()
+        search_text = self.main_ui.buscar_transacciones.text().lower()
         filtered_transactions = []
 
         for transaccion in transacciones:
@@ -203,9 +214,8 @@ class VentanaPrincipal(QMainWindow):
             fecha_boleto.date().toPyDate(),
             fecha_primera_cuota.date().toPyDate()
             )
-        
         if nueva_transaccion.crear() == True:
-            print("Se ha creado una nueva transaccion.")
+            QMessageBox.information(self, "Exito", "Se ha agregado la transacción exitosamente.")
             self.main_ui.combobox_cliente.setCurrentIndex(0)
             valor_final.setValue(0)
             cuotas.setValue(0)
@@ -213,6 +223,8 @@ class VentanaPrincipal(QMainWindow):
             aumento.setValue(0)
             fecha_boleto.setDate(QDate.currentDate())
             fecha_primera_cuota.setDate(QDate.currentDate())
+        else:
+            QMessageBox.critical(self, "Error", "El cliente seleccionado no existe.")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
