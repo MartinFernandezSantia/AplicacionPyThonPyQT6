@@ -131,6 +131,13 @@ class Transaccion(BaseModel):
             instance.agregar_cuotas()
         
         return modificar
+    
+    @classmethod
+    def get_años_cuotas(cls):
+        sql = "SELECT strftime('%Y', fecha) AS year FROM pago_cuotas"
+        cls.bd.cur.execute(sql)
+
+        return cls.bd.cur.fetchall()
 
 
 if __name__ == "__main__":

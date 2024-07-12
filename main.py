@@ -24,22 +24,28 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui.closeEvent = lambda event: self.custom_close_event(event)
 
         self.modificar_cliente_ui = loadUi(os.path.join("Front", "Modificar Cliente Ventana.ui"))
+        self.modificar_transaccion_ui = loadUi(os.path.join("Front", "Modificar Transaccion Ventana.ui"))
         
 
-        
         # Muestro login al iniciar app
         self.login_ui.show()
+
 
         # Login buttons
         self.login_UiForm.pushButton.clicked.connect(self.login)
 
+
         # Main UI menu lateral buttons
         self.main_ui.bt_registrar_menulateral.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_1gestion_clientes))
         self.main_ui.bt_transacciones_menulateral.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_5gestion_transacciones))
-        self.main_ui.bt_pagos_menulateral.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_9gestion_pagos))
+        self.main_ui.bt_pagos_menulateral.clicked.connect(lambda: (
+            self.cambiar_pestaña(self.main_ui.page_12lista_pagos),
+            self.actualizar_tabla_pagos()
+            ))
         self.main_ui.bt_salir_menulateral.clicked.connect(lambda: sys.exit())
 
-        # Clientes Buttons
+
+        # Menu Clientes Buttons
         self.main_ui.bt_gestionar_cliente.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_2registrar_cliente))
         self.main_ui.bt_listar_cliente.clicked.connect(lambda: (
             self.cambiar_pestaña(self.main_ui.page_4eliminar_cliente), 
@@ -52,7 +58,6 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui.buscar_cliente.textChanged.connect(self.buscar_clientes)
         self.main_ui.bt_modificar_cliente_2.clicked.connect(self.abrir_modificar_cliente)
 
-
         # Agregar cliente
         self.main_ui.bt_Aceptar_Cliente.clicked.connect(self.agregar_cliente)
         self.main_ui.bt_volver_cliente.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_1gestion_clientes))
@@ -62,7 +67,7 @@ class VentanaPrincipal(QMainWindow):
         self.modificar_cliente_ui.pushButton_7.clicked.connect(self.modificar_cliente_ui.hide)
 
 
-        # Transacciones Buttons
+        # Menu Transacciones Buttons
         self.main_ui.bt_agregar_Transaccion.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_6agregar_transaccion))
         self.main_ui.bt_modificar_Transaccion.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_7modificar_transaccion))
         self.main_ui.bt_listar_Transaccion.clicked.connect(lambda: (
@@ -88,6 +93,12 @@ class VentanaPrincipal(QMainWindow):
 
         self.main_ui.bt_guardar_transaccion.clicked.connect(self.agregar_transaccion)
         self.main_ui.bt_volver_menu_transaccion.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_5gestion_transacciones))        
+
+
+        # Listado de Pagos
+        self.main_ui.pushButton_31.clicked.connect(self.actualizar_tabla_pagos)
+        
+
 
     def actualizar_cliente(self):
         cliente = Cliente.get(self.cliente_modificado_id)
@@ -126,6 +137,23 @@ class VentanaPrincipal(QMainWindow):
             # Muestro la ventana
             self.modificar_cliente_ui.show()
 
+    # def abrir_modificar_transaccion(self):
+    #     tabla = self.main_ui.tabla_transacciones
+    #     row_seleccionada = tabla.currentRow()
+
+    #     # Si se selecciono una fila, extraigo cada columna
+    #     if row_seleccionada >= 0:
+    #         data = [tabla.item(row_seleccionada, col) for col in range(4)]
+    #         self.transaccion_modificada_id = data[0].data(Qt.ItemDataRole.UserRole)
+
+    #         # Completo los campos de la ventana con los valores en la fila
+    #         self.modificar_cliente_ui.line_nombre_modificarCliente.setText(data[0].text())
+    #         self.modificar_cliente_ui.line_apellido_modificarCliente.setText(data[1].text())
+    #         self.modificar_cliente_ui.line_email_modificarCliente.setText(data[2].text())
+    #         self.modificar_cliente_ui.line_cuil_modificarCliente.setText(data[3].text())
+
+    #         # Muestro la ventana
+    #         self.modificar_cliente_ui.show()
     def generar_pdf(self):
         tabla = self.main_ui.tabla_transacciones
         row_seleccionada = tabla.currentRow()
@@ -271,6 +299,53 @@ class VentanaPrincipal(QMainWindow):
             fecha_primera_cuota.setDate(QDate.currentDate())
         else:
             QMessageBox.critical(self, "Error", "El cliente seleccionado no existe.")
+
+    def actualizar_tabla_pagos(self):
+        # Tomo la tabla de pagos y elimino todas las filas
+        tabla = self.main_ui.tableWidget
+        tabla.setRowCount(0)
+
+        # Relleno el comboBox de AÑO
+        años = list(set(int(year[0]) for year in Transaccion.get_años_cuotas()))
+        años.sort()
+
+        comboBox_año = self.main_ui.comboBox_3
+        for año in años:
+            comboBox_año.addItem(str(año))
+        
+
+        # Filtros
+        estado = self.main_ui.comboBox.currentIndex()
+        mes = self.main_ui.comboBox_2.currentIndex() + 1
+        año = self.main_ui.comboBox_3.currentText()
+
+        transacciones = Transaccion.get()
+
+        row_counter = 0
+
+        for transaccion in transacciones:
+            cuotas = transaccion.get_cuotas()
+
+            # Por cada cuota actualizo de una en una las filas de la tabla
+            for cuota in cuotas:
+                estado_cuota = cuota["estado"]
+                fecha = cuota["fecha"]
+
+                # Si la cuota coincide con los filtros
+                if estado == estado_cuota and mes == fecha.month and int(año) == fecha.year:
+
+                    cliente = Cliente.get(transaccion.id_cliente)
+                    nombre_completo = f"{cliente.nombre} {cliente.apellido}"
+                    fecha_pago = cuota["fecha_pago"] if cuota["fecha_pago"] != None else "-"
+
+                    data = [nombre_completo, cuota["cuota"], cuota["valor"], fecha_pago]
+
+                    self.setRowData(row_counter, data, tabla, cuota["id"])
+
+
+            row_counter += tabla.rowCount()
+
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
