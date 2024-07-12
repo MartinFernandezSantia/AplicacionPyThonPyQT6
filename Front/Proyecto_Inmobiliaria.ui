@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
+    <width>1003</width>
     <height>700</height>
    </rect>
   </property>
@@ -343,6 +343,11 @@ QComboBox {
 	border-radius: 5px;  
 }
 
+QComboBox QAbstractItemView {
+    background-color: white;
+    color: black;
+}
+
 QDoubleSpinBox, QSpinBox {
     background-color: white;
     color: black;
@@ -374,54 +379,55 @@ QLineEdit {
 /* Cambia el color de fondo del desplegable de QDateEdit */
 QDateEdit::drop-down {
     background-color: white;
+	font-weight: bold;
 }
 
 /* Cambia el color de fondo del QCalendarWidget */
 QCalendarWidget QWidget {
-    background-color: white;
-}
-
-/* Cambia el color de fondo y el color del texto de los días en el calendario */
-QCalendarWidget QAbstractItemView {
-    background-color: white;
-    color: black;
-}
-
-/* Cambia el color del texto de los botones de navegación (mes y año) */
-QCalendarWidget QToolButton {
-    color: black;
-}
-
-/* Cambia el color de fondo y el color del texto de los menús desplegables */
-QCalendarWidget QMenu {
-    background-color: white;
-    color: black;
+    background-color: #1777a4;
+	font-weight: bold;
 }
 
 /* Cambia el color de fondo y el color del texto de los campos de año y mes */
 QCalendarWidget QSpinBox {
-    background-color: white;
-    color: black;
+    background-color: #1777a4;
+    color: white;
+	font-weight: bold;
 }
 
 /* Cambia el color del texto de los encabezados de los días de la semana */
 QCalendarWidget QTableView QHeaderView::section {
-    color: white; /* Cambia el texto de los días de la semana a blanco */
-    background-color: black; /* Puedes ajustar el fondo del encabezado si lo deseas */
+    color: white; /* Cambia el texto de los días de la semana a negro */
+	font-weight: bold;
 }
 
 /* Cambia el color de fondo de los encabezados de los días de la semana */
 QCalendarWidget QTableView {
-    background-color: white;
-    color: black; /* Cambia el texto de los días a negro */
+    background-color: #1777a4;
+    color: white; /* Cambia el texto de los días a negro */
+	font-weight: bold;
 }
+
+/* Cambia el color del texto de los días de la semana */
+QCalendarWidget QTableView QHeaderView {
+    color: white; /* Cambia el texto de los días de la semana a negro */
+	font-weight: bold;
+}
+
+/* Cambia el color del texto de los meses y años desplegables */
+QCalendarWidget QComboBox {
+    color: white; /* Cambia el texto de los meses y años a negro */
+	font-weight: bold;
+}
+
+
 
 
 
 </string>
                </property>
                <property name="currentIndex">
-                <number>3</number>
+                <number>6</number>
                </property>
                <widget class="QWidget" name="page_3modificar_cliente">
                 <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1196,6 +1202,22 @@ QCalendarWidget QTableView {
                    <property name="tabletTracking">
                     <bool>false</bool>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">QTableWidget::item {
+    padding: 5px;
+}
+
+QHeaderView::section {
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid rgb(61, 61, 61);
+}
+
+QHeaderView::section::horizontal {
+    height: 40px;
+}</string>
+                   </property>
                    <property name="editTriggers">
                     <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
                    </property>
@@ -1502,7 +1524,20 @@ QCalendarWidget QTableView {
                     <bool>false</bool>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true"/>
+                    <string notr="true">QTableWidget::item {
+    padding: 5px;
+}
+
+QHeaderView::section {
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid rgb(61, 61, 61);
+}
+
+QHeaderView::section::horizontal {
+    height: 40px;
+}</string>
                    </property>
                    <property name="midLineWidth">
                     <number>0</number>
@@ -4325,7 +4360,21 @@ QCalendarWidget QTableView {
                  <item>
                   <widget class="QTableWidget" name="tableWidget">
                    <property name="styleSheet">
-                    <string notr="true">
+                    <string notr="true">QTableWidget::item {
+    padding: 5px;
+}
+
+QHeaderView::section {
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid rgb(61, 61, 61);
+}
+
+QHeaderView::section::horizontal {
+    height: 40px;
+}
+
 </string>
                    </property>
                    <property name="lineWidth">
