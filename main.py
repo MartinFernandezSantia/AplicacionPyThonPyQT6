@@ -18,8 +18,13 @@ class VentanaPrincipal(QMainWindow):
         self.login_ui = QWidget()
         self.login_UiForm = Ui_Form()
         self.login_UiForm.setupUi(self.login_ui)
+        
         self.main_ui = loadUi(os.path.join("Front", "Proyecto_Inmobiliaria.ui"))
         self.main_ui.stackedWidget.setCurrentWidget(self.main_ui.page_1gestion_clientes)
+        self.main_ui.closeEvent = lambda event: self.custom_close_event(event)
+
+        self.modificar_cliente_ui = loadUi(os.path.join("Front", "Modificar Cliente Ventana.ui"))
+        
 
         
         # Muestro login al iniciar app
@@ -36,8 +41,6 @@ class VentanaPrincipal(QMainWindow):
 
         # Clientes Buttons
         self.main_ui.bt_gestionar_cliente.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_2registrar_cliente))
-        self.main_ui.bt_modificar_cliente.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_3modificar_cliente))
-
         self.main_ui.bt_listar_cliente.clicked.connect(lambda: (
             self.cambiar_pestaña(self.main_ui.page_4eliminar_cliente), 
             self.actualizar_tabla_clientes(Cliente.get())
@@ -47,13 +50,19 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui.bt_eliminar_cliente_2.clicked.connect(lambda: self.eliminar_row(self.main_ui.tabla_cliente, Cliente))
         self.main_ui.bt_volver_menu.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_1gestion_clientes))
         self.main_ui.buscar_cliente.textChanged.connect(self.buscar_clientes)
+        self.main_ui.bt_modificar_cliente_2.clicked.connect(self.abrir_modificar_cliente)
+
 
         # Agregar cliente
         self.main_ui.bt_Aceptar_Cliente.clicked.connect(self.agregar_cliente)
         self.main_ui.bt_volver_cliente.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_1gestion_clientes))
 
+        # Modificar cliente
+        self.modificar_cliente_ui.bt_actulizar_tabla.clicked.connect(self.actualizar_cliente)
+        self.modificar_cliente_ui.pushButton_7.clicked.connect(self.modificar_cliente_ui.hide)
 
-        # Main UI Transacciones Buttons
+
+        # Transacciones Buttons
         self.main_ui.bt_agregar_Transaccion.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_6agregar_transaccion))
         self.main_ui.bt_modificar_Transaccion.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_7modificar_transaccion))
         self.main_ui.bt_listar_Transaccion.clicked.connect(lambda: (
@@ -80,6 +89,43 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui.bt_guardar_transaccion.clicked.connect(self.agregar_transaccion)
         self.main_ui.bt_volver_menu_transaccion.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_5gestion_transacciones))        
 
+    def actualizar_cliente(self):
+        cliente = Cliente.get(self.cliente_modificado_id)
+
+        cliente.nombre = self.modificar_cliente_ui.line_nombre_modificarCliente.text()
+        cliente.apellido = self.modificar_cliente_ui.line_apellido_modificarCliente.text()
+        cliente.telefono = self.modificar_cliente_ui.line_email_modificarCliente.text()
+        cliente.cuit = int(self.modificar_cliente_ui.line_cuil_modificarCliente.text())
+        
+        if Cliente.modificar(cliente) == True:
+            print("Se han actualizado los datos del cliente")
+            self.actualizar_tabla_clientes(Cliente.get())
+            self.modificar_cliente_ui.hide()
+        else:
+            print("Ha habido un error")
+
+    def custom_close_event(self, event):
+        self.modificar_cliente_ui.close()
+        event.accept()
+
+    def abrir_modificar_cliente(self):
+        tabla = self.main_ui.tabla_cliente
+        row_seleccionada = tabla.currentRow()
+
+        # Si se selecciono una fila, extraigo cada columna
+        if row_seleccionada >= 0:
+            data = [tabla.item(row_seleccionada, col) for col in range(4)]
+            self.cliente_modificado_id = data[0].data(Qt.ItemDataRole.UserRole)
+
+            # Completo los campos de la ventana con los valores en la fila
+            self.modificar_cliente_ui.line_nombre_modificarCliente.setText(data[0].text())
+            self.modificar_cliente_ui.line_apellido_modificarCliente.setText(data[1].text())
+            self.modificar_cliente_ui.line_email_modificarCliente.setText(data[2].text())
+            self.modificar_cliente_ui.line_cuil_modificarCliente.setText(data[3].text())
+
+            # Muestro la ventana
+            self.modificar_cliente_ui.show()
+
     def generar_pdf(self):
         tabla = self.main_ui.tabla_transacciones
         row_seleccionada = tabla.currentRow()
@@ -88,7 +134,7 @@ class VentanaPrincipal(QMainWindow):
             item = tabla.item(row_seleccionada, 0)
 
             if item:
-                id = int(item.text())
+                id = item.data(Qt.ItemDataRole.UserRole)
                 transaccion = Transaccion.get(id)
 
                 generar_pdf(transaccion)
