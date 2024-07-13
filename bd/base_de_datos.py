@@ -29,6 +29,8 @@ class BD:
 
             self.initialized = True
 
+            self.crear_tablas()
+
     def crear_tablas(self):
         # Creación de las tablas
         self.usuario()

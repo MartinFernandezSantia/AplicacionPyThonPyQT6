@@ -7,7 +7,7 @@ class Transaccion(BaseModel):
     table_name = "transaccion"
     update_fields = "id_cliente = ?, valor_final = ?, cuotas = ?, valor_cuota = ?, aumento = ?, fecha_boleto = ?, fecha_primera_cuota = ?"
     get_fields = "id_cliente, valor_final, cuotas, valor_cuota, aumento, fecha_boleto, fecha_primera_cuota, id"
-    order = "fecha_boleto"
+    order = "LOWER(fecha_boleto)"
 
     def __init__(
             self, 

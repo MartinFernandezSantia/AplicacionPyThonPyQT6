@@ -6,6 +6,7 @@ from modelos.cliente import Cliente
 from modelos.transaccion import Transaccion
 from utils.pdf_generador import generar_pdf
 from Front.Login2.loginUi3 import Ui_Form
+from bd.base_de_datos import BD
 
 import sys
 import os
@@ -40,7 +41,7 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui.bt_transacciones_menulateral.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_5gestion_transacciones))
         self.main_ui.bt_pagos_menulateral.clicked.connect(lambda: (
             self.cambiar_pestaña(self.main_ui.page_12lista_pagos),
-            self.actualizar_tabla_pagos()
+            self.abrir_lista_pagos()
             ))
         self.main_ui.bt_salir_menulateral.clicked.connect(lambda: sys.exit())
 
@@ -68,8 +69,7 @@ class VentanaPrincipal(QMainWindow):
 
 
         # Menu Transacciones Buttons
-        self.main_ui.bt_agregar_Transaccion.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_6agregar_transaccion))
-        self.main_ui.bt_modificar_Transaccion.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_7modificar_transaccion))
+        self.main_ui.bt_agregar_Transaccion.clicked.connect(self.abrir_agregar_transaccion)
         self.main_ui.bt_listar_Transaccion.clicked.connect(lambda: (
             self.cambiar_pestaña(self.main_ui.page_8lista_transacciones),
             self.actualizar_tabla_transacciones(Transaccion.get())
@@ -82,15 +82,6 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui.bt_pdf_transaccion.clicked.connect(self.generar_pdf)
 
         # Agregar transacciones
-        for cliente in Cliente.get():
-            # Rellenar ComboBox
-            index = self.main_ui.combobox_cliente.count()
-            self.main_ui.combobox_cliente.addItem(f"{cliente.nombre} {cliente.apellido}")
-            self.main_ui.combobox_cliente.setItemData(index, cliente.id)
-        # Setear campos de fecha a fecha actual
-        self.main_ui.dateEdit_cliente1.setDate(QDate.currentDate())
-        self.main_ui.dateEdit_cliente2.setDate(QDate.currentDate())
-
         self.main_ui.bt_guardar_transaccion.clicked.connect(self.agregar_transaccion)
         self.main_ui.bt_volver_menu_transaccion.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_5gestion_transacciones))        
 
@@ -99,6 +90,21 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui.pushButton_31.clicked.connect(self.actualizar_tabla_pagos)
         
 
+
+    def abrir_agregar_transaccion(self):
+        comboBox = self.main_ui.combobox_cliente
+        comboBox.clear()
+        # Rellenar ComboBox
+        for cliente in Cliente.get():
+            index = self.main_ui.combobox_cliente.count()
+            comboBox.addItem(f"{cliente.nombre} {cliente.apellido}")
+            comboBox.setItemData(index, cliente.id)
+
+        # Setear campos de fecha a fecha actual
+        self.main_ui.dateEdit_cliente1.setDate(QDate.currentDate())
+        self.main_ui.dateEdit_cliente2.setDate(QDate.currentDate())
+
+        self.cambiar_pestaña(self.main_ui.page_6agregar_transaccion)
 
     def actualizar_cliente(self):
         cliente = Cliente.get(self.cliente_modificado_id)
@@ -305,15 +311,6 @@ class VentanaPrincipal(QMainWindow):
         tabla = self.main_ui.tableWidget
         tabla.setRowCount(0)
 
-        # Relleno el comboBox de AÑO
-        años = list(set(int(year[0]) for year in Transaccion.get_años_cuotas()))
-        años.sort()
-
-        comboBox_año = self.main_ui.comboBox_3
-        for año in años:
-            comboBox_año.addItem(str(año))
-        
-
         # Filtros
         estado = self.main_ui.comboBox.currentIndex()
         mes = self.main_ui.comboBox_2.currentIndex() + 1
@@ -345,7 +342,19 @@ class VentanaPrincipal(QMainWindow):
 
             row_counter += tabla.rowCount()
 
+    def abrir_lista_pagos(self):
+        # Relleno el comboBox de AÑO
+        años = list(set(int(year[0]) for year in Transaccion.get_años_cuotas()))
+        años.sort()
 
+        comboBox_año = self.main_ui.comboBox_3
+        comboBox_año.clear()
+
+        for año in años:
+            comboBox_año.addItem(str(año))
+
+        # Muestro lista de pagos
+        self.actualizar_tabla_pagos
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
