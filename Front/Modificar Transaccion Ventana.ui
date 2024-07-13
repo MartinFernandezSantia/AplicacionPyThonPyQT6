@@ -19,6 +19,54 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QLabel {
+    font: 87 12pt &quot;Arial Black&quot;;
+    background-color: #000000;
+    color: rgb(0, 206, 151);
+    border: 0px;
+}
+
+QLineEdit {
+    border: 0px;
+    color: rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(61, 61, 61);
+    font: 75 12pt &quot;Times New Roman&quot;;
+}
+
+
+QPushButton {
+    background-color: rgb(61, 61, 61);
+    border-radius: 15px;
+    color: rgb(255, 255, 255);
+    font: 77 10pt &quot;Arial Black&quot;;
+}
+
+QPushButton:hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+    font: 77 10pt &quot;Arial Black&quot;;
+}
+
+QTableWidget {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    gridline-color: rgb(0, 206, 151);
+    font-size: 12pt;
+    color: #000000;
+}
+
+QHeaderView::section {
+    background-color: rgb(0, 206, 151);
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 12pt;
+}
+
+QTableWidget QTableCornerButton::section {
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 206, 151);
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_67">
     <item>
@@ -40,37 +88,99 @@
 background-color:rgb(0, 0, 0);
 }
 QLineEdit{
-background-color:rgb(0, 0, 0);
-border: 2px solid #00c6ab;
-border-radius: 5px;
-color: rgb(255, 255, 255);
-font: 75 12pt &quot;Times New Roman&quot;;
+border-bottom: 2px solid rgb(61, 61, 61);
+	background-color: white;
+    color: black;
 }
-
 
 QPushButton {
     border: 2px solid #00c6ab; 
 }
 
-QLabel {
-    font: 87 12pt &quot;Arial Black&quot;;
-    background-color: #000000;
-    color: rgb(0, 206, 151);
-    border: 0px;
+QComboBox {
+	background-color: white;
+    color: black;
+	border: 2px solid #00c6ab;
+	border-radius: 5px;  
 }
 
-QPushButton {
-    background-color: rgb(61, 61, 61);
-    border-radius: 15px;
-    color: rgb(255, 255, 255);
-    font: 77 10pt &quot;Arial Black&quot;;
-}
-
-QPushButton:hover {
+QComboBox QAbstractItemView {
     background-color: white;
-    color: rgb(0, 0, 0);
-    font: 77 10pt &quot;Arial Black&quot;;
+    color: black;
 }
+
+QDoubleSpinBox, QSpinBox {
+    background-color: white;
+    color: black;
+	border: 2px solid #00c6ab;
+	border-radius: 5px;  
+}
+
+QSpinBox {
+    background-color: white;
+    color: black;
+	border: 2px solid #00c6ab;
+	border-radius: 5px;  
+}
+
+QDateEdit {
+	background-color: white;
+    color: black;
+	border: 2px solid #00c6ab;
+	border-radius: 5px;  
+}
+
+QLineEdit {
+    border: 2px solid #00c6ab; 
+    border-radius: 5px;  
+}
+
+#Aca cambio el Color de QdateEdit
+
+/* Cambia el color de fondo del desplegable de QDateEdit */
+QDateEdit::drop-down {
+    background-color: white;
+	font-weight: bold;
+}
+
+/* Cambia el color de fondo del QCalendarWidget */
+QCalendarWidget QWidget {
+    background-color: #1777a4;
+	font-weight: bold;
+}
+
+/* Cambia el color de fondo y el color del texto de los campos de año y mes */
+QCalendarWidget QSpinBox {
+    background-color: #1777a4;
+    color: white;
+	font-weight: bold;
+}
+
+/* Cambia el color del texto de los encabezados de los días de la semana */
+QCalendarWidget QTableView QHeaderView::section {
+    color: white; /* Cambia el texto de los días de la semana a negro */
+	font-weight: bold;
+}
+
+/* Cambia el color de fondo de los encabezados de los días de la semana */
+QCalendarWidget QTableView {
+    background-color: #1777a4;
+    color: white; /* Cambia el texto de los días a negro */
+	font-weight: bold;
+}
+
+/* Cambia el color del texto de los días de la semana */
+QCalendarWidget QTableView QHeaderView {
+    color: white; /* Cambia el texto de los días de la semana a negro */
+	font-weight: bold;
+}
+
+/* Cambia el color del texto de los meses y años desplegables */
+QCalendarWidget QComboBox {
+    color: white; /* Cambia el texto de los meses y años a negro */
+	font-weight: bold;
+}rgb(0, 0, 0)
+
 </string>
       </property>
       <property name="frameShape">
@@ -190,7 +300,7 @@ QPushButton:hover {
            <item>
             <widget class="QLabel" name="label_273">
              <property name="text">
-              <string>Cliente ID</string>
+              <string>Cliente</string>
              </property>
             </widget>
            </item>
@@ -244,7 +354,7 @@ QPushButton:hover {
             <number>10</number>
            </property>
            <item>
-            <widget class="QLineEdit" name="lineEdit_78">
+            <widget class="QComboBox" name="comboBox_cliente_modificar_transaccion">
              <property name="minimumSize">
               <size>
                <width>150</width>
@@ -254,7 +364,7 @@ QPushButton:hover {
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_79">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_valor_final_modificar_transaccion">
              <property name="minimumSize">
               <size>
                <width>150</width>
@@ -264,7 +374,7 @@ QPushButton:hover {
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_80">
+            <widget class="QSpinBox" name="spinBox_cuotas_modificar_transaccion">
              <property name="minimumSize">
               <size>
                <width>150</width>
@@ -274,7 +384,13 @@ QPushButton:hover {
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_81">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_2_valor_cuota_modificar_transaccion">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>120</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="minimumSize">
               <size>
                <width>150</width>
@@ -284,7 +400,7 @@ QPushButton:hover {
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_82">
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_3_aumento_modificar_transaccion">
              <property name="minimumSize">
               <size>
                <width>150</width>
@@ -294,17 +410,17 @@ QPushButton:hover {
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_83">
+            <widget class="QDateEdit" name="dateEdit_fecha_boleto_modificar_transaccion">
              <property name="minimumSize">
               <size>
-               <width>150</width>
+               <width>120</width>
                <height>30</height>
               </size>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_84">
+            <widget class="QDateEdit" name="dateEdit_fecha_primera_cuota_modificar_transaccion">
              <property name="minimumSize">
               <size>
                <width>150</width>
@@ -346,7 +462,7 @@ QPushButton:hover {
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_129">
          <item>
-          <widget class="QPushButton" name="pushButton_64">
+          <widget class="QPushButton" name="bt_guardar_modificar_transaccion">
            <property name="minimumSize">
             <size>
              <width>120</width>
@@ -416,7 +532,7 @@ QPushButton:hover {
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_65">
+          <widget class="QPushButton" name="bt_volver_modificar_transaccion">
            <property name="minimumSize">
             <size>
              <width>120</width>
