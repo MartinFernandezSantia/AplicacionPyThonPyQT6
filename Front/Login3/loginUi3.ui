@@ -36,7 +36,23 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton#pushButton{
+    <string notr="true">QPushButton#bt_login_ingreso {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(11, 131, 120, 219), stop:1 rgba(85, 98, 112, 226));
+    color:rgba(255, 255, 255, 210);
+    border-radius:5px;
+}
+
+QPushButton#bt_login_ingreso:hover {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(150, 123, 111, 219), stop:1 rgba(85, 81, 84, 226));
+}
+
+QPushButton#bt_login_ingreso:pressed {
+    padding-left:5px;
+    padding-top:5px;
+    background-color:rgba(150, 123, 111, 255);
+}
+
+QPushButton#pushButton{
 	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(11, 131, 120, 219), stop:1 rgba(85, 98, 112, 226));
 	color:rgba(255, 255, 255, 210);
 	border-radius:5px;
@@ -156,7 +172,7 @@ QLabel{
      <rect>
       <x>290</x>
       <y>80</y>
-      <width>111</width>
+      <width>121</width>
       <height>40</height>
      </rect>
     </property>
@@ -274,7 +290,7 @@ QPushButton#pushButton_2:pressed, #pushButton_3:pressed, #pushButton_4:pressed, 
 }</string>
     </property>
     <property name="text">
-     <string>L O G I N </string>
+     <string>L  O  G  I  N </string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">

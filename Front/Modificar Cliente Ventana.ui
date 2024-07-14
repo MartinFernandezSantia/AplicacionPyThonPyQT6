@@ -129,7 +129,7 @@ QCalendarWidget QComboBox {
       </property>
       <property name="styleSheet">
        <string notr="true">QFrame{
-background-color:rgb(0, 0, 0);
+background-color:black;
 }
 
 QLabel {
@@ -461,9 +461,22 @@ QCalendarWidget QComboBox {
         </spacer>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QPushButton" name="bt_actulizar_tabla">
+          <spacer name="horizontalSpacer_8">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>18</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="bt_actualizar_tabla">
            <property name="minimumSize">
             <size>
              <width>120</width>
@@ -480,7 +493,7 @@ QCalendarWidget QComboBox {
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_5">
+          <spacer name="horizontalSpacer_53">
            <property name="orientation">
             <enum>Qt::Orientation::Horizontal</enum>
            </property>
@@ -520,7 +533,7 @@ QCalendarWidget QComboBox {
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_51">
+          <spacer name="horizontalSpacer_52">
            <property name="orientation">
             <enum>Qt::Orientation::Horizontal</enum>
            </property>
@@ -548,6 +561,19 @@ QCalendarWidget QComboBox {
              <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
            </property>
           </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_51">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>18</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </item>

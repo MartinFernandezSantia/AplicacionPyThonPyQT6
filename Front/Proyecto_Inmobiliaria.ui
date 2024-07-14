@@ -427,7 +427,7 @@ QCalendarWidget QComboBox {
 </string>
                </property>
                <property name="currentIndex">
-                <number>1</number>
+                <number>4</number>
                </property>
                <widget class="QWidget" name="page_8lista_transacciones">
                 <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -620,6 +620,19 @@ QHeaderView::section::horizontal {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_3">
                    <item>
+                    <spacer name="horizontalSpacer_6">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
                     <widget class="QPushButton" name="bt_eliminar_transaccion">
                      <property name="minimumSize">
                       <size>
@@ -726,12 +739,25 @@ QHeaderView::section::horizontal {
                      </property>
                     </widget>
                    </item>
+                   <item>
+                    <spacer name="horizontalSpacer_5">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
                   </layout>
                  </item>
                 </layout>
                </widget>
                <widget class="QWidget" name="page_4eliminar_cliente">
-                <layout class="QVBoxLayout" name="verticalLayout_11">
+                <layout class="QVBoxLayout" name="verticalLayout_9">
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_45">
                    <item>
@@ -971,7 +997,20 @@ QHeaderView::section::horizontal {
                   </widget>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_11">
+                  <layout class="QHBoxLayout" name="horizontalLayout_8">
+                   <item>
+                    <spacer name="horizontalSpacer_10">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
                    <item>
                     <widget class="QPushButton" name="bt_eliminar_cliente_2">
                      <property name="minimumSize">
@@ -1054,6 +1093,19 @@ QHeaderView::section::horizontal {
                        <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_9">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                   </layout>
                  </item>
@@ -1572,7 +1624,7 @@ QHeaderView::section::horizontal {
                 </layout>
                </widget>
                <widget class="QWidget" name="page_6agregar_transaccion">
-                <layout class="QVBoxLayout" name="verticalLayout_23">
+                <layout class="QVBoxLayout" name="verticalLayout_10">
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_37">
                    <item>
@@ -1852,7 +1904,20 @@ QHeaderView::section::horizontal {
                   </spacer>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_19">
+                  <layout class="QHBoxLayout" name="horizontalLayout_9">
+                   <item>
+                    <spacer name="horizontalSpacer_19">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
                    <item>
                     <widget class="QPushButton" name="bt_guardar_transaccion">
                      <property name="minimumSize">
@@ -1883,7 +1948,7 @@ QHeaderView::section::horizontal {
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
-                       <width>117</width>
+                       <width>100</width>
                        <height>27</height>
                       </size>
                      </property>
@@ -1923,7 +1988,7 @@ QHeaderView::section::horizontal {
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
-                       <width>40</width>
+                       <width>100</width>
                        <height>20</height>
                       </size>
                      </property>
@@ -1945,6 +2010,19 @@ QHeaderView::section::horizontal {
                        <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_11">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                   </layout>
                  </item>
@@ -1970,7 +2048,7 @@ QHeaderView::section::horizontal {
                    <item>
                     <widget class="QLabel" name="label_67">
                      <property name="text">
-                      <string>LISTA DE PAGOS </string>
+                      <string>LISTA DE CUOTAS </string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -2246,10 +2324,22 @@ QHeaderView::section::horizontal {
     height: 40px;
 }
 
+QTableWidget::item:selected {
+    background-color: #3498db;  /* Color de fondo de la celda seleccionada */
+    color: #ffffff;  /* Color del texto de la celda seleccionada */
+}
+
+QTableWidget::item:hover {
+    background-color: #2980b9;  /* Color de fondo de la celda cuando el mouse está encima */
+}
+
 </string>
                    </property>
                    <property name="lineWidth">
                     <number>1</number>
+                   </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
                    </property>
                    <property name="rowCount">
                     <number>0</number>
@@ -2397,7 +2487,7 @@ QHeaderView::section::horizontal {
                       </size>
                      </property>
                      <property name="text">
-                      <string>MODIFICAR</string>
+                      <string>PAGO</string>
                      </property>
                      <property name="icon">
                       <iconset>
@@ -2636,6 +2726,19 @@ QHeaderView::section::horizontal {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_6">
                    <item>
+                    <spacer name="horizontalSpacer_36">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
                     <widget class="QPushButton" name="bt_Aceptar_Cliente">
                      <property name="minimumSize">
                       <size>
@@ -2721,6 +2824,19 @@ QHeaderView::section::horizontal {
                        <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_35">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                   </layout>
                  </item>

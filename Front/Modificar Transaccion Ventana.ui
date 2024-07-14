@@ -20,7 +20,9 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QLabel {
+   <string notr="true">
+
+QLabel {
     font: 87 12pt &quot;Arial Black&quot;;
     background-color: #000000;
     color: rgb(0, 206, 151);
@@ -371,6 +373,9 @@ QCalendarWidget QComboBox {
                <height>30</height>
               </size>
              </property>
+             <property name="maximum">
+              <double>99999999999999999322094867436162797646170844194406400.000000000000000</double>
+             </property>
             </widget>
            </item>
            <item>
@@ -380,6 +385,9 @@ QCalendarWidget QComboBox {
                <width>150</width>
                <height>30</height>
               </size>
+             </property>
+             <property name="maximum">
+              <number>999999999</number>
              </property>
             </widget>
            </item>
@@ -397,6 +405,9 @@ QCalendarWidget QComboBox {
                <height>30</height>
               </size>
              </property>
+             <property name="maximum">
+              <double>10000000000000000725314363815292351261583744096465219555182101554790400.000000000000000</double>
+             </property>
             </widget>
            </item>
            <item>
@@ -406,6 +417,9 @@ QCalendarWidget QComboBox {
                <width>150</width>
                <height>30</height>
               </size>
+             </property>
+             <property name="maximum">
+              <double>999999999999999929757289024535551219930759168.000000000000000</double>
              </property>
             </widget>
            </item>
@@ -417,6 +431,9 @@ QCalendarWidget QComboBox {
                <height>30</height>
               </size>
              </property>
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item>
@@ -426,6 +443,9 @@ QCalendarWidget QComboBox {
                <width>150</width>
                <height>30</height>
               </size>
+             </property>
+             <property name="calendarPopup">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
