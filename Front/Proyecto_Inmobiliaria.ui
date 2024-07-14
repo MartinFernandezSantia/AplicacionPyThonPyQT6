@@ -558,6 +558,15 @@ QHeaderView::section {
 
 QHeaderView::section::horizontal {
     height: 40px;
+}
+
+QTableWidget::item:selected {
+    background-color: #3498db;  /* Color de fondo de la celda seleccionada */
+    color: #ffffff;  /* Color del texto de la celda seleccionada */
+}
+
+QTableWidget::item:hover {
+    background-color: #2980b9;  /* Color de fondo de la celda cuando el mouse está encima */
 }</string>
                    </property>
                    <property name="editTriggers">
@@ -900,6 +909,15 @@ QHeaderView::section {
 
 QHeaderView::section::horizontal {
     height: 40px;
+}
+
+QTableWidget::item:selected {
+    background-color: #3498db;  /* Color de fondo de la celda seleccionada */
+    color: #ffffff;  /* Color del texto de la celda seleccionada */
+}
+
+QTableWidget::item:hover {
+    background-color: #2980b9;  /* Color de fondo de la celda cuando el mouse está encima */
 }</string>
                    </property>
                    <property name="midLineWidth">
@@ -948,7 +966,7 @@ QHeaderView::section::horizontal {
                     <number>120</number>
                    </attribute>
                    <attribute name="horizontalHeaderHighlightSections">
-                    <bool>false</bool>
+                    <bool>true</bool>
                    </attribute>
                    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
                     <bool>false</bool>
@@ -2445,7 +2463,7 @@ QTableWidget::item:hover {
                      </property>
                      <property name="styleSheet">
                       <string notr="true">QLabel {
-    font-size: 10px;
+    font-size: 14px;
   
 
 }
