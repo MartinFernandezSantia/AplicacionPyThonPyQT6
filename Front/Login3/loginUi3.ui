@@ -293,22 +293,6 @@ QPushButton#pushButton_2:pressed, #pushButton_3:pressed, #pushButton_4:pressed, 
      <string>L  O  G  I  N </string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>330</y>
-      <width>191</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:rgba(0, 0, 0, 210);</string>
-    </property>
-    <property name="text">
-     <string>Ingrese Usuario y Contraseña</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
