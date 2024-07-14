@@ -427,7 +427,7 @@ QCalendarWidget QComboBox {
 </string>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>1</number>
                </property>
                <widget class="QWidget" name="page_8lista_transacciones">
                 <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -2046,7 +2046,7 @@ QHeaderView::section::horizontal {
                     <widget class="QComboBox" name="comboBox_estado_lista_pagos">
                      <property name="minimumSize">
                       <size>
-                       <width>70</width>
+                       <width>100</width>
                        <height>30</height>
                       </size>
                      </property>
@@ -2086,7 +2086,7 @@ QHeaderView::section::horizontal {
                     <widget class="QComboBox" name="comboBox_mes_lista_pagos">
                      <property name="minimumSize">
                       <size>
-                       <width>70</width>
+                       <width>100</width>
                        <height>30</height>
                       </size>
                      </property>
@@ -2294,7 +2294,20 @@ QHeaderView::section::horizontal {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_7">
                    <item>
-                    <widget class="QPushButton" name="pushButton_34">
+                    <spacer name="horizontalSpacer_32">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButton_35">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -2308,16 +2321,56 @@ QHeaderView::section::horizontal {
                       </size>
                      </property>
                      <property name="text">
-                      <string>ELIMINAR</string>
+                      <string>NO PAGO</string>
                      </property>
                      <property name="icon">
                       <iconset>
-                       <normaloff>img/trash.svg</normaloff>img/trash.svg</iconset>
+                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <spacer name="horizontalSpacer_32">
+                    <spacer name="horizontalSpacer_34">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_281">
+                     <property name="font">
+                      <font>
+                       <family>Arial Black</family>
+                       <pointsize>-1</pointsize>
+                       <italic>false</italic>
+                       <underline>false</underline>
+                       <fontweight></fontweight>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QLabel {
+    font-size: 10px;
+  
+
+}
+</string>
+                     </property>
+                     <property name="text">
+                      <string>Cambiar estado de la Cuota</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignmentFlag::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_51">
                      <property name="orientation">
                       <enum>Qt::Orientation::Horizontal</enum>
                      </property>
@@ -2364,29 +2417,6 @@ QHeaderView::section::horizontal {
                       </size>
                      </property>
                     </spacer>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="pushButton_35">
-                     <property name="minimumSize">
-                      <size>
-                       <width>120</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="sizeIncrement">
-                      <size>
-                       <width>0</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>VOLVER</string>
-                     </property>
-                     <property name="icon">
-                      <iconset>
-                       <normaloff>img/corner-down-left.svg</normaloff>img/corner-down-left.svg</iconset>
-                     </property>
-                    </widget>
                    </item>
                   </layout>
                  </item>
