@@ -98,7 +98,8 @@ class Transaccion(BaseModel):
         
         return None
     
-    def modificar_estado_cuota(self, id_cuota:int, estado:bool):
+    @classmethod
+    def modificar_estado_cuota(cls, id_cuota:int, estado:bool):
         """Actualiza el estado de la cuota con id=id_cuota y si el estado=True\n
         entonces se actualiza la fecha de pago al día de hoy.
         """
@@ -112,8 +113,8 @@ class Transaccion(BaseModel):
                     SET estado = ?, fecha_pago = ?
                     WHERE id = ?;
                 """
-            self.bd.cur.execute(sql, (estado, fecha, id_cuota))
-            self.bd.con.commit()
+            cls.bd.cur.execute(sql, (estado, fecha, id_cuota))
+            cls.bd.con.commit()
             return True
         except sqlite3.Error as e:
             print(f"Database error: {e}")
