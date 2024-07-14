@@ -426,15 +426,15 @@ QPushButton#pushButton_2:pressed, #pushButton_3:pressed, #pushButton_4:pressed, 
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>30</x>
       <y>220</y>
       <width>201</width>
-      <height>50</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>12</pointsize>
       <bold>true</bold>
      </font>
     </property>
@@ -442,7 +442,7 @@ QPushButton#pushButton_2:pressed, #pushButton_3:pressed, #pushButton_4:pressed, 
      <string notr="true">color:rgba(255, 255, 255, 250);</string>
     </property>
     <property name="text">
-     <string>       Sistema Control de Lotes.</string>
+     <string>       Sistema Control</string>
     </property>
    </widget>
   </widget>

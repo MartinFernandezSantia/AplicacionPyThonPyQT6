@@ -427,7 +427,7 @@ QCalendarWidget QComboBox {
 </string>
                </property>
                <property name="currentIndex">
-                <number>4</number>
+                <number>5</number>
                </property>
                <widget class="QWidget" name="page_8lista_transacciones">
                 <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -2229,6 +2229,11 @@ QTableWidget::item:hover {
                      <item>
                       <property name="text">
                        <string>SEPTIMBRE</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>OCTUBRE</string>
                       </property>
                      </item>
                      <item>
