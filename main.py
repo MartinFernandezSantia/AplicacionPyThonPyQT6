@@ -5,6 +5,7 @@ from PyQt6.uic.load_ui import loadUi
 from modelos.usuario import Usuario
 from modelos.cliente import Cliente
 from modelos.transaccion import Transaccion
+from modelos.usuario import Usuario
 
 from utils.pdf_generador import generar_pdf
 from bd.base_de_datos import BD
@@ -22,8 +23,18 @@ class VentanaPrincipal(QMainWindow):
         self.bd = BD()
         self.bd.crear_tablas()
 
+        # Creo usuario vacio
+        try:
+            usuario = Usuario("", "")
+            usuario.crear()
+        except:
+            pass
+
         # Instancias
-        self.login_ui = loadUi(os.path.join("Front", "Login3", "loginUI3.ui"))
+        try:
+            self.login_ui = loadUi(os.path.join("Front", "Login3", "loginUI3.ui"))
+        except:
+            self.login_ui = loadUi(os.path.join("_internal", "Front", "Login3", "loginUI3.ui"))
         self.main_ui = None
         self.modificar_cliente_ui = None
         self.modificar_transaccion_ui = None
@@ -38,7 +49,10 @@ class VentanaPrincipal(QMainWindow):
 
     def inicializar_main_ui(self):
         if self.main_ui is None:
-            self.main_ui = loadUi(os.path.join("Front", "Proyecto_Inmobiliaria.ui"))
+            try:
+                self.main_ui = loadUi(os.path.join("Front", "Proyecto_Inmobiliaria.ui"))
+            except:
+                self.main_ui = loadUi(os.path.join("_internal", "Front", "Proyecto_Inmobiliaria.ui"))
 
         self.main_ui.stackedWidget.setCurrentWidget(self.main_ui.page_1gestion_clientes)
         self.main_ui.closeEvent = lambda event: self.custom_close_event(event)
@@ -94,7 +108,10 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui.pushButton_35.clicked.connect(lambda: self.modificar_pago(False)) 
 
     def inicializar_modificar_cliente(self):
-        self.modificar_cliente_ui = loadUi(os.path.join("Front", "Modificar Cliente Ventana.ui"))
+        try:
+            self.modificar_cliente_ui = loadUi(os.path.join("Front", "Modificar Cliente Ventana.ui"))
+        except:
+            self.modificar_cliente_ui = loadUi(os.path.join("_internal", "Front", "Modificar Cliente Ventana.ui"))
 
         # Botones
         self.modificar_cliente_ui.bt_actualizar_tabla.clicked.connect(self.actualizar_cliente)
@@ -102,7 +119,10 @@ class VentanaPrincipal(QMainWindow):
         self.center_window(self.modificar_cliente_ui)
 
     def inicializar_modificar_transaccion(self):
-        self.modificar_transaccion_ui = loadUi(os.path.join("Front", "Modificar Transaccion Ventana.ui"))
+        try:
+            self.modificar_transaccion_ui = loadUi(os.path.join("Front", "Modificar Transaccion Ventana.ui"))
+        except:
+            self.modificar_transaccion_ui = loadUi(os.path.join("_internal", "Front", "Modificar Transaccion Ventana.ui"))
 
         # Botones
         self.modificar_transaccion_ui.bt_volver_modificar_transaccion.clicked.connect(self.modificar_transaccion_ui.hide)
@@ -135,6 +155,12 @@ class VentanaPrincipal(QMainWindow):
         apellido = self.main_ui.line_apellido_registro_cliente
         telefono = self.main_ui.line_telefono_registro_cliente
         cuit = self.main_ui.line_cuit_registro_cliente
+
+        try:
+            int_cuit = int(cuit.text())
+        except:
+            QMessageBox.critical(self, "Error", "El CUIT del cliente debe ser un numero entero.")
+            return
 
         nuevo_cliente = Cliente(nombre.text(), apellido.text(), cuit.text(), telefono.text() if telefono.text() != "" else None)
 
@@ -174,7 +200,11 @@ class VentanaPrincipal(QMainWindow):
         cliente.nombre = self.modificar_cliente_ui.line_nombre_modificarCliente.text()
         cliente.apellido = self.modificar_cliente_ui.line_apellido_modificarCliente.text()
         cliente.telefono = self.modificar_cliente_ui.line_email_modificarCliente.text()
-        cliente.cuit = int(self.modificar_cliente_ui.line_cuil_modificarCliente.text())
+        try:
+            cliente.cuit = int(self.modificar_cliente_ui.line_cuil_modificarCliente.text())
+        except:
+            QMessageBox.critical(self, "Error", "El CUIT del cliente debe ser un numero entero.")
+            return
         
         if Cliente.modificar(cliente) == True:
             QMessageBox.information(self, "Éxito", "Se han actualizado los datos del cliente.")

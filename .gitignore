@@ -6,3 +6,6 @@ database.db
 settings.json
 
 PDFs/**
+build
+dist
+main.spec

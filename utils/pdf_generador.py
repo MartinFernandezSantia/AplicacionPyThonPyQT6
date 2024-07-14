@@ -1,6 +1,7 @@
 from fpdf import FPDF, XPos, YPos
 import os
 import pathlib
+import sys
 from modelos.transaccion import Transaccion
 from modelos.cliente import Cliente
 from bd.base_de_datos import BD
@@ -10,8 +11,17 @@ def generar_pdf(transaccion: Transaccion):
     bd = BD()
     cur = bd.cur
 
+    # Determine the base directory
+    if getattr(sys, 'frozen', False):
+        # If the application is run as a bundle, the PyInstaller bootloader
+        # extends the sys module by a flag frozen=True and sets the app
+        # path into variable sys._MEIPASS'.
+        base_dir = pathlib.Path(sys._MEIPASS).resolve()
+    else:
+        base_dir = pathlib.Path(__file__).parent.parent.resolve()
+
     # Ruta del directorio actual
-    DIR = pathlib.Path(__file__).parent.parent.resolve()
+    DIR = base_dir
 
     # Obtener información del cliente
     cliente = Cliente.get(transaccion.id_cliente)
@@ -101,11 +111,16 @@ def generar_pdf(transaccion: Transaccion):
                     row4.cell("", align="C")
 
     # Crear carpeta para PDF
-    if not os.path.exists(os.path.join(DIR, "PDFs")):
-        os.makedirs(os.path.join(DIR, "PDFs"))
+    # if not os.path.exists(os.path.join(DIR, "PDFs")):
+    #     os.makedirs(os.path.join(DIR, "PDFs"))
+
+    output_folder = "PDFs"
+
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
 
     # Guardar el PDF
-    pdf.output(os.path.join(DIR, "PDFs", f"{año_cuota}-{mes}-{nombre_completo}.pdf"))
+    pdf.output(os.path.join(output_folder, f"{año_cuota}-{mes}-{nombre_completo}.pdf"))
 
 if __name__ == "__main__":
     tran = Transaccion(1, 256000, 81, 3000, 300, datetime.datetime.now(), datetime.datetime.now(), 1)
