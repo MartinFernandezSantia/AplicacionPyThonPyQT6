@@ -100,6 +100,10 @@ def generar_pdf(transaccion: Transaccion):
                     row3.cell("", align="C")
                     row4.cell("", align="C")
 
+    # Crear carpeta para PDF
+    if not os.path.exists(os.path.join(DIR, "PDFs")):
+        os.makedirs(os.path.join(DIR, "PDFs"))
+
     # Guardar el PDF
     pdf.output(os.path.join(DIR, "PDFs", f"{año_cuota}-{mes}-{nombre_completo}.pdf"))
 
