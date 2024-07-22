@@ -358,28 +358,35 @@ QCalendarWidget QComboBox {
            <item>
             <widget class="QLabel" name="label_12">
              <property name="text">
-              <string>NOMBRE</string>
+              <string>Nombre</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_10">
              <property name="text">
-              <string>APELLIDO</string>
+              <string>Apellido</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_16">
              <property name="text">
-              <string>TELEFONO</string>
+              <string>Telefono</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Nomenclatura</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_11">
              <property name="text">
-              <string>CUIT</string>
+              <string>Cuit</string>
              </property>
             </widget>
            </item>
@@ -412,6 +419,16 @@ QCalendarWidget QComboBox {
            </item>
            <item>
             <widget class="QLineEdit" name="line_email_modificarCliente">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>30</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="line_nomenclatura_modificarCliente">
              <property name="minimumSize">
               <size>
                <width>150</width>

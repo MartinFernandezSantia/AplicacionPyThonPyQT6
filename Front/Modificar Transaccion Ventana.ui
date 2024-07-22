@@ -191,7 +191,7 @@ QCalendarWidget QComboBox {
       <property name="frameShadow">
        <enum>QFrame::Shadow::Raised</enum>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_104">
+      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_127">
          <item>
@@ -335,6 +335,13 @@ QCalendarWidget QComboBox {
             </widget>
            </item>
            <item>
+            <widget class="QLabel" name="label_280">
+             <property name="text">
+              <string>Punitorio</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QLabel" name="label_278">
              <property name="text">
               <string>Fecha de Boleto</string>
@@ -412,6 +419,19 @@ QCalendarWidget QComboBox {
            </item>
            <item>
             <widget class="QDoubleSpinBox" name="doubleSpinBox_3_aumento_modificar_transaccion">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maximum">
+              <double>999999999999999929757289024535551219930759168.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_3_punitorio_modificar_transaccion">
              <property name="minimumSize">
               <size>
                <width>150</width>
