@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>979</width>
+    <width>1031</width>
     <height>742</height>
    </rect>
   </property>
@@ -454,7 +454,7 @@ QCalendarWidget QComboBox {
 </string>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>3</number>
                </property>
                <widget class="QWidget" name="page_8lista_transacciones">
                 <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -984,7 +984,17 @@ QTableWidget::item:hover {
                    </column>
                    <column>
                     <property name="text">
+                     <string>TRANSACCION</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
                      <string>CIRCUNSCRIPCION</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>NOMBRE DE LOTE</string>
                     </property>
                    </column>
                   </widget>
@@ -1453,7 +1463,7 @@ QTableWidget::item:hover {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>156</height>
+                     <height>126</height>
                     </size>
                    </property>
                   </spacer>
@@ -1485,6 +1495,13 @@ QTableWidget::item:hover {
                       <widget class="QLabel" name="label_26">
                        <property name="text">
                         <string>NOMBRE DE LOTE</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_160">
+                       <property name="text">
+                        <string>TRANSACCION</string>
                        </property>
                       </widget>
                      </item>
@@ -1534,12 +1551,28 @@ QTableWidget::item:hover {
                       </widget>
                      </item>
                      <item>
+                      <widget class="QSpinBox" name="QsinBox_transaccion_agregar_lote_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="maximum">
+                        <number>999999999</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="QSpinBox" name="QsinBox_curcunscripcion_agregar_lote">
                        <property name="minimumSize">
                         <size>
                          <width>150</width>
                          <height>30</height>
                         </size>
+                       </property>
+                       <property name="maximum">
+                        <number>999999999</number>
                        </property>
                       </widget>
                      </item>
@@ -1560,6 +1593,9 @@ QTableWidget::item:hover {
                          <width>150</width>
                          <height>30</height>
                         </size>
+                       </property>
+                       <property name="maximum">
+                        <number>999999999</number>
                        </property>
                       </widget>
                      </item>
@@ -1598,7 +1634,7 @@ QTableWidget::item:hover {
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>156</height>
+                     <height>126</height>
                     </size>
                    </property>
                   </spacer>
@@ -1689,7 +1725,7 @@ QTableWidget::item:hover {
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_volver_cliente_4">
+                    <widget class="QPushButton" name="bt_volver_registrolote">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -3696,7 +3732,7 @@ QTableWidget::item:hover {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="line_cuit_registro_cliente_2">
+                      <widget class="QLineEdit" name="line_cuit_nomenclatura_cliente">
                        <property name="minimumSize">
                         <size>
                          <width>120</width>
