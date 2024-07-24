@@ -20,7 +20,14 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
+   <string notr="true">QMainWindow {
+    background-color: black;
+border: 2px solid rgba(2, 210, 3, 0.5)
+}
+
+Qframe{
+border: 2px solid rgba(2, 210, 3, 0.5);
+}
 
 QLabel {
     font: 87 12pt &quot;Arial Black&quot;;
@@ -79,10 +86,16 @@ QTableWidget QTableCornerButton::section {
         <height>450</height>
        </size>
       </property>
-      <property name="sizeIncrement">
+      <property name="maximumSize">
        <size>
         <width>600</width>
         <height>450</height>
+       </size>
+      </property>
+      <property name="sizeIncrement">
+       <size>
+        <width>0</width>
+        <height>0</height>
        </size>
       </property>
       <property name="styleSheet">
