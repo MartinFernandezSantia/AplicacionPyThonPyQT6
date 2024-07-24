@@ -307,6 +307,13 @@ QCalendarWidget QComboBox {
             </widget>
            </item>
            <item>
+            <widget class="QLabel" name="label_282">
+             <property name="text">
+              <string>Lote</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QLabel" name="label_274">
              <property name="text">
               <string>Valor Final</string>
@@ -364,6 +371,16 @@ QCalendarWidget QComboBox {
            </property>
            <item>
             <widget class="QComboBox" name="comboBox_cliente_modificar_transaccion">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>30</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_lote_modificar_transaccion">
              <property name="minimumSize">
               <size>
                <width>150</width>
