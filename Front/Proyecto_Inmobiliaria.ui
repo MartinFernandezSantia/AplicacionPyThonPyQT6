@@ -781,7 +781,7 @@ QTableWidget::item:hover {
                      </property>
                      <property name="icon">
                       <iconset>
-                       <normaloff>img/file-text.svg</normaloff>img/file-text.svg</iconset>
+                       <normaloff>img/file-plus.svg</normaloff>img/file-plus.svg</iconset>
                      </property>
                     </widget>
                    </item>
