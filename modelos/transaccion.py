@@ -5,18 +5,19 @@ import sqlite3
 
 class Transaccion(BaseModel):
     table_name = "transaccion"
-    update_fields = "id_cliente = ?, valor_final = ?, cuotas = ?, valor_cuota = ?, aumento = ?, fecha_boleto = ?, fecha_primera_cuota = ?"
-    get_fields = "id_cliente, valor_final, cuotas, valor_cuota, aumento, fecha_boleto, fecha_primera_cuota, id"
+    update_fields = "id_cliente = ?, id_lote = ?, valor_final = ?, cuotas = ?, valor_cuota = ?, aumento = ?, punitorio = ?, fecha_boleto = ?, fecha_primera_cuota = ?"
+    get_fields = "id_cliente, id_lote, valor_final, cuotas, valor_cuota, aumento, punitorio, fecha_boleto, fecha_primera_cuota, id"
     order = "LOWER(fecha_boleto)"
 
     def __init__(
             self, 
             id_cliente:int, 
-            # id_lote:int,
+            id_lote:int,
             valor_final:float, 
             cuotas:int, 
             valor_cuota:float,
             aumento:float,
+            punitorio:float,
             fecha_boleto,
             fecha_primera_cuota,
             id: int = None
@@ -24,11 +25,12 @@ class Transaccion(BaseModel):
         """fecha_boleto y fecha_primera_cuota deben ser datetime.datetime.date()."""
         self.id = id
         self.id_cliente = id_cliente
-        # self.id_lote = id_lote
+        self.id_lote = id_lote
         self.valor_final = valor_final
         self.valor_cuota = valor_cuota
         self.cuotas = cuotas
         self.aumento = aumento
+        self.punitorio = punitorio
         self.fecha_boleto = fecha_boleto
         self.fecha_primera_cuota = fecha_primera_cuota
 
@@ -36,26 +38,28 @@ class Transaccion(BaseModel):
         """Guardar datos de la instancia en la BD"""
 
         cliente = self.bd.cur.execute("SELECT * FROM cliente WHERE id = ?", (self.id_cliente,)).fetchone()
-        # lote = self.bd.cur.execute("SELECT * FROM lote WHERE id = ?", (self.id_lote,)).fetchone()
+        lote = self.bd.cur.execute("SELECT * FROM lote WHERE id = ?", (self.id_lote,)).fetchone()
 
         # Chequeo si el cliente y lote asignados a la transaccion existen
-        if cliente is None: # or lote is None:
-            raise ValueError("El cliente seleccionado no existen.")
+        if cliente is None or lote is None:
+            raise ValueError("El cliente y/o lote seleccionado no existe.")
 
         if self.id == None:
             sql = """INSERT INTO transaccion (
-                        id_cliente, 
+                        id_cliente,
+                        id_lote,
                         valor_final, 
                         cuotas, 
                         valor_cuota, 
-                        aumento, 
+                        aumento,
+                        punitorio,
                         fecha_boleto, 
                         fecha_primera_cuota
                         ) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?)"""
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"""
             self.bd.cur.execute(
                 sql, 
-                (self.id_cliente, self.valor_final, self.cuotas, self. valor_cuota, self.aumento, self.fecha_boleto, self.fecha_primera_cuota)
+                (self.id_cliente, self.id_lote, self.valor_final, self.cuotas, self. valor_cuota, self.aumento, self.punitorio, self.fecha_boleto, self.fecha_primera_cuota)
                 )
             self.id = self.bd.cur.lastrowid
             self.bd.con.commit()
@@ -67,7 +71,7 @@ class Transaccion(BaseModel):
         return False
     
     def update_values(self):
-        return [self.id_cliente, self.valor_final, self.cuotas, self.valor_cuota, self.aumento, self.fecha_boleto, self.fecha_primera_cuota]
+        return [self.id_cliente, self.id_lote, self.valor_final, self.cuotas, self.valor_cuota, self.aumento, self.punitorio, self.fecha_boleto, self.fecha_primera_cuota]
     
     def agregar_cuotas(self):
         transaccion = self.bd.cur.execute("SELECT * FROM transaccion WHERE id = ?", (self.id,)).fetchone()
@@ -147,14 +151,3 @@ if __name__ == "__main__":
     # Creamos transaccion
     tran = Transaccion(15, 256000, 12, 20000, 500, hoy, hoy, 1)
     # tran.crear()
-    for i in range(2, 10):
-        tran.modificar_estado_cuota(i, False)
-
-    # # La modificamos
-    # tran.aumento = 450
-    # Transaccion.modificar(tran)
-
-    # print(Transaccion.get(1).aumento)
-
-    # # La eliminamos
-    # tran.eliminar(tran.id)

@@ -6,8 +6,9 @@ from modelos.usuario import Usuario
 from modelos.cliente import Cliente
 from modelos.transaccion import Transaccion
 from modelos.usuario import Usuario
+from modelos.lote import Lote
 
-from utils.pdf_generador import generar_pdf
+from utils.pdf_generador import pdf_cuotas
 from bd.base_de_datos import BD
 
 from datetime import datetime
@@ -38,6 +39,7 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui = None
         self.modificar_cliente_ui = None
         self.modificar_transaccion_ui = None
+        self.modificar_lote_ui = None
 
         # Login buttons
         self.login_ui.bt_login_ingreso.clicked.connect(self.login)
@@ -60,6 +62,7 @@ class VentanaPrincipal(QMainWindow):
 
         # Main UI menu lateral buttons
         self.main_ui.bt_registrar_menulateral.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_1gestion_clientes))
+        self.main_ui.bt_lotes_menulateral.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_14gestion_lote))
         self.main_ui.bt_transacciones_menulateral.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_5gestion_transacciones))
         self.main_ui.bt_pagos_menulateral.clicked.connect(lambda: (
             self.cambiar_pestaña(self.main_ui.page_12lista_pagos),
@@ -83,6 +86,24 @@ class VentanaPrincipal(QMainWindow):
         # Agregar cliente
         self.main_ui.bt_Aceptar_Cliente.clicked.connect(self.agregar_cliente)
         self.main_ui.bt_volver_cliente.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_1gestion_clientes))
+
+
+        # Menu Lotes Buttons
+        self.main_ui.bt_agregar_lote.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_14_agregar_lotes))
+        self.main_ui.bt_listar_lote.clicked.connect(lambda: (
+            self.actualizar_tabla_lotes(Lote.get()),
+            self.cambiar_pestaña(self.main_ui.page_13lista_lotes)
+            ))
+
+        # Agregar lote
+        self.main_ui.bt_Aceptar_Cliente_4.clicked.connect(self.agregar_lote)
+        self.main_ui.bt_volver_registrolote.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_14_agregar_lotes))
+
+        # Lista de lotes
+        self.main_ui.bt_eliminar_lote.clicked.connect(lambda: self.eliminar_row(self.main_ui.tabla_lotes, Lote))
+        self.main_ui.bt_volver_lote.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_14gestion_lote))
+        self.main_ui.bt_modificar_lote.clicked.connect(self.abrir_modificar_lote)
+
 
         # Menu Transacciones Buttons
         self.main_ui.bt_agregar_Transaccion.clicked.connect(self.abrir_agregar_transaccion)
@@ -131,6 +152,18 @@ class VentanaPrincipal(QMainWindow):
         # Centrar
         self.center_window(self.modificar_transaccion_ui)
 
+    def inicializar_modificar_lote(self):
+        try:
+            self.modificar_lote_ui = loadUi(os.path.join("Front", "Modificar Lote Ventana.ui"))
+        except:
+            self.modificar_lote_ui = loadUi(os.path.join("_internal", "Front", "Modificar Lote Ventana.ui"))
+
+        # Botones
+        self.modificar_lote_ui.bt_volver_modificar_lote.clicked.connect(self.modificar_lote_ui.hide)
+        self.modificar_lote_ui.bt_actualizar_tabla_lote.clicked.connect(self.actualizar_lote)
+
+        # Centrar
+        self.center_window(self.modificar_lote_ui)
 
     def login(self):
         # Inicio sesión
@@ -155,6 +188,7 @@ class VentanaPrincipal(QMainWindow):
         apellido = self.main_ui.line_apellido_registro_cliente
         telefono = self.main_ui.line_telefono_registro_cliente
         cuit = self.main_ui.line_cuit_registro_cliente
+        nomenclatura = self.main_ui.line_cuit_nomenclatura_cliente
 
         try:
             int_cuit = int(cuit.text())
@@ -162,14 +196,23 @@ class VentanaPrincipal(QMainWindow):
             QMessageBox.critical(self, "Error", "El CUIT del cliente debe ser un numero entero.")
             return
 
-        nuevo_cliente = Cliente(nombre.text(), apellido.text(), cuit.text(), telefono.text() if telefono.text() != "" else None)
 
+        nuevo_cliente = Cliente(
+            nombre.text(), 
+            apellido.text(), 
+            cuit.text(), 
+            telefono.text() if telefono.text() != "" else None,
+            nomenclatura.text() if nomenclatura.text() != "" else None
+            )
+
+        # Creo al cliente y limpio los campos
         if nuevo_cliente.crear() == True:
             QMessageBox.information(self, "Éxito", f"{nuevo_cliente.nombre} {nuevo_cliente.apellido} ha sido agregado exitosamente.")
             nombre.clear()
             apellido.clear()
             telefono.clear()
             cuit.clear()
+            nomenclatura.clear()
         else:
             QMessageBox.critical(self, "Error al crear cliente", "Un cliente con el CUIT proporcionado ya existe.")
 
@@ -182,14 +225,15 @@ class VentanaPrincipal(QMainWindow):
 
         # Si se selecciono una fila, extraigo cada columna
         if row_seleccionada >= 0:
-            data = [tabla.item(row_seleccionada, col) for col in range(4)]
+            data = [tabla.item(row_seleccionada, col) for col in range(5)]
             self.cliente_modificado_id = data[0].data(Qt.ItemDataRole.UserRole)
 
             # Completo los campos de la ventana con los valores en la fila
             self.modificar_cliente_ui.line_nombre_modificarCliente.setText(data[0].text())
             self.modificar_cliente_ui.line_apellido_modificarCliente.setText(data[1].text())
             self.modificar_cliente_ui.line_email_modificarCliente.setText(data[2].text())
-            self.modificar_cliente_ui.line_cuil_modificarCliente.setText(data[3].text())
+            self.modificar_cliente_ui.line_nomenclatura_modificarCliente.setText(data[3].text())
+            self.modificar_cliente_ui.line_cuil_modificarCliente.setText(data[4].text())
 
             # Muestro la ventana
             self.modificar_cliente_ui.show()
@@ -200,6 +244,7 @@ class VentanaPrincipal(QMainWindow):
         cliente.nombre = self.modificar_cliente_ui.line_nombre_modificarCliente.text()
         cliente.apellido = self.modificar_cliente_ui.line_apellido_modificarCliente.text()
         cliente.telefono = self.modificar_cliente_ui.line_email_modificarCliente.text()
+        cliente.nomenclatura = self.modificar_cliente_ui.line_nomenclatura_modificarCliente.text()
         try:
             cliente.cuit = int(self.modificar_cliente_ui.line_cuil_modificarCliente.text())
         except:
@@ -220,7 +265,7 @@ class VentanaPrincipal(QMainWindow):
 
         # Por cada cliente actualizo de una en una las filas de la tabla
         for row, cliente in enumerate(clientes):
-            data = [cliente.nombre, cliente.apellido, "-" if cliente.telefono == None else cliente.telefono, cliente.cuit]
+            data = [cliente.nombre, cliente.apellido, "-" if cliente.telefono == None else cliente.telefono, cliente.nomenclatura, cliente.cuit]
             self.setRowData(row, data, tabla, cliente.id)
 
     def buscar_clientes(self):
@@ -232,13 +277,23 @@ class VentanaPrincipal(QMainWindow):
 
 
     def abrir_agregar_transaccion(self):
-        comboBox = self.main_ui.combobox_cliente
-        comboBox.clear()
-        # Rellenar ComboBox
+        # Rellenar ComboBox de los clientes
+        comboBox_cliente = self.main_ui.combobox_cliente
+        comboBox_cliente.clear()
+        
         for cliente in Cliente.get():
-            index = self.main_ui.combobox_cliente.count()
-            comboBox.addItem(f"{cliente.nombre} {cliente.apellido}")
-            comboBox.setItemData(index, cliente.id)
+            index = comboBox_cliente.count()
+            comboBox_cliente.addItem(f"{cliente.nombre} {cliente.apellido}")
+            comboBox_cliente.setItemData(index, cliente.id)
+
+        # Rellenar ComboBox de los lotes
+        comboBox_lote = self.main_ui.combobox_lote
+        comboBox_lote.clear()
+
+        for lote in Lote.get():
+            index = comboBox_lote.count()
+            comboBox_lote.addItem(f"{lote.nombre}")
+            comboBox_lote.setItemData(index, lote.id)
 
         # Setear campos de fecha a fecha actual
         self.main_ui.dateEdit_cliente1.setDate(QDate.currentDate())
@@ -248,29 +303,35 @@ class VentanaPrincipal(QMainWindow):
 
     def agregar_transaccion(self):
         id_cliente = self.main_ui.combobox_cliente.itemData(self.main_ui.combobox_cliente.currentIndex())
+        id_lote = self.main_ui.combobox_lote.itemData(self.main_ui.combobox_lote.currentIndex())
         valor_final = self.main_ui.doubleSpinBox_cliente1
         cuotas = self.main_ui.spinBox_2_cliente
         valor_cuota = self.main_ui.doubleSpinBox_cliente2
         aumento = self.main_ui.doubleSpinBox_cliente3
+        punitorio = self.main_ui.doubleSpinBox_cliente4
         fecha_boleto = self.main_ui.dateEdit_cliente1
         fecha_primera_cuota = self.main_ui.dateEdit_cliente2
 
         nueva_transaccion = Transaccion(
-            id_cliente, 
+            id_cliente,
+            id_lote,
             valor_final.value(), 
             cuotas.value(), 
             valor_cuota.value(), 
             aumento.value(),
+            punitorio.value(),
             fecha_boleto.date().toPyDate(),
             fecha_primera_cuota.date().toPyDate()
             )
         if nueva_transaccion.crear() == True:
             QMessageBox.information(self, "Éxito", "Se ha agregado la transacción exitosamente.")
             self.main_ui.combobox_cliente.setCurrentIndex(0)
+            self.main_ui.combobox_lote.setCurrentIndex(0)
             valor_final.setValue(0)
             cuotas.setValue(0)
             valor_cuota.setValue(0)
             aumento.setValue(0)
+            punitorio.setValue(0)
             fecha_boleto.setDate(QDate.currentDate())
             fecha_primera_cuota.setDate(QDate.currentDate())
         else:
@@ -285,21 +346,33 @@ class VentanaPrincipal(QMainWindow):
 
         # Si se selecciono una fila, extraigo cada columna
         if row_seleccionada >= 0:
-            data = [tabla.item(row_seleccionada, col) for col in range(5)]
+            data = [tabla.item(row_seleccionada, col) for col in range(6)]
             self.transaccion_modificada_id = data[0].data(Qt.ItemDataRole.UserRole)
             transaccion = Transaccion.get(self.transaccion_modificada_id)
 
-            # Relleno el comboBox y selecciono la opcion acorde con el valor de la fila seleccionada
-            comboBox = self.modificar_transaccion_ui.comboBox_cliente_modificar_transaccion
-            comboBox.clear()
+            # Relleno comboBox clientes
+            comboBox_cliente = self.modificar_transaccion_ui.comboBox_cliente_modificar_transaccion
+            comboBox_cliente.clear()
 
             for cliente in Cliente.get():
-                index = comboBox.count()
-                comboBox.addItem(f"{cliente.nombre} {cliente.apellido}")
-                comboBox.setItemData(index, cliente.id)
+                index = comboBox_cliente.count()
+                comboBox_cliente.addItem(f"{cliente.nombre} {cliente.apellido}")
+                comboBox_cliente.setItemData(index, cliente.id)
 
-            index = comboBox.findText(data[0].text())
-            comboBox.setCurrentIndex(index)
+            index = comboBox_cliente.findText(data[0].text())
+            comboBox_cliente.setCurrentIndex(index)
+
+            # Relleno comboBox lote
+            comboBox_lote = self.modificar_transaccion_ui.comboBox_lote_modificar_transaccion
+            comboBox_lote.clear()
+
+            for lote in Lote.get():
+                index = comboBox_lote.count()
+                comboBox_lote.addItem(lote.nombre)
+                comboBox_lote.setItemData(index, lote.id)
+
+            index = comboBox_lote.findText(data[1].text())
+            comboBox_lote.setCurrentIndex(index)
 
             # Completo el resto de los campos con los valores de la fila seleccionada
             self.modificar_transaccion_ui.doubleSpinBox_valor_final_modificar_transaccion.setValue(transaccion.valor_final)
@@ -317,9 +390,11 @@ class VentanaPrincipal(QMainWindow):
     def actualizar_transaccion(self):
         transaccion = Transaccion.get(self.transaccion_modificada_id)
 
-        index_comboBox = self.modificar_transaccion_ui.comboBox_cliente_modificar_transaccion.currentIndex()
+        index_comboBox_cliente = self.modificar_transaccion_ui.comboBox_cliente_modificar_transaccion.currentIndex()
+        index_comboBox_lote = self.modificar_transaccion_ui.comboBox_lote_modificar_transaccion.currentIndex()
 
-        transaccion.id_cliente = self.modificar_transaccion_ui.comboBox_cliente_modificar_transaccion.itemData(index_comboBox)
+        transaccion.id_cliente = self.modificar_transaccion_ui.comboBox_cliente_modificar_transaccion.itemData(index_comboBox_cliente)
+        transaccion.id_lote = self.modificar_transaccion_ui.comboBox_lote_modificar_transaccion.itemData(index_comboBox_lote)
         transaccion.valor_final = self.modificar_transaccion_ui.doubleSpinBox_valor_final_modificar_transaccion.value()
         transaccion.cuotas = self.modificar_transaccion_ui.spinBox_cuotas_modificar_transaccion.value()
         transaccion.valor_cuota = self.modificar_transaccion_ui.doubleSpinBox_2_valor_cuota_modificar_transaccion.value()
@@ -342,8 +417,17 @@ class VentanaPrincipal(QMainWindow):
         # Por cada transaccion actualizo de una en una las filas de la tabla
         for row, transaccion in enumerate(transacciones):
             cliente = Cliente.get(transaccion.id_cliente)
+            lote = Lote.get(transaccion.id_lote)
             nombre_completo = f"{cliente.nombre} {cliente.apellido}"
-            data = [nombre_completo, transaccion.valor_final, transaccion.cuotas, transaccion.aumento, transaccion.valor_cuota]
+            data = [
+                nombre_completo,
+                lote.nombre,
+                transaccion.valor_final, 
+                transaccion.cuotas, 
+                transaccion.aumento,
+                transaccion.punitorio,
+                transaccion.valor_cuota
+                ]
 
             self.setRowData(row, data, tabla, transaccion.id)
         
@@ -441,6 +525,83 @@ class VentanaPrincipal(QMainWindow):
             self.actualizar_tabla_pagos()
 
 
+    def agregar_lote(self):
+        nombre = self.main_ui.line_nombrelote_agregar_lote
+        circun = self.main_ui.QsinBox_curcunscripcion_agregar_lote
+        seccion = self.main_ui.line_seccion_agregar_lote
+        manzana = self.main_ui.QspinBox_manzana_agregar_lote
+        parcela = self.main_ui.line_parcela_agregar_lote
+
+        nuevo_lote = Lote(nombre.text(), circun.value(), seccion.text(), manzana.value(), parcela.text())
+
+        # Creo el lote y limpio los campos
+        if nuevo_lote.crear() == True:
+            QMessageBox.information(self, "Éxito", f"Se ha agregado un lote exitosamente.")
+            nombre.clear()
+            circun.setValue(0)
+            seccion.clear()
+            manzana.setValue(0)
+            parcela.clear()
+        else:
+            QMessageBox.critical(self, "Error al crear el lote", "Un lote con el nombre proporcionado ya existe.")
+
+    def actualizar_tabla_lotes(self, lotes):
+        tabla = self.main_ui.tabla_lotes
+        tabla.setRowCount(0)
+
+        for row, lote in enumerate(lotes):
+
+            data = [
+                lote.nombre,
+                lote.parcela,
+                lote.manzana,
+                lote.seccion,
+                lote.circun
+                ]
+
+            self.setRowData(row, data, tabla, lote.id)
+
+    def abrir_modificar_lote(self):
+        if self.modificar_lote_ui is None:
+            self.inicializar_modificar_lote()
+
+        tabla = self.main_ui.tabla_lotes
+        row_seleccionada = tabla.currentRow()
+
+        # Si se selecciono una fila, extraigo cada columna
+        if row_seleccionada >= 0:
+            print(1)
+            data = [tabla.item(row_seleccionada, col) for col in range(5)]
+            self.lote_modificado_id = data[0].data(Qt.ItemDataRole.UserRole)
+            lote = Lote.get(self.lote_modificado_id)
+            print(2)
+            
+            # self.modificar_lote_ui.line_nombrelote_modificarlote.setText(lote.nombre)
+            # self.modificar_lote_ui.line_parcela_modificarlote.setText(lote.parcela)
+            # self.modificar_lote_ui.line_circunscripcion_modificarlote.setValue(lote.circun)
+            # self.modificar_lote_ui.line_manzana_modificarlote.setValue(lote.manzana)
+            # self.modificar_lote_ui.line_seccion_modificarlote.setValue(lote.seccion)
+            print(3)
+
+            self.modificar_lote_ui.show()
+
+    def actualizar_lote(self):
+        lote = Lote.get(self.lote_modificado_id)
+
+        lote.nombre = self.modificar_lote_ui.line_nombrelote_modificarlote.text()
+        lote.parcela = self.modificar_lote_ui.line_parcela_modificarlote.text()
+        lote.circun = self.modificar_lote_ui.line_circunscripcion_modificarlote.value()
+        lote.manzana = self.modificar_lote_ui.line_manzana_modificarlote.value()
+        lote.seccion = self.modificar_lote_ui.line_seccion_modificarlote.value()
+
+
+        if Lote.modificar(lote) == True:
+            QMessageBox.information(self, "Éxito", "Se han actualizado los datos del lote.")
+            self.actualizar_tabla_lotes(Lote.get())
+            self.modificar_lote_ui.hide()
+        else:
+            QMessageBox.critical(self, "Error", "Ha habido un error al intentar modificar el lote.")
+
     def custom_close_event(self, event):
         self.login_ui.close()
         self.modificar_cliente_ui.close()
@@ -496,7 +657,7 @@ class VentanaPrincipal(QMainWindow):
                 id = item.data(Qt.ItemDataRole.UserRole)
                 transaccion = Transaccion.get(id)
 
-                generar_pdf(transaccion)
+                pdf_cuotas(transaccion)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
