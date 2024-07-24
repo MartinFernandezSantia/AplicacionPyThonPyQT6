@@ -1024,11 +1024,6 @@ QTableWidget::item:hover {
                    </column>
                    <column>
                     <property name="text">
-                     <string>TRANSACCION</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
                      <string>CIRCUNSCRIPCION</string>
                     </property>
                    </column>
