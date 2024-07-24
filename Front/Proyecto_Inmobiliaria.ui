@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1031</width>
+    <width>1117</width>
     <height>742</height>
    </rect>
   </property>
@@ -454,7 +454,7 @@ QCalendarWidget QComboBox {
 </string>
                </property>
                <property name="currentIndex">
-                <number>3</number>
+                <number>8</number>
                </property>
                <widget class="QWidget" name="page_8lista_transacciones">
                 <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -629,6 +629,11 @@ QTableWidget::item:hover {
                    <column>
                     <property name="text">
                      <string>CLIENTE</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>LOTE</string>
                     </property>
                    </column>
                    <column>
@@ -969,6 +974,11 @@ QTableWidget::item:hover {
                    </attribute>
                    <column>
                     <property name="text">
+                     <string>NOMBRE DE LOTE</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
                      <string>PARCELA</string>
                     </property>
                    </column>
@@ -990,11 +1000,6 @@ QTableWidget::item:hover {
                    <column>
                     <property name="text">
                      <string>CIRCUNSCRIPCION</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>NOMBRE DE LOTE</string>
                     </property>
                    </column>
                   </widget>
@@ -2753,6 +2758,13 @@ QTableWidget::item:hover {
                       </widget>
                      </item>
                      <item>
+                      <widget class="QLabel" name="label_161">
+                       <property name="text">
+                        <string>Lote</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="QLabel" name="label_35">
                        <property name="text">
                         <string>Valor Final</string>
@@ -2810,6 +2822,16 @@ QTableWidget::item:hover {
                      </property>
                      <item>
                       <widget class="QComboBox" name="combobox_cliente">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QComboBox" name="combobox_lote">
                        <property name="minimumSize">
                         <size>
                          <width>150</width>
