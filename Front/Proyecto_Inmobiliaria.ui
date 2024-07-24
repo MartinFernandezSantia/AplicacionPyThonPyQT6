@@ -454,7 +454,7 @@ QCalendarWidget QComboBox {
 </string>
                </property>
                <property name="currentIndex">
-                <number>3</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="page_8lista_transacciones">
                 <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -747,7 +747,7 @@ QTableWidget::item:hover {
                       </size>
                      </property>
                      <property name="text">
-                      <string>PDF</string>
+                      <string>PDF TXN</string>
                      </property>
                      <property name="icon">
                       <iconset>
@@ -762,7 +762,37 @@ QTableWidget::item:hover {
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
-                       <width>40</width>
+                       <width>18</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="bt_pdf_transaccion_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>PDF RCB</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>img/file-text.svg</normaloff>img/file-text.svg</iconset>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_206">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>18</width>
                        <height>20</height>
                       </size>
                      </property>
