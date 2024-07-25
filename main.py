@@ -103,7 +103,7 @@ class VentanaPrincipal(QMainWindow):
 
         # Agregar lote
         self.main_ui.bt_Aceptar_Cliente_4.clicked.connect(self.agregar_lote)
-        self.main_ui.bt_volver_registrolote.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_14_agregar_lotes))
+        self.main_ui.bt_volver_registrolote.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_14gestion_lote))
 
         # Lista de lotes
         self.main_ui.buscar_lote.textChanged.connect(self.buscar_lotes)
@@ -155,7 +155,7 @@ class VentanaPrincipal(QMainWindow):
             self.modificar_transaccion_ui.setWindowIcon(QIcon(os.path.join("Front", "img", "deal.svg")))
         except:
             self.modificar_transaccion_ui = loadUi(os.path.join("_internal", "Front", "Modificar Transaccion Ventana.ui"))
-            self.modificar_cliente_ui.setWindowIcon(QIcon(os.path.join("_internal", "Front", "img", "deal.svg")))
+            self.modificar_transaccion_ui.setWindowIcon(QIcon(os.path.join("_internal", "Front", "img", "deal.svg")))
 
         # Botones
         self.modificar_transaccion_ui.bt_volver_modificar_transaccion.clicked.connect(self.modificar_transaccion_ui.hide)
@@ -394,6 +394,7 @@ class VentanaPrincipal(QMainWindow):
             self.modificar_transaccion_ui.spinBox_cuotas_modificar_transaccion.setValue(transaccion.cuotas)
             self.modificar_transaccion_ui.doubleSpinBox_2_valor_cuota_modificar_transaccion.setValue(transaccion.valor_cuota)
             self.modificar_transaccion_ui.doubleSpinBox_3_aumento_modificar_transaccion.setValue(transaccion.aumento)
+            self.modificar_transaccion_ui.doubleSpinBox_3_punitorio_modificar_transaccion.setValue(transaccion.punitorio)
 
             fecha1 = transaccion.fecha_boleto
             fecha2 = transaccion.fecha_primera_cuota
@@ -414,6 +415,7 @@ class VentanaPrincipal(QMainWindow):
         transaccion.cuotas = self.modificar_transaccion_ui.spinBox_cuotas_modificar_transaccion.value()
         transaccion.valor_cuota = self.modificar_transaccion_ui.doubleSpinBox_2_valor_cuota_modificar_transaccion.value()
         transaccion.aumento = self.modificar_transaccion_ui.doubleSpinBox_3_aumento_modificar_transaccion.value()
+        transaccion.punitorio = self.modificar_transaccion_ui.doubleSpinBox_3_punitorio_modificar_transaccion.value()
         transaccion.fecha_boleto = self.modificar_transaccion_ui.dateEdit_fecha_boleto_modificar_transaccion.date().toPyDate()
         transaccion.fecha_primera_cuota = self.modificar_transaccion_ui.dateEdit_fecha_primera_cuota_modificar_transaccion.date().toPyDate()
 
@@ -623,10 +625,13 @@ class VentanaPrincipal(QMainWindow):
 
 
     def custom_close_event(self, event):
-        self.login_ui.close()
-        self.modificar_cliente_ui.close()
-        self.modificar_transaccion_ui.close()
-        self.bd.con.close()
+        ventanas = [self.login_ui, self.modificar_cliente_ui, self.modificar_transaccion_ui, self.modificar_lote_ui, self.bd.con]
+        for i in range(5):
+            try:
+                ventanas[i].close()
+            except:
+                continue
+
         event.accept()
 
     def cambiar_pestaña(self, pestaña):
