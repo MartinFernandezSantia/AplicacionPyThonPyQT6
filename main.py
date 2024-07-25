@@ -1,6 +1,7 @@
 from PyQt6.QtWidgets import QMainWindow, QApplication, QTableWidgetItem, QMessageBox
 from PyQt6.QtCore import QDate, Qt
 from PyQt6.uic.load_ui import loadUi
+from PyQt6.QtGui import QIcon
 
 from modelos.usuario import Usuario
 from modelos.cliente import Cliente
@@ -8,7 +9,7 @@ from modelos.transaccion import Transaccion
 from modelos.usuario import Usuario
 from modelos.lote import Lote
 
-from utils.pdf_generador import pdf_cuotas
+from utils.pdf_generador import pdf_cuotas, pdf_recibo
 from bd.base_de_datos import BD
 
 from datetime import datetime
@@ -34,8 +35,11 @@ class VentanaPrincipal(QMainWindow):
         # Instancias
         try:
             self.login_ui = loadUi(os.path.join("Front", "Login3", "loginUI3.ui"))
+            self.login_ui.setWindowIcon(QIcon(os.path.join("Front", "img", "deal.svg")))
         except:
             self.login_ui = loadUi(os.path.join("_internal", "Front", "Login3", "loginUI3.ui"))
+            self.login_ui.setWindowIcon(QIcon(os.path.join("_internal", "Front", "img", "deal.svg")))
+            
         self.main_ui = None
         self.modificar_cliente_ui = None
         self.modificar_transaccion_ui = None
@@ -53,8 +57,10 @@ class VentanaPrincipal(QMainWindow):
         if self.main_ui is None:
             try:
                 self.main_ui = loadUi(os.path.join("Front", "Proyecto_Inmobiliaria.ui"))
+                self.main_ui.setWindowIcon(QIcon(os.path.join("Front", "img", "deal.svg")))
             except:
                 self.main_ui = loadUi(os.path.join("_internal", "Front", "Proyecto_Inmobiliaria.ui"))
+                self.main_ui.setWindowIcon(QIcon(os.path.join("_internal", "Front", "img", "deal.svg")))
 
         self.main_ui.stackedWidget.setCurrentWidget(self.main_ui.page_1gestion_clientes)
         self.main_ui.closeEvent = lambda event: self.custom_close_event(event)
@@ -100,6 +106,7 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui.bt_volver_registrolote.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_14_agregar_lotes))
 
         # Lista de lotes
+        self.main_ui.buscar_lote.textChanged.connect(self.buscar_lotes)
         self.main_ui.bt_eliminar_lote.clicked.connect(lambda: self.eliminar_row(self.main_ui.tabla_lotes, Lote))
         self.main_ui.bt_volver_lote.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_14gestion_lote))
         self.main_ui.bt_modificar_lote.clicked.connect(self.abrir_modificar_lote)
@@ -116,7 +123,8 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui.buscar_transacciones.textChanged.connect(self.buscar_transacciones)
         self.main_ui.bt_eliminar_transaccion.clicked.connect(lambda: self.eliminar_row(self.main_ui.tabla_transacciones, Transaccion))
         self.main_ui.bt_Volver_Menu.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_5gestion_transacciones))
-        self.main_ui.bt_pdf_transaccion.clicked.connect(self.generar_pdf)
+        self.main_ui.bt_pdf_transaccion.clicked.connect(lambda: self.generar_pdf(pdf_cuotas))
+        self.main_ui.bt_pdf_transaccion_4.clicked.connect(lambda: self.generar_pdf(pdf_recibo))
         self.main_ui.bt_eliminar_transaccion_2.clicked.connect(self.abrir_modificar_transaccion)
 
         # Agregar transacciones
@@ -131,8 +139,10 @@ class VentanaPrincipal(QMainWindow):
     def inicializar_modificar_cliente(self):
         try:
             self.modificar_cliente_ui = loadUi(os.path.join("Front", "Modificar Cliente Ventana.ui"))
+            self.modificar_cliente_ui.setWindowIcon(QIcon(os.path.join("Front", "img", "deal.svg")))
         except:
             self.modificar_cliente_ui = loadUi(os.path.join("_internal", "Front", "Modificar Cliente Ventana.ui"))
+            self.modificar_cliente_ui.setWindowIcon(QIcon(os.path.join("_internal", "Front", "img", "deal.svg")))
 
         # Botones
         self.modificar_cliente_ui.bt_actualizar_tabla.clicked.connect(self.actualizar_cliente)
@@ -142,8 +152,10 @@ class VentanaPrincipal(QMainWindow):
     def inicializar_modificar_transaccion(self):
         try:
             self.modificar_transaccion_ui = loadUi(os.path.join("Front", "Modificar Transaccion Ventana.ui"))
+            self.modificar_transaccion_ui.setWindowIcon(QIcon(os.path.join("Front", "img", "deal.svg")))
         except:
             self.modificar_transaccion_ui = loadUi(os.path.join("_internal", "Front", "Modificar Transaccion Ventana.ui"))
+            self.modificar_cliente_ui.setWindowIcon(QIcon(os.path.join("_internal", "Front", "img", "deal.svg")))
 
         # Botones
         self.modificar_transaccion_ui.bt_volver_modificar_transaccion.clicked.connect(self.modificar_transaccion_ui.hide)
@@ -155,8 +167,10 @@ class VentanaPrincipal(QMainWindow):
     def inicializar_modificar_lote(self):
         try:
             self.modificar_lote_ui = loadUi(os.path.join("Front", "Modificar Lote Ventana.ui"))
+            self.modificar_lote_ui.setWindowIcon(QIcon(os.path.join("Front", "img", "deal.svg")))
         except:
             self.modificar_lote_ui = loadUi(os.path.join("_internal", "Front", "Modificar Lote Ventana.ui"))
+            self.modificar_lote_ui.setWindowIcon(QIcon(os.path.join("_internal", "Front", "img", "deal.svg")))
 
         # Botones
         self.modificar_lote_ui.bt_volver_modificar_lote.clicked.connect(self.modificar_lote_ui.hide)
@@ -164,6 +178,7 @@ class VentanaPrincipal(QMainWindow):
 
         # Centrar
         self.center_window(self.modificar_lote_ui)
+
 
     def login(self):
         # Inicio sesión
@@ -570,18 +585,15 @@ class VentanaPrincipal(QMainWindow):
 
         # Si se selecciono una fila, extraigo cada columna
         if row_seleccionada >= 0:
-            print(1)
             data = [tabla.item(row_seleccionada, col) for col in range(5)]
             self.lote_modificado_id = data[0].data(Qt.ItemDataRole.UserRole)
             lote = Lote.get(self.lote_modificado_id)
-            print(2)
             
-            # self.modificar_lote_ui.line_nombrelote_modificarlote.setText(lote.nombre)
-            # self.modificar_lote_ui.line_parcela_modificarlote.setText(lote.parcela)
-            # self.modificar_lote_ui.line_circunscripcion_modificarlote.setValue(lote.circun)
-            # self.modificar_lote_ui.line_manzana_modificarlote.setValue(lote.manzana)
-            # self.modificar_lote_ui.line_seccion_modificarlote.setValue(lote.seccion)
-            print(3)
+            self.modificar_lote_ui.line_nombrelote_modificarlote.setText(lote.nombre)
+            self.modificar_lote_ui.line_parcela_modificarlote.setText(lote.parcela)
+            self.modificar_lote_ui.line_seccion_modificarlote.setText(lote.seccion)
+            self.modificar_lote_ui.QsinBox_curcunscripcion_modificarlote.setValue(lote.circun)
+            self.modificar_lote_ui.QspinBox_manzana_modificarlote.setValue(lote.manzana)
 
             self.modificar_lote_ui.show()
 
@@ -590,9 +602,9 @@ class VentanaPrincipal(QMainWindow):
 
         lote.nombre = self.modificar_lote_ui.line_nombrelote_modificarlote.text()
         lote.parcela = self.modificar_lote_ui.line_parcela_modificarlote.text()
-        lote.circun = self.modificar_lote_ui.line_circunscripcion_modificarlote.value()
-        lote.manzana = self.modificar_lote_ui.line_manzana_modificarlote.value()
-        lote.seccion = self.modificar_lote_ui.line_seccion_modificarlote.value()
+        lote.seccion = self.modificar_lote_ui.line_seccion_modificarlote.text()
+        lote.circun = self.modificar_lote_ui.QsinBox_curcunscripcion_modificarlote.value()
+        lote.manzana = self.modificar_lote_ui.QspinBox_manzana_modificarlote.value()
 
 
         if Lote.modificar(lote) == True:
@@ -601,6 +613,14 @@ class VentanaPrincipal(QMainWindow):
             self.modificar_lote_ui.hide()
         else:
             QMessageBox.critical(self, "Error", "Ha habido un error al intentar modificar el lote.")
+
+    def buscar_lotes(self):
+        # Tomo todos los lotes, filtro por el texto de la barra de busqueda y actualizo la tabla
+        lotes = Lote.get()
+        search_text = self.main_ui.buscar_lote.text().lower()
+        filtered_clients = [lote for lote in lotes if search_text in lote.nombre.lower()]
+        self.actualizar_tabla_lotes(filtered_clients)
+
 
     def custom_close_event(self, event):
         self.login_ui.close()
@@ -646,7 +666,7 @@ class VentanaPrincipal(QMainWindow):
         else:
             QMessageBox.warning(self, "Error de seleccion", "Si desea eliminar un elemento, primero debe seleccionarlo.")
 
-    def generar_pdf(self):
+    def generar_pdf(self, method):
         tabla = self.main_ui.tabla_transacciones
         row_seleccionada = tabla.currentRow()
 
@@ -657,7 +677,12 @@ class VentanaPrincipal(QMainWindow):
                 id = item.data(Qt.ItemDataRole.UserRole)
                 transaccion = Transaccion.get(id)
 
-                pdf_cuotas(transaccion)
+                try:
+                    method(transaccion)
+                    QMessageBox.information(self, "Éxito", "Se ha generado el PDF.")
+                except:
+                    QMessageBox.critical(self, "Error al generar PDF", "Se ha producido un error al intentar generar el PDF.")
+                    QMessageBox.warning(self, "Sugerencia", "Si esta intentando generar un recibo, confirme que la transacción seleccionada tenga cuotas atrasadas.")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

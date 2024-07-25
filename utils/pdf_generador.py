@@ -115,10 +115,6 @@ def pdf_cuotas(transaccion: Transaccion):
                     row3.cell("", align="C")
                     row4.cell("", align="C")
 
-    # Crear carpeta para PDF
-    # if not os.path.exists(os.path.join(DIR, "PDFs")):
-    #     os.makedirs(os.path.join(DIR, "PDFs"))
-
     output_folder = os.path.join("PDFs", "Cuotas")
 
     if not os.path.exists(output_folder):
@@ -128,8 +124,6 @@ def pdf_cuotas(transaccion: Transaccion):
     pdf.output(os.path.join(output_folder, f"{año_cuota}-{mes}-{nombre_completo}.pdf"))
 
 def pdf_recibo(transaccion: Transaccion):
-    bd = BD()
-    cur = bd.cur
 
     # Esta linea permite que el nombre de los dias/meses/años retornados por datetime esten en español
     locale.setlocale(locale.LC_TIME, "es_ES.UTF-8")
@@ -148,7 +142,7 @@ def pdf_recibo(transaccion: Transaccion):
 
     lote = Lote.get(transaccion.id_lote)
     cliente = Cliente.get(transaccion.id_cliente)
-    fecha_actual = datetime.date(2025, 9, 10)
+    fecha_actual = datetime.datetime.now().date()
     cuotas_atrasadas = []
     año = 0
 
@@ -214,7 +208,7 @@ def pdf_recibo(transaccion: Transaccion):
         os.makedirs(output_folder)
 
     # Guardar el PDF
-    pdf.output(os.path.join(output_folder, f"{lote.nombre}.pdf"))
+    pdf.output(os.path.join(output_folder, f"{lote.nombre}-{fecha_actual.year}-{fecha_actual.month}-{fecha_actual.day}.pdf"))
 
 if __name__ == "__main__":
     # tran = Transaccion(1, 256000, 81, 3000, 300, datetime.datetime.now(), datetime.datetime.now(), 1)

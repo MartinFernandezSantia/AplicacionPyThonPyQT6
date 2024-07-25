@@ -5,7 +5,7 @@ from modelos.base_model import BaseModel
 
 class Lote(BaseModel):
     table_name = "lote"
-    update_fields = "nombre = ?, circunscripcion = ?, seccion = ?, manzana = ?, parecela = ?"
+    update_fields = "nombre = ?, circunscripcion = ?, seccion = ?, manzana = ?, parcela = ?"
     get_fields = "nombre, circunscripcion, seccion, manzana, parcela, id"
     order = "LOWER(nombre)"
 
