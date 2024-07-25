@@ -1,13 +1,18 @@
-from fpdf import FPDF, XPos, YPos
 import os
 import pathlib
 import sys
-from modelos.transaccion import Transaccion
-from modelos.cliente import Cliente
-from bd.base_de_datos import BD
+import locale
 import datetime
 
-def generar_pdf(transaccion: Transaccion):
+from modelos.transaccion import Transaccion
+from modelos.cliente import Cliente
+from modelos.lote import Lote
+from bd.base_de_datos import BD
+
+from fpdf import FPDF, XPos, YPos
+
+
+def pdf_cuotas(transaccion: Transaccion):
     bd = BD()
     cur = bd.cur
 
@@ -110,11 +115,7 @@ def generar_pdf(transaccion: Transaccion):
                     row3.cell("", align="C")
                     row4.cell("", align="C")
 
-    # Crear carpeta para PDF
-    # if not os.path.exists(os.path.join(DIR, "PDFs")):
-    #     os.makedirs(os.path.join(DIR, "PDFs"))
-
-    output_folder = "PDFs"
+    output_folder = os.path.join("PDFs", "Cuotas")
 
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -122,6 +123,97 @@ def generar_pdf(transaccion: Transaccion):
     # Guardar el PDF
     pdf.output(os.path.join(output_folder, f"{año_cuota}-{mes}-{nombre_completo}.pdf"))
 
+def pdf_recibo(transaccion: Transaccion):
+
+    # Esta linea permite que el nombre de los dias/meses/años retornados por datetime esten en español
+    locale.setlocale(locale.LC_TIME, "es_ES.UTF-8")
+
+    # Determine the base directory
+    if getattr(sys, 'frozen', False):
+        # If the application is run as a bundle, the PyInstaller bootloader
+        # extends the sys module by a flag frozen=True and sets the app
+        # path into variable sys._MEIPASS'.
+        base_dir = pathlib.Path(sys._MEIPASS).resolve()
+    else:
+        base_dir = pathlib.Path(__file__).parent.parent.resolve()
+
+    # Ruta del directorio actual
+    DIR = base_dir
+
+    lote = Lote.get(transaccion.id_lote)
+    cliente = Cliente.get(transaccion.id_cliente)
+    fecha_actual = datetime.datetime.now().date()
+    cuotas_atrasadas = []
+    año = 0
+
+    # Obtengo todas las cuotas atrasadas
+    for cuota in transaccion.get_cuotas():
+
+        if cuota["estado"] == 0 and cuota["fecha"] < fecha_actual:
+
+            # Cada vez que cambia el año hago una separación
+            if año != cuota["fecha"].year and cuotas_atrasadas != []:
+                cuotas_atrasadas.append("|")
+
+            cuotas_atrasadas.append(cuota)
+            año = cuota["fecha"].year
+
+    # Genero la parte del recibo correspondiente a los periodos a pagar
+    periodos = "al periodo" if len(cuotas_atrasadas) == 1 else "a los periodos"
+    for i in range(len(cuotas_atrasadas)):
+        # Cada vez que halla una separación anual, redactar el año y seguir con el siguiente
+        if cuotas_atrasadas[i] == "|" and i != 0:
+            periodos += f" de {cuotas_atrasadas[i-1]["fecha"].year} y"
+            continue
+
+        mes = cuotas_atrasadas[i]["fecha"].month
+        if i == len(cuotas_atrasadas) - 1: 
+            periodos += f" {mes}"
+            continue
+        periodos += f" {mes},"
+    else:
+        periodos += f" de {cuotas_atrasadas[i]["fecha"].year}"
+        
+
+    dia_pago = datetime.datetime.now().day
+    mes_pago = datetime.datetime.now().strftime("%B").capitalize()
+    punitorio = sum(cuota["valor"] if cuota != "|" else 0 for cuota in cuotas_atrasadas) / 100 * transaccion.punitorio
+
+
+    cuerpo = (
+        f"En la ciudad de Mar del Plata recibí de {cliente.apellido} {cliente.nombre}, el día {dia_pago} de {mes_pago}, la suma de "
+        f"${punitorio} en concepto del {transaccion.punitorio}% por punitorio, correspondiente {periodos} "
+        f"por el lote identificado según la nomenclatura {cliente.nomenclatura}, Circunscripción: {lote.circun} Sección: {lote.seccion} "
+        f"Manzana: {lote.manzana} Parcela: {lote.parcela}."
+    )
+
+    # Crear objeto FPDF y configurarlo
+    pdf = FPDF(orientation="L", unit="pt", format="A4")
+
+    # Añadir una página
+    pdf.add_page()
+
+    pdf.set_font("Times", "B", size=20)
+    pdf.cell(text=f"{lote.nombre.upper()}  :  CUIT {cliente.cuit}", new_x="LMARGIN", new_y="NEXT", h=80)
+    pdf.cell(text="Recibo de Pago", new_x="LMARGIN", new_y="NEXT")
+    pdf.cell(text=" ", new_x="LMARGIN", new_y="NEXT", h=30)
+
+    pdf.set_font("Times", "", size=18)
+    pdf.multi_cell(0, 30, cuerpo)
+
+
+    output_folder = os.path.join("PDFs", "Recibos")
+
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+
+    # Guardar el PDF
+    pdf.output(os.path.join(output_folder, f"{lote.nombre}-{fecha_actual.year}-{fecha_actual.month}-{fecha_actual.day}.pdf"))
+
 if __name__ == "__main__":
-    tran = Transaccion(1, 256000, 81, 3000, 300, datetime.datetime.now(), datetime.datetime.now(), 1)
-    generar_pdf(tran)
+    # tran = Transaccion(1, 256000, 81, 3000, 300, datetime.datetime.now(), datetime.datetime.now(), 1)
+    # pdf_cuotas(tran)
+
+    tran = Transaccion.get(1)
+    tran.modificar_estado_cuota(1, False)
+    pdf_recibo(tran)
