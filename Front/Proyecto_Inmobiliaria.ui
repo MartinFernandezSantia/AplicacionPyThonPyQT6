@@ -454,7 +454,7 @@ QCalendarWidget QComboBox {
 </string>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>4</number>
                </property>
                <widget class="QWidget" name="page_8lista_transacciones">
                 <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -1921,7 +1921,8 @@ QTableWidget::item:selected {
 
 QTableWidget::item:hover {
     background-color: #2980b9;  /* Color de fondo de la celda cuando el mouse está encima */
-}</string>
+}
+</string>
                    </property>
                    <property name="midLineWidth">
                     <number>0</number>
