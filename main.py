@@ -103,7 +103,7 @@ class VentanaPrincipal(QMainWindow):
 
         # Agregar lote
         self.main_ui.bt_Aceptar_Cliente_4.clicked.connect(self.agregar_lote)
-        self.main_ui.bt_volver_registrolote.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_14_agregar_lotes))
+        self.main_ui.bt_volver_registrolote.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_14gestion_lote))
 
         # Lista de lotes
         self.main_ui.buscar_lote.textChanged.connect(self.buscar_lotes)
@@ -155,7 +155,7 @@ class VentanaPrincipal(QMainWindow):
             self.modificar_transaccion_ui.setWindowIcon(QIcon(os.path.join("Front", "img", "deal.svg")))
         except:
             self.modificar_transaccion_ui = loadUi(os.path.join("_internal", "Front", "Modificar Transaccion Ventana.ui"))
-            self.modificar_cliente_ui.setWindowIcon(QIcon(os.path.join("_internal", "Front", "img", "deal.svg")))
+            self.modificar_transaccion_ui.setWindowIcon(QIcon(os.path.join("_internal", "Front", "img", "deal.svg")))
 
         # Botones
         self.modificar_transaccion_ui.bt_volver_modificar_transaccion.clicked.connect(self.modificar_transaccion_ui.hide)
