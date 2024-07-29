@@ -50,6 +50,7 @@ class VentanaPrincipal(QMainWindow):
 
         # Centro y muestro el login
         self.center_window(self.login_ui)
+        self.login_ui.setWindowTitle("Iniciar sesión")
         self.login_ui.show()
 
 
@@ -65,6 +66,7 @@ class VentanaPrincipal(QMainWindow):
         self.main_ui.stackedWidget.setCurrentWidget(self.main_ui.page_1gestion_clientes)
         self.main_ui.closeEvent = lambda event: self.custom_close_event(event)
         self.center_window(self.main_ui)
+        self.main_ui.setWindowTitle("Gestión Inmobiliaria")
 
         # Main UI menu lateral buttons
         self.main_ui.bt_registrar_menulateral.clicked.connect(lambda: self.cambiar_pestaña(self.main_ui.page_1gestion_clientes))
@@ -143,6 +145,7 @@ class VentanaPrincipal(QMainWindow):
         except:
             self.modificar_cliente_ui = loadUi(os.path.join("_internal", "Front", "Modificar Cliente Ventana.ui"))
             self.modificar_cliente_ui.setWindowIcon(QIcon(os.path.join("_internal", "Front", "img", "deal.svg")))
+        self.modificar_cliente_ui.setWindowTitle("Modificar cliente")
 
         # Botones
         self.modificar_cliente_ui.bt_actualizar_tabla.clicked.connect(self.actualizar_cliente)
@@ -156,6 +159,7 @@ class VentanaPrincipal(QMainWindow):
         except:
             self.modificar_transaccion_ui = loadUi(os.path.join("_internal", "Front", "Modificar Transaccion Ventana.ui"))
             self.modificar_transaccion_ui.setWindowIcon(QIcon(os.path.join("_internal", "Front", "img", "deal.svg")))
+        self.modificar_transaccion_ui.setWindowTitle("Modificar transacción")
 
         # Botones
         self.modificar_transaccion_ui.bt_volver_modificar_transaccion.clicked.connect(self.modificar_transaccion_ui.hide)
@@ -171,6 +175,7 @@ class VentanaPrincipal(QMainWindow):
         except:
             self.modificar_lote_ui = loadUi(os.path.join("_internal", "Front", "Modificar Lote Ventana.ui"))
             self.modificar_lote_ui.setWindowIcon(QIcon(os.path.join("_internal", "Front", "img", "deal.svg")))
+        self.modificar_lote_ui.setWindowTitle("Modficar lote")
 
         # Botones
         self.modificar_lote_ui.bt_volver_modificar_lote.clicked.connect(self.modificar_lote_ui.hide)
@@ -522,7 +527,7 @@ class VentanaPrincipal(QMainWindow):
                     self.setRowData(row_counter, data, tabla, cuota["id"])
 
 
-            row_counter += tabla.rowCount()
+            row_counter = tabla.rowCount()
 
     def modificar_pago(self, estado):
         tabla = self.main_ui.tableWidget
